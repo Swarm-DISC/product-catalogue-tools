@@ -13,22 +13,23 @@ from tabulate import tabulate
 from .definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
 
 
-def _get_this_file_path():
-    return os.path.dirname(__file__)
+def _get_catalogue_repo_path():
+    return os.path.join(
+        os.path.dirname(__file__),
+        "../../product-catalogue",
+    )
 
 
 def get_catalog_dir():
-    here = _get_this_file_path()
     return os.path.join(
-        os.path.dirname(here),
-        "catalog"
+        _get_catalogue_repo_path(),
+        "catalogue"
     )
 
 
 def get_schema_path():
-    here = _get_this_file_path()
     return os.path.join(
-        os.path.dirname(here),
+        _get_catalogue_repo_path(),
         "schema.json"
     )
 

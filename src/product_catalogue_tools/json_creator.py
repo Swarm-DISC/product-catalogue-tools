@@ -107,14 +107,14 @@ class ProductMetadataDashboard:
         self.widgets = dict(
             product_id = pn.widgets.TextInput(name="product_id:", value=self.product.product_id),
             definition = pn.widgets.TextInput(name="definition:", value=self.product.definition),
-            applicable_spacecraft = pn.widgets.MultiChoice(name="applicable_spacecraft:", options=Product.allowed_spacecraft(), background="white"),
+            applicable_spacecraft = pn.widgets.MultiChoice(name="applicable_spacecraft:", options=Product.allowed_spacecraft(), styles={"background": "white"}),
             # description = pn.widgets.TextEditor(
             #     name="description:", value=self.product.description,
             #     toolbar=[["bold", "italic", "code"], ["link"], [{ 'list': 'ordered'}, { 'list': 'bullet' }]],
-            #     height=300, background="white"
+            #     height=300, styles={"background": "white"}
             # ),
             description = pn.widgets.TextAreaInput(name="description: [text/html]", value=self.product.description, height=200, max_length=1000000),
-            thematic_areas = pn.widgets.MultiChoice(name='Thematic areas:', options=Product.allowed_thematic_areas(), background="white"),
+            thematic_areas = pn.widgets.MultiChoice(name='Thematic areas:', options=Product.allowed_thematic_areas(), styles={"background": "white"}),
             link_files_http = pn.widgets.TextInput(placeholder='link_files_http'),
             link_files_ftp = pn.widgets.TextInput(placeholder='link_files_ftp'),
             link_vires_gui = pn.widgets.TextInput(placeholder='link_vires_gui'),
@@ -124,7 +124,7 @@ class ProductMetadataDashboard:
             # details = pn.widgets.TextEditor(
             #     name="details:", value=self.product.details,
             #     toolbar=[["bold", "italic", "code"], ["link"], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ["image"]],
-            #     height=400, background="white"
+            #     height=400, styles={"background": "white"}
             # ),
             details = pn.widgets.TextAreaInput(name="details: [text/html]", value=self.product.details, height=200, max_length=1000000),
             related_resources = pn.widgets.TextAreaInput(name="related_resources: [text/html]", value=self.product.related_resources, height=200),
@@ -151,11 +151,11 @@ class ProductMetadataDashboard:
             file=self.json_file.name,
             filename=f"{self.product.product_id}.json",
         )
-        self.markdown_viewer = pn.pane.Markdown(self.product.markdown_preview, background="white", sizing_mode="stretch_both", max_height=1000)
+        self.markdown_viewer = pn.pane.Markdown(self.product.markdown_preview, styles={"background": "white"}, sizing_mode="stretch_both", max_height=1000)
 #         self.html_viewer = pn.pane.HTML(self.product.html_preview)
 
         # Instantiate from URL key
-        pid_from_url = pn.state.location.search.strip("?")
+        pid_from_url = pn.state.location.search.strip("?") if pn.state.location else ""
         pid_to_load = pid_from_url if pid_from_url else "SW_MAGx_LR_1B"
         self.widgets_extra["product_id_selector"].value = pid_to_load
         self.refresh_from_local(None)
@@ -182,7 +182,8 @@ class ProductMetadataDashboard:
         self.markdown_viewer.object = self.product.markdown_preview
 #         self.html_viewer.object = self.product.html_preview
         # Update url of dashboard
-        pn.state.location.search = f"?{self.product.product_id}"
+        if pn.state.location:
+            pn.state.location.search = f"?{self.product.product_id}"
     
     def refresh_from_local(self, event):
         product_id = self.widgets_extra["product_id_selector"].value
@@ -210,7 +211,7 @@ class ProductMetadataDashboard:
                         self.widgets_extra["product_id_selector"],
                         self.widgets_extra["refresh_editor_button"],
                     ),
-                    background="orange",
+                    styles={"background": "orange"},
                     margin=10,
                     sizing_mode="stretch_both"
                 ),
@@ -220,7 +221,7 @@ class ProductMetadataDashboard:
                         self.widgets_extra["external_file_loader"],
                         self.widgets_extra["refresh_editor_button_from_file"],
                     ),
-                    background="orange",
+                    styles={"background": "orange"},
                     margin=10,
                     sizing_mode="stretch_both"
                 ),
@@ -272,7 +273,7 @@ class ProductMetadataDashboard:
                 self.widgets["details"],
                 self.widgets["related_resources"],
                 self.widgets["changelog"],
-                background="lightblue",
+                styles={"background": "lightblue"},
                 sizing_mode="stretch_both"
             ),
             title="Edit properties",
@@ -292,7 +293,7 @@ class ProductMetadataDashboard:
                     ("JSON", self.json_viewer),
                     sizing_mode="stretch_both",
                 ),
-                background="lightgreen",
+                styles={"background": "lightgreen"},
                 sizing_mode="stretch_both",
             ),
             sizing_mode="stretch_both",
