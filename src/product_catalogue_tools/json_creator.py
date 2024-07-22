@@ -25,7 +25,7 @@ from copy import deepcopy
 import panel as pn
 
 # 'quill' is not working (used for TextEditor)
-pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True)
+pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True, sizing_mode="stretch_width")
 
 # %%
 from product_catalogue_tools.definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
@@ -144,7 +144,7 @@ class ProductMetadataDashboard:
         # Tools to show the output view of the product
         self.json_viewer = pn.widgets.JSONEditor(
             value=self.product.as_dict(), schema=SCHEMA,
-            mode="view", sizing_mode="stretch_both", max_height=1000
+            mode="view",  max_height=1000
         )
         self.json_file = self.product.get_json_file()
         self.json_downloader = pn.widgets.FileDownload(
@@ -203,82 +203,69 @@ class ProductMetadataDashboard:
 
     @property
     def loader(self):
-        return pn.Card(
-            pn.Row(
-                pn.Column(
-                    "**Load from existing records**",
-                    pn.Row(
-                        self.widgets_extra["product_id_selector"],
-                        self.widgets_extra["refresh_editor_button"],
-                    ),
-                    styles={"background": "orange"},
-                    margin=10,
-                    sizing_mode="stretch_both"
+        return pn.Row(
+            pn.Column(
+                "**Load from existing records**",
+                pn.Row(
+                    self.widgets_extra["product_id_selector"],
+                    self.widgets_extra["refresh_editor_button"],
                 ),
-                pn.Column(
-                    "**Load from local file**",
-                    pn.Row(
-                        self.widgets_extra["external_file_loader"],
-                        self.widgets_extra["refresh_editor_button_from_file"],
-                    ),
-                    styles={"background": "orange"},
-                    margin=10,
-                    sizing_mode="stretch_both"
-                ),
+                styles={"background": "orange"},
+                margin=10,
                 sizing_mode="stretch_both"
             ),
-            sizing_mode="stretch_both",
-            title="Load data"
+            pn.Column(
+                "**Load from local file**",
+                pn.Row(
+                    self.widgets_extra["external_file_loader"],
+                    self.widgets_extra["refresh_editor_button_from_file"],
+                ),
+                styles={"background": "orange"},
+                margin=10,
+                sizing_mode="stretch_both"
+            ),
+            sizing_mode="stretch_both"
         )
     
     @property
     def instructions(self):
-        return pn.Card(
-            pn.pane.Markdown(
-                """
-                This tool helps generate records held at <https://github.com/smithara/swarm-handbook-experiment/tree/main/json/catalog>. You can also view the previews of the current catalogue at <https://smithara.github.io/swarm-handbook-experiment/>
-                
-                - Left panel: data entry; Right panel: preview (JSON | Output preview)
-                - Optionally choose an existing record by typing, or upload a local json file
-                - Use this panel to enter information, then click "Refresh!" at the top right to update the preview
-                - Check the approximate HTML preview on the "Output preview" tab on the right
-                - Download the json file and upload to the shared folder
-                - **Hints:**
-                    - For HTML fields (description, details), use an editor such as <https://onlinehtmleditor.dev/>
-                    - Might be useful for working with tables: <https://tableconvert.com/> and <https://www.tablesgenerator.com/html_tables>
-                    - Some validation of the inputs is indicated in the JSON viewer - ignore the warnings on empty fields
-                    - Point to this dashboard preloaded with an existing record by adding the product id to the end of the url, e.g. `http://140.238.64.100/json_creator?SW_MAGx_LR_1B`
-                """
-            ),
-            title="Instructions",
-            sizing_mode="stretch_both",
+        return pn.pane.Markdown(
+            """
+            This tool helps generate records held at <https://github.com/smithara/swarm-handbook-experiment/tree/main/json/catalog>. You can also view the previews of the current catalogue at <https://smithara.github.io/swarm-handbook-experiment/>
+            
+            - Left panel: data entry; Right panel: preview (JSON | Output preview)
+            - Optionally choose an existing record by typing, or upload a local json file
+            - Use this panel to enter information, then click "Refresh!" at the top right to update the preview
+            - Check the approximate HTML preview on the "Output preview" tab on the right
+            - Download the json file and upload to the shared folder
+            - **Hints:**
+                - For HTML fields (description, details), use an editor such as <https://onlinehtmleditor.dev/>
+                - Might be useful for working with tables: <https://tableconvert.com/> and <https://www.tablesgenerator.com/html_tables>
+                - Some validation of the inputs is indicated in the JSON viewer - ignore the warnings on empty fields
+                - Point to this dashboard preloaded with an existing record by adding the product id to the end of the url, e.g. `http://140.238.64.100/json_creator?SW_MAGx_LR_1B`
+            """
         )
         
     @property
     def editor(self):
-        return pn.Card(
-            pn.Column(
-                self.widgets["product_id"],
-                self.widgets["definition"],
-                self.widgets["thematic_areas"],
-                self.widgets["applicable_spacecraft"],
-                "Links:",
-                self.widgets["link_files_http"],
-                self.widgets["link_files_ftp"],
-                self.widgets["link_vires_gui"],
-                self.widgets["link_notebook"],
-                self.widgets["link_hapi"],
-                self.widgets["description"],
-                self.widgets["variables_table"],
-                self.widgets["details"],
-                self.widgets["related_resources"],
-                self.widgets["changelog"],
-                styles={"background": "lightblue"},
-                sizing_mode="stretch_both"
-            ),
-            title="Edit properties",
-            sizing_mode="stretch_both",
-            collapsible=False
+        return pn.Column(
+            self.widgets["product_id"],
+            self.widgets["definition"],
+            self.widgets["thematic_areas"],
+            self.widgets["applicable_spacecraft"],
+            "Links:",
+            self.widgets["link_files_http"],
+            self.widgets["link_files_ftp"],
+            self.widgets["link_vires_gui"],
+            self.widgets["link_notebook"],
+            self.widgets["link_hapi"],
+            self.widgets["description"],
+            self.widgets["variables_table"],
+            self.widgets["details"],
+            self.widgets["related_resources"],
+            self.widgets["changelog"],
+            # styles={"background": "lightblue"},
+            sizing_mode="stretch_both"
         )
 
     @property
@@ -298,17 +285,20 @@ class ProductMetadataDashboard:
             ),
             sizing_mode="stretch_both",
             title="Previews",
-            collapsible=False
+            collapsible=False,
+            margin=10,
         )
 
     @property
     def complete(self):
-        gspec = pn.GridSpec(sizing_mode="stretch_both", )#min_height=3000)
-        gspec[:, 0] = pn.Column(
-            self.instructions,
-            self.loader,
-            self.editor,
-            margin=10
+        gspec = pn.GridSpec(sizing_mode="stretch_both", margin=10)#min_height=3000)
+        gspec[:, 0] = pn.Accordion(
+            ("Instructions", self.instructions),
+            ("Load data", self.loader),
+            ("Edit properties", self.editor),
+            margin=10,
+            # sizing_mode="stretch_both",
+            active = [0, 1, 2]
         )
         gspec[:, 1] = self.viewer
         return gspec
