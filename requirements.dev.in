@@ -1,0 +1,7 @@
+jupyterlab
+jupyterlab-git
+jupytext
+pooch
+xarray
+openpyxl
+cdflib

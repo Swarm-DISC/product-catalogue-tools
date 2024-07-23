@@ -16,18 +16,18 @@ from .definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
 def _get_catalogue_repo_path():
     return os.path.join(
         os.path.dirname(__file__),
-        "../../product-catalogue",
+        "../product-catalogue",
     )
 
 
-def get_catalog_dir():
+def _get_catalog_dir():
     return os.path.join(
         _get_catalogue_repo_path(),
         "catalogue"
     )
 
 
-def get_schema_path():
+def _get_schema_path():
     return os.path.join(
         _get_catalogue_repo_path(),
         "schema.json"
@@ -35,9 +35,19 @@ def get_schema_path():
 
 
 def load_schema():
-    with open(get_schema_path(), "r") as schema_file:
+    with open(_get_schema_path(), "r") as schema_file:
         schema = json.load(schema_file)
     return schema
+
+
+def load_catalog(directory=_get_catalog_dir()):
+    paths = os.listdir(directory)
+    paths = [os.path.join(directory, p) for p in paths if ".json" in p]
+    products = []
+    for path in paths:
+        products.append(Product.from_json_file(path))
+    products = {p.product_id: p for p in products}
+    return Catalog(products=products)
 
 
 @dataclass
@@ -168,16 +178,6 @@ class Catalog:
     
     def get_product(self, product_id):
         return self.products.get(product_id)
-
-
-def load_catalog(directory=get_catalog_dir()):
-    paths = os.listdir(directory)
-    paths = [os.path.join(directory, p) for p in paths if ".json" in p]
-    products = []
-    for path in paths:
-        products.append(Product.from_json_file(path))
-    products = {p.product_id: p for p in products}
-    return Catalog(products=products)
 
 
 def dump_html_output(html_directory):

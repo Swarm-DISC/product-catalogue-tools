@@ -28,8 +28,8 @@ import panel as pn
 pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True, sizing_mode="stretch_width")
 
 # %%
-from product_catalogue_tools.definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
-from product_catalogue_tools.catalog_utils import Product, Catalog, load_catalog, load_schema
+from utils.definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
+from utils.catalog_utils import Product, Catalog, load_catalog, load_schema
 
 # %%
 CATALOG = load_catalog()
