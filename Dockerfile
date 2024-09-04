@@ -1,13 +1,16 @@
 # Setup with uv
-# https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
+# https://docs.astral.sh/uv/guides/integration/docker/
 FROM python:3.12-slim-bullseye
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
-ENV UV_SYSTEM_PYTHON=1
+COPY --from=ghcr.io/astral-sh/uv:0.4.4 /uv /bin/uv
+ENV UV_NO_CACHE=1
 
 WORKDIR /app
 
-COPY requirements.editor.txt .
-RUN uv pip install -r requirements.editor.txt
+# Install dependencies and activate environment
+COPY pyproject.toml .
+COPY uv.lock .
+RUN uv sync --frozen
+ENV PATH="/app/.venv/bin:$PATH"
 
 COPY ./utils utils
 COPY ./editor.py editor.py
