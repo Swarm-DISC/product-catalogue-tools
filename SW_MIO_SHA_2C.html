@@ -1,0 +1,107 @@
+<h1>SW_MIO_SHA_2C</h1>
+<p>Model of non-polar daily geomagnetic variation caused by ionospheric currents, derived in comprehensive chain (CI)</p>
+<p>Thematic areas: Ionosphere/Magnetosphere</p>
+<p>Applicable missions: Swarm</p>
+<p>Applicable spacecraft: Swarm-A, Swarm-B, Swarm-C</p>
+<h2>Description</h2>
+<p>Model of non-polar daily geomagnetic variation caused by ionospheric currents, including their variability with season and solar flux, derived in Comprehensive Inversion chain</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO">https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2longterm/MIO</li>
+</ul>
+</li>
+<li>Web services:<ul>
+<li><a href="https://vires.services?ws=data%3Aapplication/json%2Bgzip%3Bbase64%2CH4sIAMta5mMC/51Va0/bMBT9K1W%2Bro38iF98K4UOJB4TZQOKqig0pngySZWkHQj1v%2B/a9JGGwaCS1cbH95xzc%2B1cvwSlLuZmrH/pojR5Fuy1AhpiHKKg3Qoq86gH2upx9bp0GxCEeQdhGJcI7fkRIoSGLrq2RugeUzBCpdQwGC2lDvLHxKx1WAeTDoVY8p4OuURba05nbvSfekrBxOZ32tGmRZ7OxlXZy7N7M5kVyTLiJRhcxec/Di/i0%2B73bnxyEeN9D89Nae6shuf7xJYaJPJZZU2myzo0TcamegYEO4%2BkSB51BbXyCvvx2WHPPxVJNnFKt5hBqu0Wc38u33Fu86IcJ94n%2BK2rYAFo/6skAEv/1joFqCpm2sl4/7jQZbeRRYc7Pf5RCmtufJqn2m7zgSzYe%2BSFo29ImzK6tLZKhkLxtmj9XQp29CY/8qVKXTdMkTcl9EPTm0ZRhSeJf3JSM9fFxGSTGHvusMEl3u8zzOMGUwJRfoJ3sCOvb7RNV8e%2BXqN2K0If1uc6PrxqmDLYyf9b3uxKHO5EXPjlx2me6axyb3n7Ehh3OoLT4/N4cNSNSc%2BfGzPxLeVb0Dy12czaxehVCNAi%2BZGXZt1fppsJHGeGJMUqFJITTClvtzqEYyQ4IyGLGI2Iku0WjTBBjEchFpJwEnH3CqkpNq22g0JKVUQ4UohJCUygoZAJJATnIBnBL4FNgkARAcS4JAgsIdyJzaZLFaRAQkhouBJRqSRxMoIrzigWXKhIUMEcxinGUgqshFBKKOpUCjN5qPwXFyrKBMaIMiKZUhw7CpEuPZBQFByUFD4dgjgYKRgRgfwlG7nCPXWfTLnVuk%2BgRVez9LV727xqdm7YpmdH8jdG37d/Pz9J7nzvcbviMLIKGq1njRB/OFZRDhvVQeK5kOOWX603jt64fErQYWVSaWtNtfy6unb6kNSul/0imee1ee8hKayp30lng15t9hPqlKQrYLH4C9N3F07ABwAA">VirES GUI</a></li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<p>N/A</p>
+<h2>More details</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Product identifier</th>
+            <th>MIO_SHA_2C</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Definition</td>
+            <td>Spherical harmonic representation of the daily geomagnetic variations at mid and low<br />
+            latitudes (Sq and EEJ) and of its induced counterpart</td>
+        </tr>
+        <tr>
+            <td>Input Data</td>
+            <td>MAGx_LR_1R, AUX_DST_2_, AUX_KP__2_, AUX_F10_2_, Q3D_CI_i2_</td>
+        </tr>
+        <tr>
+            <td>Input time span</td>
+            <td>All available quiet time observations from the mission</td>
+        </tr>
+        <tr>
+            <td>Spatial representation</td>
+            <td>Spherical Harmonics up to degree 60 and order 12 in dipole coordinates</td>
+        </tr>
+        <tr>
+            <td>Time representation</td>
+            <td>Fourier Series, seasonal and daily periodicity</td>
+        </tr>
+        <tr>
+            <td>Units</td>
+            <td>nT</td>
+        </tr>
+        <tr>
+            <td>Resolution</td>
+            <td>1 pT</td>
+        </tr>
+        <tr>
+            <td>Uncertainty</td>
+            <td>Refer to product quality report</td>
+        </tr>
+        <tr>
+            <td>Quality indicator</td>
+            <td>Statistics of data misfit provided in the validation report</td>
+        </tr>
+        <tr>
+            <td>Data volume</td>
+            <td>~130 kB</td>
+        </tr>
+        <tr>
+            <td>Data format</td>
+            <td>ASCII listing</td>
+        </tr>
+        <tr>
+            <td>Output data</td>
+            <td>Coefficients of SH model in dipole coordinates, with seasonal and diurnal periodicity</td>
+        </tr>
+        <tr>
+            <td>Output time span</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Update rate</td>
+            <td>First after 1 year, updated every year</td>
+        </tr>
+        <tr>
+            <td>Latency</td>
+            <td>1.5 months</td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Related resources</h2>
+<p>Part of the CI (comprehensive inversion) chain, related to the "CM" model series, see e.g.:</p>
+<p>Sabaka, T.J., Tøffner-Clausen, L., Olsen, N. et al. CM6: a comprehensive geomagnetic field model derived from both CHAMP and Swarm satellite observations. Earth Planets Space 72, 80 (2020). https://doi.org/10.1186/s40623-020-01210-5</p>
+<h2>Changelog</h2>
+<p>N/A</p>

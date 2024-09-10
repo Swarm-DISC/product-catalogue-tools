@@ -1,0 +1,156 @@
+<h1>SW_DNSxACC_2_</h1>
+<p>Thermospheric density</p>
+<p>Thematic areas: Thermosphere</p>
+<p>Applicable missions: Swarm</p>
+<p>Applicable spacecraft: Swarm-A, Swarm-C</p>
+<h2>Description</h2>
+<p>Time series of neutral thermospheric density from precise orbit determination and accelerometer data</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/DNS/ACC">https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/DNS/ACC</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/DNS/ACC</li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Units</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: right;">Dim</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">time</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Observation time</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+</tr>
+<tr>
+<td style="text-align: left;">density</td>
+<td style="text-align: left;">kg/m3</td>
+<td style="text-align: left;">Thermospheric neutral density</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">altitude</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Observation altitude</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">latitude</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Observation geodetic latitude</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">longitude</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Observation geodetic longitude</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">local_solar_time</td>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">Observation local solar time</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<table border="1">
+    <tbody>
+    <tr>
+        <td><b>Product identifier</b></td>
+        <td><b>DNSxACC_2_</b></td>
+    </tr>
+    <tr>
+        <td>Definition</td>
+        <td>Thermospheric density at the satellite location estimated from calibrated non-gravitational accelerations (ACCx_AE_2_) that are based on precise orbit determination and accelerometer data</td>
+    </tr>
+    <tr>
+        <td>Input Data</td>
+        <td>STRxATT_1B, SC_xDYN_1B, ACCx_AE_2_, SP3_COM__2,
+<br>AUX_IER_2_, AUX_AER_2_, AUX_F10_2_, AUX_KP__2_
+<br>External data from IERS</td>
+    </tr>
+    <tr>
+        <td>Input Time Span</td>
+        <td>24 hr</td>
+    </tr>
+    <tr>
+        <td>Spatial representation</td>
+        <td>Time-series along satellite track, altitude (m), latitude (deg), longitude (deg) and local solar time (hours) available based on MODX_SC_1B</td>
+    </tr>
+    <tr>
+        <td>Time representation</td>
+        <td>UTC (seconds – s), nominally with 10 s time step</td>
+    </tr>
+    <tr>
+        <td>Units</td>
+        <td>kg/m<sup>3</sup> for density, m/s for wind speed</td>
+    </tr>
+    <tr>
+        <td>Resolution</td>
+        <td>64 bit double precision floating point number format</td>
+    </tr>
+    <tr>
+        <td>Uncertainty</td>
+        <td>30% of variance from models for neutral density</td>
+    </tr>
+    <tr>
+        <td>Quality indicator</td>
+        <td>Validation report TDAxVAL_2_</td>
+    </tr>
+    <tr>
+        <td>Data volume</td>
+        <td>&lt; 15 Mbyte per satellite per day</td>
+    </tr>
+    <tr>
+        <td>Output Data</td>
+        <td>CDF file with time series</td>
+    </tr>
+    <tr>
+        <td>Output time span</td>
+        <td>24 hr</td>
+    </tr>
+    <tr>
+        <td>Update rate</td>
+        <td>3 months</td>
+    </tr>
+    <tr>
+        <td>Latency</td>
+        <td>1 month</td>
+    </tr>
+    <tr>
+        <td>Notes</td>
+        <td>None</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Related resources</h2>
+<p><strong>Level 2 Product Description:</strong></p>
+
+<ul>
+    <li><a href="https://earth.esa.int/eogateway/documents/20142/37627/swarm-level-1b-processor-algorithms.pdf/e0606842-41ca-fa48-0a40-05a0d4824501?version=1.0">Product specification for L2 Products and Auxiliary</a></li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>

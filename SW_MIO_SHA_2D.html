@@ -1,0 +1,109 @@
+<h1>SW_MIO_SHA_2D</h1>
+<p>Model of non-polar daily geomagnetic variation caused by ionospheric currents, derived from dedicated chain (DIFI)</p>
+<p>Thematic areas: Ionosphere/Magnetosphere</p>
+<p>Applicable missions: CHAMP, Swarm</p>
+<p>Applicable spacecraft: CHAMP, Swarm-A, Swarm-B, Swarm-C</p>
+<h2>Description</h2>
+<p>Model of non-polar daily geomagnetic variation caused by ionospheric currents, including their variability with season and solar flux, derived in Dedicated Ionospheric Field Inversion chain</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO">https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2longterm/MIO</li>
+</ul>
+</li>
+<li>Web services:<ul>
+<li><a href="https://vires.services?ws=data%3Aapplication/json%2Bgzip%3Bbase64%2CH4sIAMta5mMC/51Va0/bMBT9K1W%2Bro38iF98K4UOJB4TZQOKqig0pngySZWkHQj1v%2B/a9JGGwaCS1cbH95xzc%2B1cvwSlLuZmrH/pojR5Fuy1AhpiHKKg3Qoq86gH2upx9bp0GxCEeQdhGJcI7fkRIoSGLrq2RugeUzBCpdQwGC2lDvLHxKx1WAeTDoVY8p4OuURba05nbvSfekrBxOZ32tGmRZ7OxlXZy7N7M5kVyTLiJRhcxec/Di/i0%2B73bnxyEeN9D89Nae6shuf7xJYaJPJZZU2myzo0TcamegYEO4%2BkSB51BbXyCvvx2WHPPxVJNnFKt5hBqu0Wc38u33Fu86IcJ94n%2BK2rYAFo/6skAEv/1joFqCpm2sl4/7jQZbeRRYc7Pf5RCmtufJqn2m7zgSzYe%2BSFo29ImzK6tLZKhkLxtmj9XQp29CY/En2lUtcNU%2BRNCf3Q9KZRVOFJ4p%2Bc1Mx1MTHZJMaeO2xwiff7DPO4wZRAlJ/gHezI6xtt09Wxr9eo3YrQh/W5jg%2BvGqYMdvL/lje7Eoc7ERd%2B%2BXGaZzqr3FvevgTGnY7g9Pg8Hhx1Y3Lgz42Z%2BJbyLWie2mxm7WL0KgRokfzIS7PuL9PNBI4zQ5JiFQrJCaaUt1sdwjESnJGQRYxGRMl2i0aYIMajEAtJOIm4e4XUFJtW20EhpSoiHCnEpAQm0FDIBBKCc5CM4JfAJkGgiABiXBIElhDuxGbTpQpSICEkNFyJqFSSOBnBFWcUCy5UJKhgDuMUYykFVkIoJRR1KoWZPFT%2BiwsVZQJjRBmRTCmOHYVIlx5IKAoOSgqfDkEcjBSMiED%2Bko1c4Z66T6bcat0n0KKrWfravW1eNTs3bNOzI/kbo%2B/bv5%2BfJHe%2B97hdcRhZBY3Ws0aIPxyrKIeN6iDxXMhxy6/WG0dvXD4l6LAyqbS1plp%2BXV07fUhq18t%2Bkczz2rz3kBTW1O%2Bks0GvNvsJdUrSFbBY/AV5nMEywAcAAA%3D%3D">VirES GUI</a></li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<p>N/A</p>
+<h2>More details</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Product identifier</th>
+            <th>MIO_SHA_2D</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Definition</td>
+            <td>Spherical harmonic representation of the daily geomagnetic variations at mid and low<br />
+            latitudes (Sq and EEJ) and its induced counterpart</td>
+        </tr>
+        <tr>
+            <td>Input data</td>
+            <td>MAGx_LR_1B, AUX_KP__2_, AUX_DST_2_, AUX_F10_2_, AUX_IMF_2,<br />
+            AUX_COR_2_, AUX_OBS_2_, AUX_LIT_2_, AUX_IGR_2_, MCO_SHA_2F,<br />
+            MCO_SHAi2D, MLI_SHAi2D, MCO_SHAi2C, MLI_SHAi2C, MMA_SHAi2C,<br />
+            MMA_SHA_2F, Q3D_CI_i2, and other non-Swarm data</td>
+        </tr>
+        <tr>
+            <td>Input time span</td>
+            <td>3 months to 1 year, to be confirmed and aligned to update rate</td>
+        </tr>
+        <tr>
+            <td>Spatial representation</td>
+            <td>Spherical Harmonics up to degree 60 and order 12 in dipole coordinates</td>
+        </tr>
+        <tr>
+            <td>Time representation</td>
+            <td>Fourier Series, seasonal and daily periodicity</td>
+        </tr>
+        <tr>
+            <td>Units</td>
+            <td>nT</td>
+        </tr>
+        <tr>
+            <td>Resolution</td>
+            <td>1 fT</td>
+        </tr>
+        <tr>
+            <td>Uncertainty</td>
+            <td>Refer to product quality report</td>
+        </tr>
+        <tr>
+            <td>Quality indicator</td>
+            <td>Statistics of data misfits provided in the validation report</td>
+        </tr>
+        <tr>
+            <td>Data volume</td>
+            <td>~ 3.5 Mo&#39;</td>
+        </tr>
+        <tr>
+            <td>Data format</td>
+            <td>ASCII listing</td>
+        </tr>
+        <tr>
+            <td>Output data</td>
+            <td>Coefficients of SH model in dipole coordinates, with seasonal and diurnal periodicity</td>
+        </tr>
+        <tr>
+            <td>Output time span</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Update rate</td>
+            <td>First after 6 months, 1 year, and update every year</td>
+        </tr>
+        <tr>
+            <td>Latency</td>
+            <td>1.5 months</td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Related resources</h2>
+<p>N/A</p>
+<h2>Changelog</h2>
+<p>N/A</p>
