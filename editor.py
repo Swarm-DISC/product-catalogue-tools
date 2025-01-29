@@ -26,7 +26,11 @@ import subprocess
 import panel as pn
 
 # Update the product-catalogue submodule so we use the latest version online
-subprocess.run(["git", "submodule", "update", "--init", "--recursive", "--remote"], check=True)
+try:
+    subprocess.run(["git", "submodule", "update", "--init", "--recursive", "--remote"], check=True)
+except subprocess.CalledProcessError:
+    # when running in the docker container:
+    subprocess.run(["git", "-C", "product-catalogue", "pull"], check=True)
 
 # 'quill' is not working (used for TextEditor)
 pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True, sizing_mode="stretch_width")
