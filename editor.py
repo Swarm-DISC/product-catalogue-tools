@@ -21,8 +21,12 @@
 
 # %%
 from copy import deepcopy
+import subprocess
 
 import panel as pn
+
+# Update the product-catalogue submodule so we use the latest version online
+subprocess.run(["git", "submodule", "update", "--init", "--recursive", "--remote"], check=True)
 
 # 'quill' is not working (used for TextEditor)
 pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True, sizing_mode="stretch_width")

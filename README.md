@@ -2,6 +2,15 @@
 
 ## Overview
 
+---
+
+- **HTML previews** are automatically built at:  
+  https://swarm-disc.github.io/product-catalogue-tools/  
+- **Editor** is usable at:  
+  https://dev.swarmdisc.org/product-catalogue-tools/editor
+
+---
+
 This repository contains tools for editing and displaying the contents of the linked `product-catalogue` repository. That repository holds json files (one for each data product) containing the product metadata. The schema is defined using [JSON Schema](https://json-schema.org/overview/what-is-jsonschema).
 
 ```mermaid
@@ -31,15 +40,17 @@ graph LR
     json --> commi((Commit to<br>product-catalogue))
 ```
 
+`product-catalogue` is here as a git submodule but is updated to the latest version online when the editor runs
+
 ## Development setup
 
 ```
 git clone --recurse-submodules git@github.com:Swarm-DISC/product-catalogue-tools.git
 ```
 
-We are using [uv](https://docs.astral.sh/uv/) which is the latest and greatest tool for Python project and dependency management. First install uv.
+We are using [uv](https://docs.astral.sh/uv/) which is the latest and greatest tool for Python project and dependency management.
 
-### Quickstart
+### Developing the dashboard
 
 Run the dashboard in the browser and use any editor to develop it:
 ```
@@ -52,13 +63,16 @@ uv run --extra dev jupyter-lab
 ```
 Right click on `editor.py` and select `Open With / Notebook` (the notebook is stored as `.py` file using jupytext). See the [Panel documentation](https://panel.holoviz.org/tutorials/basic/develop_notebook.html) for more info.
 
+### Building the HTML preview
+
+See `Makefile`:
+- `make clean && make html` generates the HTML in a directory `./html/`
+
 ## Deployment of the editor
 
 ### Docker
 
 See `Dockerfile`.
-
-The old deployment (from [swarm-handbook-experiment](https://github.com/smithara/swarm-handbook-experiment)) is still accessible at <http://140.238.64.100/json_creator> but will be replaced once this project is ready.
 
 ### WASM and Pyodide?
 
@@ -73,7 +87,5 @@ This seems to require `editor.py` to be self contained, without local imports. A
 
 - Refactor code to rely directly on `schema.json`
 - Add fields like version information, in support of the DOI task
-- Use dependabot to auto-update the product-catalogue submodule
-- Deploy html previews to github pages
-- Deploy panel application
+- Include generation of network diagram (try pyvis?)
 - Investigate mapping to SPASE
