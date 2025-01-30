@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.3
+#       jupytext_version: 1.16.4
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -43,9 +43,6 @@ from utils.catalog_utils import Product, Catalog, load_catalog, load_schema
 CATALOG = load_catalog()
 SCHEMA = load_schema()
 
-
-# %% [markdown]
-# ## Old notes
 
 # %%
 # # Identify directory of this file
@@ -239,18 +236,19 @@ class ProductMetadataDashboard:
     def instructions(self):
         return pn.pane.Markdown(
             """
-            This tool helps generate records held at <https://github.com/smithara/swarm-handbook-experiment/tree/main/json/catalog>. You can also view the previews of the current catalogue at <https://smithara.github.io/swarm-handbook-experiment/>
+            This tool helps generate records held at <https://github.com/Swarm-DISC/product-catalogue> which are used to generate the [Swarm Product Handbook](https://swarmhandbook.earth.esa.int/catalogue/index).
+            You can also see [previews here](https://swarm-disc.github.io/product-catalogue-tools/).
             
-            - Left panel: data entry; Right panel: preview (JSON | Output preview)
-            - Optionally choose an existing record by typing, or upload a local json file
-            - Use this panel to enter information, then click "Refresh!" at the top right to update the preview
-            - Check the approximate HTML preview on the "Output preview" tab on the right
-            - Download the json file and upload to the shared folder
+            - **Left panel:** data entry; **Right panel:** preview (JSON | Output preview)
+            - Enter information in the left panel, then click "Refresh!" at the top right to update the preview
+            - Download the new/updated json file and [upload to Ashley to review here](https://cloud.mag.earth/s/K52yEk8cyraFQZQ) or make a PR to the [git repo](https://github.com/Swarm-DISC/product-catalogue)
+            - See more notes [in the wiki](https://github.com/Swarm-DISC/product-catalogue/wiki)
             - **Hints:**
                 - For HTML fields (description, details), use an editor such as <https://onlinehtmleditor.dev/>
                 - Might be useful for working with tables: <https://tableconvert.com/> and <https://www.tablesgenerator.com/html_tables>
                 - Some validation of the inputs is indicated in the JSON viewer - ignore the warnings on empty fields
-                - Point to this dashboard preloaded with an existing record by adding the product id to the end of the url, e.g. `http://140.238.64.100/json_creator?SW_MAGx_LR_1B`
+                - Point to this dashboard preloaded with an existing record by adding the product id to the end of the url, e.g.:  
+                  <https://dev.swarmdisc.org/product-catalogue-tools/editor?SW_FAC_LLS_2F>
             """
         )
         
@@ -280,15 +278,18 @@ class ProductMetadataDashboard:
     def viewer(self):
         return pn.Card(
             pn.Column(
-                "**Check display preview and download output json**",
-                self.widgets_extra["refresh_view_button"],
-                self.json_downloader,
+                pn.Column(
+                    "**Check display preview and download output json**",
+                    self.widgets_extra["refresh_view_button"],
+                    self.json_downloader,
+                    styles={"background": "lightgreen"},
+                ),
                 pn.Tabs(
                     ("Output preview", self.markdown_viewer),
                     ("JSON", self.json_viewer),
                     sizing_mode="stretch_both",
                 ),
-                styles={"background": "lightgreen"},
+                # styles={"background": "lightgreen"},
                 sizing_mode="stretch_both",
             ),
             sizing_mode="stretch_both",
@@ -320,7 +321,4 @@ class ProductMetadataDashboard:
 dashboard = ProductMetadataDashboard()
 
 # %%
-# run this twice to fix it (??)
 dashboard.complete.servable(title="JSON Creator - Swarm Data Handbook")
-
-# %%
