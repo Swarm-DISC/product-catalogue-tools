@@ -1,0 +1,248 @@
+<h1>SW_TIX_TMS_2F</h1>
+<p>TEGIX: TEC-gradient ionosphere index</p>
+<p>Thematic areas: Space Weather, Ionosphere/Magnetosphere, Plasma measurements</p>
+<p>Applicable missions: Swarm</p>
+<p>Applicable spacecraft: Swarm-A, Swarm-C</p>
+<h2>Description</h2>
+<p>TEGIX is the TEC-gradient ionosphere index developed as part of the MIGRAS project to monitor mid-scale irregularities in the total electron content domain with horizontal spatial scales in the order of 100 km. Similar to NEGIX, this product also benefits from the coordinated flight of Swarm satellites A and C that are orbiting the Earth in high inclination Polar orbits, and availability of GNSS satellites in view. The location (referred as measurement points) of the vertical TEC data used for the estimation of gradients is determined by the intersection of the GNSS-Swarm links and an ionospheric layer at an altitude of about 670 km above the Earth’s surface (height of Swarm orbit + 200 km).</p>
+<h2>Data access</h2>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Timestamp</td>
+<td style="text-align: left;">Time in Universal Time</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_Swarm</td>
+<td style="text-align: left;">Averaged geocentric longitude of the Swarm satellites for all combined measurements for a certain epoch.</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">deg</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_Swarm</td>
+<td style="text-align: left;">Averaged geocentric latitude of the Swarm satellites for all combined measurements for a certain epoch.</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">deg</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_IPPs</td>
+<td style="text-align: left;">Position of TEGIX (X, Y) in geocentric longitude. Averaged longitude position of the central points (CPs) derived from the combination of VTEC measurements of Swarm A and C.</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">deg</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_IPPs</td>
+<td style="text-align: left;">Position of TEGIX (X, Y) in geocentric latitude. Averaged latitude position of the central points (CPs) derived from the combination of VTEC measurements of Swarm A and C.</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">deg</td>
+</tr>
+<tr>
+<td style="text-align: left;">Distance</td>
+<td style="text-align: left;">Averaged distance value from all dipoles used for the estimation of TEGIX values</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">Azimuth</td>
+<td style="text-align: left;">Averaged azimuth value from all dipoles used for the estimation of TEGIX values</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">deg</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_X</td>
+<td style="text-align: left;">Mean value of TEGIX for the West-East component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_X_Sigma</td>
+<td style="text-align: left;">Standard deviation value of TEGIX for the West-East component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_X_P95</td>
+<td style="text-align: left;">95-percentile value of TEGIX for the West-East component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_Y</td>
+<td style="text-align: left;">Mean value of TEGIX for the South-North component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_Y_Sigma</td>
+<td style="text-align: left;">Standard deviation value of TEGIX for the South-North component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_Y_P95</td>
+<td style="text-align: left;">95-percentile value of TEGIX for the South-North component</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_Total</td>
+<td style="text-align: left;">Total vector value of TEGIX, derived from the mean West-East and South-North components</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_Sigma</td>
+<td style="text-align: left;">Vector value of the standard deviation of TEGIX, derived from the standard deviation values of West-East and South-North components</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tegix_P95</td>
+<td style="text-align: left;">Vector value of the 95-percentile of TEGIX, derived from the 95-percentile values of West-East and South-North components</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">milli-TECU m⁻¹</td>
+</tr>
+<tr>
+<td style="text-align: left;">N_Measurements</td>
+<td style="text-align: left;">Number of elements for a data record from which TEGIX is determined</td>
+<td style="text-align: left;">CDF_UINT2</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_Tegix</td>
+<td style="text-align: left;">Flags characterising the dispersion of VTEC-gradient values within a given spatial resolution that are used to compute the total vector</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Orbit_Label</td>
+<td style="text-align: left;">Value defining whether the magnitude belongs to an ascending or descending orbit of the Swarm satellites</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<p>
+    <table>
+        <thead>
+            <tr>
+                <th>Value of Flag_Tegix</th>
+                <th>Pearson’s Coefficient Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>-0.5 ≤ value ≤ 0.5</td>
+                <td>The distribution of the sample of TEGIX total vectors within the given resolution is slightly skewed.</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>-1.5 ≤ value &lt; -0.5, 0.5 &lt; value ≤ 1.5</td>
+                <td>The distribution of the sample of TEGIX total vectors within the given resolution is slightly skewed, with possible outliers in the sample.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>value &lt; -1.5, value &gt; 1.5</td>
+                <td>The distribution of the sample of TEGIX total vectors within the given resolution is strongly skewed, with a strong influence of outliers that may require more cautious investigation or removal.</td>
+            </tr>
+        </tbody>
+    </table>
+</p>
+<p>
+<ul>
+    <li>It is recommended to cautiously investigate or discard Flags TEGIX with values of 2 when using this product.</li>
+    <li>It is recommended to cautiously interpret TEGIX values close to the polar regions. These latitudes are not only affected by different sources of ionospheric variability, but the rapidly changing position of Swarm satellites A and C with respect to each other, and therefore of the geometrical distribution of gradient vectors, can also affect TEGIX estimations. Moreover, GNSS satellites near the poles are available at low elevation angles and may create uncertainties in magnitude and position of VTEC gradients.</li>
+    <li>The values of TEGIX and the location reference of the vector result from statistical estimations of a large sample of IPPs. The estimation of reference positions of the TEGIX vector can be affected by the complex geometrical distribution of GNSS links to the Swarm satellites A and C when they move in the longitude transition -180 to 180 degrees.</li>
+</ul>
+</p>
+<p>
+<table><thead>
+  <tr>
+    <th>Product Identifier</th>
+    <th>TIX_TMS_2F</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>Definition</td>
+    <td>TEGIX is the TEC-gradient ionosphere index developed as part of the MIGRAS project to monitor mid-scale irregularities in the total electron content domain with horizontal spatial scales in the order of 100 km.</td>
+  </tr>
+  <tr>
+    <td>Input Data</td>
+    <td>TECATMS_2F, TECCTMS_2F</td>
+  </tr>
+  <tr>
+    <td>Input Time Span</td>
+    <td>1 day</td>
+  </tr>
+  <tr>
+    <td>Spatial Representation</td>
+    <td>The spatial resolution for each dataset record is 0.5 degrees in latitude along the path of Swarm satellites A and C. Geocentric longitude and latitude coordinates for each dataset record are provided.</td>
+  </tr>
+  <tr>
+    <td>Time Representation</td>
+    <td>The spatial resolution of 0.5 degrees represents ca. 8 seconds of records of Swarm satellites A and C. Therefore, a daily file product contains ca. 10,800 records.</td>
+  </tr>
+  <tr>
+    <td>Units</td>
+    <td>milli-TECU m⁻¹</td>
+  </tr>
+  <tr>
+    <td>Resolution</td>
+    <td>1 milli-TECU m⁻¹</td>
+  </tr>
+  <tr>
+    <td>Uncertainty</td>
+    <td>The uncertainty is reflected in the flags. Higher values in flags indicate irregularities, potential measurement inconsistencies, or issues with geometries, especially in the polar regions.</td>
+  </tr>
+  <tr>
+    <td>Quality Indicator</td>
+    <td>The quality of the product depends on the quality of the input TEC L2 products for Swarm A and C. If the differential code bias error of any of the daily input files is larger than 2 TECU, then the product quality indicator is degraded from 0 to 1. These values are stored in the XML file, as well as in the CDF global attributes.</td>
+  </tr>
+  <tr>
+    <td>Data Volume</td>
+    <td>2 MB</td>
+  </tr>
+  <tr>
+    <td>Data Format</td>
+    <td>CDF</td>
+  </tr>
+  <tr>
+    <td>Output Time Span</td>
+    <td>1 day</td>
+  </tr>
+  <tr>
+    <td>Update Rate</td>
+    <td>Daily</td>
+  </tr>
+  <tr>
+    <td>Latency</td>
+    <td>7 minutes</td>
+  </tr>
+</tbody></table>
+</p>
+
+<h2>Related resources</h2>
+<ul>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://earth.esa.int/eogateway/activities/migras">MIGRAS project</a></li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>

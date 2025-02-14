@@ -1,0 +1,352 @@
+<h1>SW_PC1xMAG_2F</h1>
+<p>Swarm Pc1 wave characterisation from HR Vector Magnetometer Data</p>
+<p>Thematic areas: Ionosphere/Magnetosphere, Space Weather</p>
+<p>Applicable missions: Swarm</p>
+<p>Applicable spacecraft: Swarm-A, Swarm-B, Swarm-C</p>
+<h2>Description</h2>
+<p>The Swarm-ULF product package consists of two independent L2 products. The ULFxMAG_2F product contains information on the instantaneous power, prominence, frequency, etc. of Pc2, Pc3, Pc4 and Pi2 events, the average event properties (e.g., mean frequency, power and duration) as well as minute resolution time series of the rms of the total field filtered in the various ULF bands. The satellite positions are given in both in geographic and QD magnetic coordinates. Auxiliary data, such as time of observation, magnetic local time, and the solar zenith angle complement ULF wave characterisation. Similarly, the PC1xMAG_2F product contains the characterisation of Pc1 events derived from the HR vector magnetic field data.</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/PC1/MAG">https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/PC1/MAG</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/PC1/MAG</li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: right;">Dimension</th>
+<th style="text-align: left;">Unit</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ORB_C</td>
+<td style="text-align: left;">CDF_UINT4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Orbit number for the Bp/Ba/Br component ID event (where ID is the event identifier ID_C, see below) and C stands for any of the three components</td>
+</tr>
+<tr>
+<td style="text-align: left;">DIR_C</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flight direction for the Bp/Ba/Br component ID event (1: ascending, -1: descending)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ID_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Bp/Ba/Br component event identifier</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timestamp_C</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Time of observation for the Bp/Ba/Br component ID event, UTC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric latitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric longitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Position in ITRF – Geocentric radius for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_QD_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">QD latitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_QD_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">QD longitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">MLT_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Magnetic Local Time for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">SZA_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Solar zenith angle for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frequency_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">Instantaneous frequency for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halfwidth_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">Instantaneous spectral peak half width for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">nT²/Hz</td>
+<td style="text-align: left;">Instantaneous power for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prominence_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous prominence for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_B_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous MAGxHR quality for the Bp/Ba/Br component ID event. = Flag_B of the MAGx_HR product, see the documentation ofMAGx_HR for details.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_p_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous peak quality for the Bp/Ba/Br component ID event. 1: primary spectral peak, 2: secondary spectral peak.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_n_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous noise quality for the Bp/Ba/Br component ID event. 0: 1/f type noise not present, 1: 1/f type noise present</td>
+</tr>
+<tr>
+<td style="text-align: left;">ORB_m_C</td>
+<td style="text-align: left;">CDF_UINT4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Orbit number for the Bp/Ba/Br component ID event (mean properties)</td>
+</tr>
+<tr>
+<td style="text-align: left;">DIR_m_C</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flight direction for the Bp/Ba/Br component ID event (mean properties)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ID_m_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Bp/Ba/Br component event identifier for event mean properties</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timestamp_m_C</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Mean time of observation for the Bp/Ba/Br component ID event, UTC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Mean position in ITRF – Geocentric latitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Mean position in ITRF – Geocentric longitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Mean position in ITRF – Geocentric radius for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_QD_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Mean QD latitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_QD_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Mean QD longitude for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">MLT_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Mean Magnetic Local Time for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">SZA_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Mean Solar zenith angle for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Duration_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: left;">Duration of the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frequency_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">Mean frequency for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Freq_std_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">Standard deviation of the spectral peak frequencies for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halfwidth_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">Mean spectral peak half width for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">nT²/Hz</td>
+<td style="text-align: left;">Mean power for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prominence_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Mean prominence for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">ROFC_m_C</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Hz/s</td>
+<td style="text-align: left;">Rate of frequency change for the Bp/Ba/Br component ID event</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_m_C</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Overall quality for the Bp/Ba/Br component ID event. 0: high quality data. 1: not nominal operation of the VFM instrument. 2: low number of primarydata points. 3: contaminated spectra. 4: 1 and 2. 5: 1 and 3. 6: 2 and 3. 7: 1 and 2 and 3</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<table><thead>
+  <tr>
+    <th>Product identifier</th>
+    <th>PC1xMAG_2F</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>Definition</td>
+    <td>Pc1 wave characterisation</td>
+  </tr>
+  <tr>
+    <td>Input Data</td>
+    <td>MAGx_HR_2F, AUXxORBCNT</td>
+  </tr>
+  <tr>
+    <td>Input Time Span</td>
+    <td>One day</td>
+  </tr>
+  <tr>
+    <td>Spatial representation</td>
+    <td>One geographic and QD-latitude/longitude pair</td>
+  </tr>
+  <tr>
+    <td>Time representation</td>
+    <td>UT (~ 15 seconds)</td>
+  </tr>
+  <tr>
+    <td>Resolution</td>
+    <td>0.1 degree for coordinates</td>
+  </tr>
+  <tr>
+    <td>Uncertainty</td>
+    <td>~0.1° for coordinates</td>
+  </tr>
+  <tr>
+    <td>Quality Indicator</td>
+    <td>Three different quality vector flags are introduced (Quality_B, Quality_p, Quality_n) for characterizing the quality of the spectral peaks:<br>- Quality_B contains (interpolated) Flag_B values from the MAGx_HR data files.<br>- Quality_p indicates whether the data point corresponds to a primary or a secondary spectral peak.<br>- Quality_n indicates whether strong 1/f type noise (likely related to field-aligned currents) was present in the original spectrum.<br><br>From the three different quality vector flags introduced to characterize spectral peaks, one single quality vector flag is determined to characterize each Pc1 event. The values of the Quality vector flag are integers ranging from 0 to 7<br></td>
+  </tr>
+  <tr>
+    <td>Data Volume</td>
+    <td>Up to few 100 kB</td>
+  </tr>
+  <tr>
+    <td>Data Format</td>
+    <td>CDF</td>
+  </tr>
+</tbody></table>
+
+<p>Version information of input data is available in the CDF global attributes.</p>
+
+<p>As the event detection is implemented on pole-to-pole segments of the orbit, the event characterisation parameters of the product typically contain some data from the previous day to complement the first orbit fragment of the day into a whole pole-to-pole orbit segment.</p>
+
+<h2>Related resources</h2>
+<ul>
+<li><a href="https://earth.esa.int/eogateway/activities/swarm-ulf-ionosphere">Swarm ULF project</a></li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>

@@ -1,0 +1,599 @@
+<h1>SW_ULFxMAG_2F</h1>
+<p>Swarm ULF wave characterisation from LR Vector Magnetometer Data</p>
+<p>Thematic areas: Ionosphere/Magnetosphere, Space Weather</p>
+<p>Applicable missions: Swarm</p>
+<p>Applicable spacecraft: Swarm-A, Swarm-B, Swarm-C</p>
+<h2>Description</h2>
+<p>The Swarm-ULF product package consists of two independent L2 products. The ULFxMAG_2F product contains information on the instantaneous power, prominence, frequency, etc. of Pc2, Pc3, Pc4 and Pi2 events, the average event properties (e.g., mean frequency, power and duration) as well as minute resolution time series of the rms of the total field filtered in the various ULF bands. The satellite positions are given in both in geographic and QD magnetic coordinates. Auxiliary data, such as time of observation, magnetic local time, and the solar zenith angle complement ULF wave characterisation. Similarly, the PC1xMAG_2F product contains the characterisation of Pc1 events derived from the HR vector magnetic field data.</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/ULF/MAG">https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/ULF/MAG</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/ULF/MAG</li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<p>N/A</p>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: right;">Dimension</th>
+<th style="text-align: left;">Temporal Resolution</th>
+<th style="text-align: left;">Unit</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Timestamp</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Time of observation, UTC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric latitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric longitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Position in ITRF – Geocentric radius</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_QD</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Quasi-Dipole latitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_QD</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Quasi-Dipole longitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">UT</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Universal Time</td>
+</tr>
+<tr>
+<td style="text-align: left;">MLT</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Magnetic Local Time</td>
+</tr>
+<tr>
+<td style="text-align: left;">SZA</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Solar zenith angle</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frequency_dominant</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Dominant frequency</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halfwidth</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Spectral peak half width</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">log(nT²)</td>
+<td style="text-align: left;">Peak signal power</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prominence</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Peak prominence</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pc2_act</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">pT</td>
+<td style="text-align: left;">RMS of the fluctuations in the Pc2 band</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pc3_act</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">pT</td>
+<td style="text-align: left;">RMS of the fluctuations in the Pc3 band</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pc4_act</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">pT</td>
+<td style="text-align: left;">RMS of the fluctuations in the Pc4 band</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pi2_act</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">pT</td>
+<td style="text-align: left;">RMS of the fluctuations in the Pi2 band</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_Pc2</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating the presence of Pc2 waves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_Pc3</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating the presence of Pc3 waves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_Pc4</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating the presence of Pc4 waves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_Pi2</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating the presence of Pi2 waves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_EPB</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating significant EPB activity</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_FAC</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 min</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flag indicating intense FAC activity</td>
+</tr>
+<tr>
+<td style="text-align: left;">ORB_e</td>
+<td style="text-align: left;">CDF_UINT4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Orbit number for ID event points (where ID is the Event identifier ID_e)</td>
+</tr>
+<tr>
+<td style="text-align: left;">DIR_e</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flight direction for ID event points (1 ascending, -1 descending)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ID_e</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Event identifier (a serial unique for the event)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timestamp_e</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">ms</td>
+<td style="text-align: left;">Time of observation for ID event points, UTC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Geocentric latitude for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Geocentric longitude for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Geocentric radius for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_QD_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Quasi-dipole latitude for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_QD_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Quasi-dipole longitude for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">MLT_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Magnetic Local Time for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">SZA_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Solar zenith angle for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frequency_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Instantaneous frequency for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halfwidth_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Instantaneous spectral peak half width for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">log(nT²)</td>
+<td style="text-align: left;">Instantaneous peak power for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prominence_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous peak prominence for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPB_e</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous plasma bubble indicator for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">FAC_e</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">µA/m²</td>
+<td style="text-align: left;">Instantaneous RMS FAC intensity for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_B_e</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous Flag_B from MAGx_LR L1b product</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_e</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1 s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Instantaneous Quality for ID event points</td>
+</tr>
+<tr>
+<td style="text-align: left;">ORB_m</td>
+<td style="text-align: left;">CDF_UINT4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Orbit number for event mean properties</td>
+</tr>
+<tr>
+<td style="text-align: left;">DIR_m</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flight direction for event mean properties</td>
+</tr>
+<tr>
+<td style="text-align: left;">ID_m</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Event identifier for event mean properties</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timestamp_m</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">ms</td>
+<td style="text-align: left;">Event mean time of observation, UTC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Event mean position in ITRF – Geocentric latitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Event mean position in ITRF – Geocentric longitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Event mean position in ITRF – Geocentric radius</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_QD_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Event mean quasi-dipole latitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_QD_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Event mean quasi-dipole longitude</td>
+</tr>
+<tr>
+<td style="text-align: left;">MLT_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">hr</td>
+<td style="text-align: left;">Event mean Magnetic Local Time</td>
+</tr>
+<tr>
+<td style="text-align: left;">SZA_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Event mean solar zenith angle</td>
+</tr>
+<tr>
+<td style="text-align: left;">Duration_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">min</td>
+<td style="text-align: left;">Event duration</td>
+</tr>
+<tr>
+<td style="text-align: left;">Frequency_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Event mean ULF frequency</td>
+</tr>
+<tr>
+<td style="text-align: left;">Freq_std_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Standard deviation of the spectral peak</td>
+</tr>
+<tr>
+<td style="text-align: left;">Halfwidth_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">mHz</td>
+<td style="text-align: left;">Event mean spectral peak half-width</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">log(nT²)</td>
+<td style="text-align: left;">Event mean power</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prominence_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Event mean prominence</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPB_m</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Event peak plasma bubble indicator</td>
+</tr>
+<tr>
+<td style="text-align: left;">FAC_m</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">µA/m²</td>
+<td style="text-align: left;">Event peak RMS FAC intensity</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag_B_m</td>
+<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Event maximum Flag_B from MAGx_LR L1b product</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quality_m</td>
+<td style="text-align: left;">CDF_INT1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">per event</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Overall event quality</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<table><thead>
+  <tr>
+    <th>Product Identifier</th>
+    <th>ULFxMAG_2F</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>Definition</td>
+    <td>ULF wave characterisation</td>
+  </tr>
+  <tr>
+    <td>Input Data</td>
+    <td>MAGx_LR_2F, EFIx_LP_1B, FACxTMS_2F, AUXxORBCNT</td>
+  </tr>
+  <tr>
+    <td>Input Time Span</td>
+    <td>One day</td>
+  </tr>
+  <tr>
+    <td>Spatial Representation</td>
+    <td>One geographic and QD-latitude/longitude pair</td>
+  </tr>
+  <tr>
+    <td>Time Representation</td>
+    <td>One minute / one second</td>
+  </tr>
+  <tr>
+    <td>Resolution</td>
+    <td>0.1 degree for coordinates, 1 mHz in frequency</td>
+  </tr>
+  <tr>
+    <td>Uncertainty</td>
+    <td>~0.1° for coordinates, a few mHz in frequency</td>
+  </tr>
+  <tr>
+    <td>Quality Indicator</td>
+    <td>Quality flags (Flag_FAC, Flag_EPB, Flag_Pc2, Flag_Pc3, Flag_Pc4, Flag_Pi2) are integers ranging from 0 to 4. Positive values indicate good or acceptable observation, while 0 means a likely false observation. Greater numbers indicate higher activity, probability, or quality. <br> Flag_FAC is defined by the rms FAC calculated in a one-minute window, namely, Flag_FAC is:<br>   0: rms FAC ≤ 0.05 µA/m²<br>   1: 0.05 µA/m² &lt; rms FAC ≤ 0.1 µA/m²<br>   2: 0.1 µA/m² &lt; rms FAC ≤ 0.2 µA/m²<br>   3: 0.2 µA/m² &lt; rms FAC ≤ 0.5 µA/m²<br>   4: rms FAC &gt; 0.5 µA/m²<br><br>Flag_EPB indicate the occurrence possibility of EPBs based on broad-band coherent anti-phase<br>fluctuations of the total magnetic field and the electron density. Flag_EPB is:<br>   0: No contamination by EPBs is expected<br>   1: Potential contamination by the presence of plasma bubbles<br><br>Flag_PcX (X = 2, 3, 4):<br>   0: PcX_act ≤ threshold, Flag_EPB = 1 or Flag_FAC &gt; 2<br>   1: PcX_act &gt; threshold, Flag_EPB = 0 and Flag_FAC ≤ 2<br>   2: Same as 1 with small inter-spacecraft phase difference,where the threshold is 12 pT, 20 pT and 20 pT for X = 2, 3 and 4, respectively.<br><br>Flag_Pi2:<br>   0: Pi2_act ≤ 20 pT, Flag_EPB = 1 or Flag_FAC &gt; 2<br>   1: Pi2_act &gt; 20 pT, Flag_EPB = 0 and Flag_FAC ≤ 2<br>   2: Same as 1 with small inter-spacecraft phase difference<br><br>EPB_e is derived similarly to Flag_EPB but with a higher time resolution (one second). EPB_m is the maximum of EPB_e values for the event considered. For both<br>&nbsp;&nbsp;&nbsp;0: indicates where and when no contamination by EPBs is expected<br>&nbsp;&nbsp;&nbsp;1: indicates potential contamination by the presence of plasma bubbles.<br><br>Quality_e informs about the quality of the individual event points. Quality_e ranges from -1 to 3:<br>&nbsp;&nbsp;&nbsp;3: if EPB_e = 0 and FAC_e &lt; 0.2 (no contamination from plasma bubbles; FAC intensity is very low)&nbsp;&nbsp;&nbsp;2: if EPB_e = 0 and 0.2 ≤ FAC_e &lt; 0.5 (no contamination from plasma bubbles; FAC intensity is low)&nbsp;&nbsp;&nbsp;0: if no information is available on EPBs (e.g. because of missing data).&nbsp;&nbsp;&nbsp;-1: if 0.5 ≤ FAC_e or EPB_e = 1 (no contamination from plasma bubbles; FAC intensity is from medium to high or plasma bubble contamination is likely present).<br><br>Quality_m is calculated as the median of all Quality_e event points making up the event. However, if the median is greater than 1 but the maximum prominence of the events stays below 1.8, Quality_m is decreased by one<br></td>
+  </tr>
+  <tr>
+    <td>Data Volume</td>
+    <td>Up to ~4 MB</td>
+  </tr>
+  <tr>
+    <td>Data Format</td>
+    <td>CDF</td>
+  </tr>
+</tbody></table>
+
+<p>Version information of Input Data are available in the CDF global attributes.</p>
+<p>As the event detection is implemented on pole-to-pole segments of the orbit, the event characterisation parameters of the product typically contain some data from the previous day to complement the first orbit fragment of the day into a whole pole-to-pole orbit segment.</p>
+<p>The variables <strong>Pc2_act</strong>, <strong>Pc3_act</strong>, <strong>Pc4_act</strong>, and <strong>Pi2_act</strong> provide a continuous time series of the root-mean-square amplitude of the magnetic field fluctuations observed in the corresponding frequency bands in the parallel component, irrespective of their temporal or spatial origin. These activity values are recommended to be used in combination with the <strong>‘phenomenon’ flags</strong> (<strong>Flag_Pc2</strong>, <strong>Flag_Pc3</strong>, <strong>Flag_Pc4</strong>, <strong>Flag_Pi2</strong>, <strong>Flag_FAC</strong>, and <strong>Flag_EPB</strong>) to characterise ULF wave or other phenomena (<strong>FAC</strong>, <strong>EPB</strong>) related fluctuations.</p>
+<p>Variables with names ending with <strong>‘_e’</strong> provide ULF wave event characterisations, while variables with names ending with <strong>‘_m’</strong> provide the characteristic means of the same events. Events can be identified by the combination of their <strong>ORB</strong>, <strong>DIR</strong>, and <strong>ID</strong>. The <strong>Quality_e</strong> and <strong>Quality_m</strong> flags inform about the instantaneous and overall quality of the ULF wave events, while <strong>EPB_e</strong>, <strong>FAC_e</strong>, and the corresponding mean values report on the simultaneous <strong>FAC</strong> and <strong>EPB</strong> activity.</p>
+
+<h2>Related resources</h2>
+<ul>
+<li><a href="https://earth.esa.int/eogateway/activities/swarm-ulf-ionosphere">Swarm ULF project</a></li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>
