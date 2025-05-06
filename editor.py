@@ -134,6 +134,7 @@ class ProductMetadataDashboard:
             details = pn.widgets.TextAreaInput(name="details: [text/html]", value=self.product.details, height=200, max_length=1000000),
             related_resources = pn.widgets.TextAreaInput(name="related_resources: [text/html]", value=self.product.related_resources, height=200),
             changelog = pn.widgets.TextAreaInput(name="changelog: [text/html]", value=self.product.related_resources, height=200),
+            fast_processing = pn.widgets.Checkbox(name='Fast Processing'),
         )
         # Widgets to control dashboard
         self.widgets_extra = dict(
@@ -256,6 +257,7 @@ class ProductMetadataDashboard:
     def editor(self):
         return pn.Column(
             self.widgets["product_id"],
+            self.widgets["fast_processing"],
             self.widgets["definition"],
             self.widgets["thematic_areas"],
             self.widgets["applicable_spacecraft"],
