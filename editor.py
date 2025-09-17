@@ -22,6 +22,7 @@
 # %%
 from copy import deepcopy
 import subprocess
+import json
 
 import panel as pn
 
@@ -40,8 +41,19 @@ from utils.definitions import SPACECRAFT, SC2MISSIONS, THEMATIC_AREAS
 from utils.catalog_utils import Product, Catalog, load_catalog, load_schema
 
 # %%
+def load_authors():
+    """Load authors from authors.json file"""
+    try:
+        with open("authors.json", "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("authors.json file not found")
+        return {}
+
+# %%
 CATALOG = load_catalog()
 SCHEMA = load_schema()
+AUTHORS = load_authors()
 
 
 # %%
@@ -112,6 +124,34 @@ class ProductMetadataDashboard:
         self.widgets = dict(
             product_id = pn.widgets.TextInput(name="product_id:", value=self.product.product_id),
             definition = pn.widgets.TextInput(name="definition:", value=self.product.definition),
+            author_select = pn.widgets.Select(
+                name="author organization:",
+                options=[""] + list(AUTHORS.keys()),
+                value="",
+                width=300
+            ),
+            author_name = pn.widgets.TextInput(
+                name="author name (auto-filled):",
+                value=self.product.authors[0]["name"] if self.product.authors and len(self.product.authors) > 0 else "",
+                placeholder="Organization name",
+                disabled=True
+            ),
+            author_ror = pn.widgets.TextInput(
+                name="author ROR (auto-filled):",
+                value=self.product.authors[0]["ror"] if self.product.authors and len(self.product.authors) > 0 and "ror" in self.product.authors[0] else "",
+                placeholder="https://ror.org/xxxxxxxxx",
+                disabled=True
+            ),
+            creation_year = pn.widgets.TextInput(
+                name="creation_year:",
+                value="",
+                placeholder="e.g., 2024"
+            ),
+            product_types = pn.widgets.TextInput(
+                name="product_types (comma-separated):",
+                value=", ".join(self.product.product_types) if self.product.product_types else "",
+                placeholder="e.g. SW_MAGA_LR_1B, SW_MAGB_LR_1B, SW_MAGC_LR_1B"
+            ),
             applicable_spacecraft = pn.widgets.MultiChoice(name="applicable_spacecraft:", options=Product.allowed_spacecraft(), styles={"background": "white"}),
             # description = pn.widgets.TextEditor(
             #     name="description:", value=self.product.description,
@@ -146,6 +186,9 @@ class ProductMetadataDashboard:
         self.widgets_extra["refresh_editor_button"].on_click(self.refresh_from_local)
         self.widgets_extra["refresh_view_button"].on_click(self.refresh_output)
         self.widgets_extra["refresh_editor_button_from_file"].on_click(self.refresh_from_external_file)
+        
+        # Add callback for author selection
+        self.widgets["author_select"].param.watch(self.on_author_select, "value")
         # Tools to show the output view of the product
         self.json_viewer = pn.widgets.JSONEditor(
             value=self.product.as_dict(), schema=SCHEMA,
@@ -169,13 +212,52 @@ class ProductMetadataDashboard:
     def _sanitise_text_input(s):
         return s.replace("\n", "").replace("\t", "")
     
+    def on_author_select(self, event):
+        """Update author name and ROR when organization is selected"""
+        selected_abbrev = event.new
+        if selected_abbrev and selected_abbrev in AUTHORS:
+            self.widgets["author_name"].value = AUTHORS[selected_abbrev]["name"]
+            # Handle cases where ROR might not exist (like PDGS)
+            self.widgets["author_ror"].value = AUTHORS[selected_abbrev].get("ror", "")
+        else:
+            self.widgets["author_name"].value = ""
+            self.widgets["author_ror"].value = ""
+    
     def refresh_output(self, event):
         # Update Product attributes
         for k in self.widgets.keys():
             value = self.widgets[k].value
+            # Special handling for creation_year field
+            if k == "creation_year":
+                if value and value.strip():
+                    try:
+                        value = int(value.strip())  # Store as integer year
+                    except ValueError:
+                        value = None  # Invalid year input
+                else:
+                    value = None
+            # Special handling for product_types comma-separated input
+            elif k == "product_types":
+                if isinstance(value, str):
+                    value = [item.strip() for item in value.split(",") if item.strip()]
+            # Skip author fields as they need special handling
+            elif k in ("author_select", "author_name", "author_ror"):
+                continue
             # if k in ("details", "related_resources"):
             #     value = self._sanitise_text_input(value)
             setattr(self.product, k, value)
+        
+        # Handle authors separately
+        author_name = self.widgets["author_name"].value.strip()
+        author_ror = self.widgets["author_ror"].value.strip()
+        if author_name:
+            author = {"name": author_name}
+            if author_ror:
+                author["ror"] = author_ror
+            self.product.authors = [author]
+        else:
+            self.product.authors = []
+            
         self.product.applicable_spacecraft.sort()
         self.product.applicable_missions = list(set([SC2MISSIONS.get(sc, "ERROR") for sc in self.product.applicable_spacecraft]))
         self.product.applicable_missions.sort()
@@ -203,7 +285,43 @@ class ProductMetadataDashboard:
     def update_product(self, product):
         self.product = deepcopy(product)
         for k in self.widgets.keys():
-            self.widgets[k].value = getattr(self.product, k)
+            # Special handling for author fields (these don't exist as Product attributes)
+            if k == "author_select":
+                # Try to find matching organization by name or ROR
+                selected_abbrev = ""
+                if self.product.authors and len(self.product.authors) > 0:
+                    author = self.product.authors[0]
+                    author_name = author.get("name", "")
+                    author_ror = author.get("ror", "")
+                    # Find matching abbreviation
+                    for abbrev, info in AUTHORS.items():
+                        if info["name"] == author_name or info.get("ror", "") == author_ror:
+                            selected_abbrev = abbrev
+                            break
+                value = selected_abbrev
+            elif k == "author_name":
+                value = self.product.authors[0]["name"] if self.product.authors and len(self.product.authors) > 0 else ""
+            elif k == "author_ror":
+                value = self.product.authors[0]["ror"] if self.product.authors and len(self.product.authors) > 0 and "ror" in self.product.authors[0] else ""
+            else:
+                value = getattr(self.product, k)
+                # Special handling for creation_year field - handle both integer and string formats
+                if k == "creation_year" and value:
+                    try:
+                        if isinstance(value, int):
+                            value = str(value)  # Convert integer year to string for display
+                        elif isinstance(value, str):
+                            # Handle legacy ISO datetime strings - extract year
+                            year = value.split('-')[0]
+                            value = year
+                        else:
+                            value = ""
+                    except (ValueError, TypeError, IndexError):
+                        value = ""
+                # Special handling for product_types to display as comma-separated
+                elif k == "product_types" and isinstance(value, list):
+                    value = ", ".join(value)
+            self.widgets[k].value = value
         self.refresh_output(None)    
 
     @property
@@ -257,6 +375,11 @@ class ProductMetadataDashboard:
         return pn.Column(
             self.widgets["product_id"],
             self.widgets["definition"],
+            self.widgets["author_select"],
+            self.widgets["author_name"],
+            self.widgets["author_ror"],
+            self.widgets["creation_year"],
+            self.widgets["product_types"],
             self.widgets["thematic_areas"],
             self.widgets["applicable_spacecraft"],
             "Links:",
@@ -321,4 +444,4 @@ class ProductMetadataDashboard:
 dashboard = ProductMetadataDashboard()
 
 # %%
-dashboard.complete.servable(title="JSON Creator - Swarm Data Handbook")
+dashboard.complete.servable(title="JSON author - Swarm Data Handbook")

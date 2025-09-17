@@ -57,6 +57,9 @@ class Product:
     applicable_missions: "list[str]|None" = field(default_factory=lambda: [])
     applicable_spacecraft: "list[str]|None" = field(default_factory=lambda: [])
     thematic_areas: "list[str]|None" = field(default_factory=lambda: [])
+    authors: "list[dict]|None" = field(default_factory=lambda: [])
+    creation_year: "int|None" = None
+    product_types: "list[str]|None" = field(default_factory=lambda: [])
     description: str = ""
     link_files_http: str = ""
     link_files_ftp: str = ""
@@ -130,11 +133,33 @@ class Product:
     
     @property
     def markdown_preview(self):
+        # Format authors information
+        authors_info = "N/A"
+        if self.authors:
+            authors_list = []
+            for author in self.authors:
+                if "ror" in author:
+                    authors_list.append(f"{author['name']} - {author['ror']}")
+                else:
+                    authors_list.append(author['name'])
+            authors_info = ", ".join(authors_list)
+        
+        # Format creation year
+        creation_year_info = "N/A"
+        if self.creation_year:
+            creation_year_info = str(self.creation_year)  # Simply convert integer year to string
+        
+        # Format product types
+        product_types_info = ", ".join(self.product_types) if self.product_types else "N/A"
+        
         items = [
             f"# {self.product_id}\n\n{self.definition}",
-            f"Thematic areas: {', '.join(self.thematic_areas)}",
-            f"Applicable missions: {', '.join(self.applicable_missions)}",
-            f"Applicable spacecraft: {', '.join(self.applicable_spacecraft)}",
+            f"**Authored by:** {authors_info}",
+            f"**Creation year:** {creation_year_info}",
+            f"**Product types:** {product_types_info}",
+            f"**Thematic areas:** {', '.join(self.thematic_areas)}",
+            f"**Applicable missions:** {', '.join(self.applicable_missions)}",
+            f"**Applicable spacecraft:** {', '.join(self.applicable_spacecraft)}",
             f"## Description\n\n{self.description}",
             f"## Data access\n\n{self.markdown_links}",
             f"## FAST processing\n\n{self.fast_processing if self.fast_processing else 'N/A'}",

@@ -1,0 +1,91 @@
+{
+    "DUT": {
+        "name": "Delft University of Technology",
+        "abbreviation": "DUT",
+        "ror": "https://ror.org/02e2c7k09"
+    },
+    "GFZ": {
+        "name": "GFZ Helmholtz Centre for Geosciences",
+        "abbreviation": "GFZ",
+        "ror": "https://ror.org/04z8jg394"
+    },
+    "DTU": {
+        "name": "Technical University of Denmark",
+        "abbreviation": "DTU",
+        "ror": "https://ror.org/04qtj9h94"
+    },
+    "FMI": {
+        "name": "Finnish Meteorological Institute",
+        "abbreviation": "FMI",
+        "ror": "https://ror.org/05hppb561"
+    },
+    "IPGP": {
+        "name": "Institut de physique du globe de Paris",
+        "abbreviation": "IPGP",
+        "ror": "https://ror.org/004gzqz66"
+    },
+    "IRF": {
+        "name": "Swedish Institute of Space Physics",
+        "abbreviation": "IRF",
+        "ror": "https://ror.org/043kppn11"
+    },
+    "UoCo": {
+        "name": "University of Colorado Boulder",
+        "abbreviation": "UoCo",
+        "ror": "https://ror.org/02ttsq026"
+    },
+    "UoC": {
+        "name": "University of Calgary",
+        "abbreviation": "UoC",
+        "ror": "https://ror.org/03yjb2x39"
+    },
+    "LUH": {
+        "name": "Leibniz University Hannover",
+        "abbreviation": "LUH",
+        "ror": "https://ror.org/0304hq317"
+    },
+    "ISS": {
+        "name": "Institute of Space Science, Romania",
+        "abbreviation": "ISS",
+        "ror": "https://ror.org/054a6wv56"
+    },
+    "IAP": {
+        "name": "Leibniz Institute of Atmospheric Physics",
+        "abbreviation": "IAP",
+        "ror": "https://ror.org/04enhpe73"
+    },
+    "UiO": {
+        "name": "University of Oslo",
+        "abbreviation": "UiO",
+        "ror": "https://ror.org/01xtthb56"
+    },
+    "ETH": {
+        "name": "ETH Zurich",
+        "abbreviation": "ETH",
+        "ror": "https://ror.org/05a28rw58"
+    },
+    "UiB": {
+        "name": "University of Bergen",
+        "abbreviation": "UiB",
+        "ror": "https://ror.org/03zga2b32"
+    },
+    "BGS": {
+        "name": "British Geological Survey",
+        "abbreviation": "BGS",
+        "ror": "https://ror.org/04a7gbp98"
+    },
+    "DLR": {
+        "name": "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)",
+        "abbreviation": "DLR",
+        "ror": "https://ror.org/04bwf3e34"
+    },
+    "EPSS": {
+        "name": "HUN-REN Institute of Earth Physics and Space Science",
+        "abbreviation": "EPSS",
+        "ror": "https://ror.org/05c9vr219"
+    },
+    "PDGS": {
+        "name": "Swarm PDGS",
+        "abbreviation": "Swarm PDGS"
+    }
+}
