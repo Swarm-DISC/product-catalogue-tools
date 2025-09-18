@@ -17,6 +17,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 COPY ./utils utils
 COPY ./editor.py editor.py
+COPY ./authors.json authors.json
 
 RUN git clone https://github.com/Swarm-DISC/product-catalogue.git
 
