@@ -124,24 +124,7 @@ class ProductMetadataDashboard:
         self.widgets = dict(
             product_id = pn.widgets.TextInput(name="product_id:", value=self.product.product_id),
             definition = pn.widgets.TextInput(name="definition:", value=self.product.definition),
-            author_select = pn.widgets.Select(
-                name="author organization:",
-                options=[""] + list(AUTHORS.keys()),
-                value="",
-                width=300
-            ),
-            author_name = pn.widgets.TextInput(
-                name="author name (auto-filled):",
-                value=self.product.authors[0]["name"] if self.product.authors and len(self.product.authors) > 0 else "",
-                placeholder="Organization name",
-                disabled=True
-            ),
-            author_ror = pn.widgets.TextInput(
-                name="author ROR (auto-filled):",
-                value=self.product.authors[0]["ror"] if self.product.authors and len(self.product.authors) > 0 and "ror" in self.product.authors[0] else "",
-                placeholder="https://ror.org/xxxxxxxxx",
-                disabled=True
-            ),
+            authors_container = pn.Column(),
             creation_year = pn.widgets.TextInput(
                 name="creation_year:",
                 value="",
@@ -187,8 +170,9 @@ class ProductMetadataDashboard:
         self.widgets_extra["refresh_view_button"].on_click(self.refresh_output)
         self.widgets_extra["refresh_editor_button_from_file"].on_click(self.refresh_from_external_file)
         
-        # Add callback for author selection
-        self.widgets["author_select"].param.watch(self.on_author_select, "value")
+        # Initialize authors management
+        self.author_widgets = []
+        self.setup_authors_interface()
         # Tools to show the output view of the product
         self.json_viewer = pn.widgets.JSONEditor(
             value=self.product.as_dict(), schema=SCHEMA,
@@ -212,20 +196,152 @@ class ProductMetadataDashboard:
     def _sanitise_text_input(s):
         return s.replace("\n", "").replace("\t", "")
     
-    def on_author_select(self, event):
+    def setup_authors_interface(self):
+        """Initialize the authors interface with existing authors or one empty author"""
+        self.author_widgets = []
+        
+        # Add existing authors or at least one empty author
+        if self.product.authors:
+            for author in self.product.authors:
+                self.add_author_widget(author)
+        else:
+            self.add_author_widget()
+        
+        self.update_authors_container()
+    
+    def add_author_widget(self, author=None):
+        """Add a new author widget set"""
+        author = author or {"name": "", "ror": ""}
+        
+        # Find matching abbreviation for existing author
+        selected_abbrev = ""
+        if author.get("name"):
+            for abbrev, info in AUTHORS.items():
+                if info["name"] == author["name"] or info.get("ror", "") == author.get("ror", ""):
+                    selected_abbrev = abbrev
+                    break
+        
+        author_select = pn.widgets.Select(
+            name=f"Organization {len(self.author_widgets) + 1}:",
+            options=[""] + list(AUTHORS.keys()),
+            value=selected_abbrev,
+            width=200
+        )
+        
+        author_name = pn.widgets.TextInput(
+            name="Name:",
+            value=author.get("name", ""),
+            placeholder="Organization name",
+            disabled=True,
+            width=250
+        )
+        
+        author_ror = pn.widgets.TextInput(
+            name="ROR:",
+            value=author.get("ror", ""),
+            placeholder="https://ror.org/xxxxxxxxx",
+            disabled=True,
+            width=250
+        )
+        
+        remove_button = pn.widgets.Button(
+            name="Remove",
+            button_type="danger",
+            width=80,
+            margin=(25, 5, 5, 5)
+        )
+        
+        # Set up callbacks
+        author_index = len(self.author_widgets)
+        author_select.param.watch(
+            lambda event, idx=author_index: self.on_author_select(event, idx), 
+            "value"
+        )
+        remove_button.on_click(
+            lambda event, idx=author_index: self.remove_author_widget(idx)
+        )
+        
+        author_widget_set = {
+            "select": author_select,
+            "name": author_name,
+            "ror": author_ror,
+            "remove": remove_button
+        }
+        
+        self.author_widgets.append(author_widget_set)
+        
+        # Update the select widget to trigger the callback
+        if selected_abbrev:
+            self.on_author_select(type('Event', (), {'new': selected_abbrev})(), author_index)
+    
+    def remove_author_widget(self, index):
+        """Remove an author widget set"""
+        if len(self.author_widgets) > 1:  # Keep at least one author widget
+            self.author_widgets.pop(index)
+            # Re-index the remaining widgets
+            for i, widget_set in enumerate(self.author_widgets):
+                widget_set["select"].name = f"Organization {i + 1}:"
+                # Update callbacks with new indices
+                widget_set["select"].param.unwatch(widget_set["select"].param.watchers)
+                widget_set["select"].param.watch(
+                    lambda event, idx=i: self.on_author_select(event, idx), 
+                    "value"
+                )
+                widget_set["remove"].on_click(
+                    lambda event, idx=i: self.remove_author_widget(idx)
+                )
+            self.update_authors_container()
+    
+    def on_author_select(self, event, author_index):
         """Update author name and ROR when organization is selected"""
         selected_abbrev = event.new
-        if selected_abbrev and selected_abbrev in AUTHORS:
-            self.widgets["author_name"].value = AUTHORS[selected_abbrev]["name"]
-            # Handle cases where ROR might not exist (like PDGS)
-            self.widgets["author_ror"].value = AUTHORS[selected_abbrev].get("ror", "")
-        else:
-            self.widgets["author_name"].value = ""
-            self.widgets["author_ror"].value = ""
+        if author_index < len(self.author_widgets):
+            if selected_abbrev and selected_abbrev in AUTHORS:
+                self.author_widgets[author_index]["name"].value = AUTHORS[selected_abbrev]["name"]
+                self.author_widgets[author_index]["ror"].value = AUTHORS[selected_abbrev].get("ror", "")
+            else:
+                self.author_widgets[author_index]["name"].value = ""
+                self.author_widgets[author_index]["ror"].value = ""
+    
+    def add_new_author(self, event):
+        """Add a new empty author widget"""
+        self.add_author_widget()
+        self.update_authors_container()
+    
+    def update_authors_container(self):
+        """Update the authors container with current widgets"""
+        author_rows = []
+        
+        for widget_set in self.author_widgets:
+            author_row = pn.Row(
+                widget_set["select"],
+                widget_set["name"],
+                widget_set["ror"],
+                widget_set["remove"],
+                sizing_mode="stretch_width"
+            )
+            author_rows.append(author_row)
+        
+        add_button = pn.widgets.Button(
+            name="+ Add Author",
+            button_type="primary",
+            width=120
+        )
+        add_button.on_click(self.add_new_author)
+        
+        self.widgets["authors_container"][:] = [
+            pn.pane.Markdown("**Authors:**"),
+            *author_rows,
+            add_button
+        ]
     
     def refresh_output(self, event):
         # Update Product attributes
         for k in self.widgets.keys():
+            # Skip authors_container as it's handled separately
+            if k == "authors_container":
+                continue
+                
             value = self.widgets[k].value
             # Special handling for creation_year field
             if k == "creation_year":
@@ -240,23 +356,21 @@ class ProductMetadataDashboard:
             elif k == "product_types":
                 if isinstance(value, str):
                     value = [item.strip() for item in value.split(",") if item.strip()]
-            # Skip author fields as they need special handling
-            elif k in ("author_select", "author_name", "author_ror"):
-                continue
             # if k in ("details", "related_resources"):
             #     value = self._sanitise_text_input(value)
             setattr(self.product, k, value)
         
-        # Handle authors separately
-        author_name = self.widgets["author_name"].value.strip()
-        author_ror = self.widgets["author_ror"].value.strip()
-        if author_name:
-            author = {"name": author_name}
-            if author_ror:
-                author["ror"] = author_ror
-            self.product.authors = [author]
-        else:
-            self.product.authors = []
+        # Handle authors from multiple author widgets
+        authors = []
+        for widget_set in self.author_widgets:
+            author_name = widget_set["name"].value.strip()
+            author_ror = widget_set["ror"].value.strip()
+            if author_name:  # Only add authors with names
+                author = {"name": author_name}
+                if author_ror:
+                    author["ror"] = author_ror
+                authors.append(author)
+        self.product.authors = authors
             
         self.product.applicable_spacecraft.sort()
         self.product.applicable_missions = list(set([SC2MISSIONS.get(sc, "ERROR") for sc in self.product.applicable_spacecraft]))
@@ -285,24 +399,9 @@ class ProductMetadataDashboard:
     def update_product(self, product):
         self.product = deepcopy(product)
         for k in self.widgets.keys():
-            # Special handling for author fields (these don't exist as Product attributes)
-            if k == "author_select":
-                # Try to find matching organization by name or ROR
-                selected_abbrev = ""
-                if self.product.authors and len(self.product.authors) > 0:
-                    author = self.product.authors[0]
-                    author_name = author.get("name", "")
-                    author_ror = author.get("ror", "")
-                    # Find matching abbreviation
-                    for abbrev, info in AUTHORS.items():
-                        if info["name"] == author_name or info.get("ror", "") == author_ror:
-                            selected_abbrev = abbrev
-                            break
-                value = selected_abbrev
-            elif k == "author_name":
-                value = self.product.authors[0]["name"] if self.product.authors and len(self.product.authors) > 0 else ""
-            elif k == "author_ror":
-                value = self.product.authors[0]["ror"] if self.product.authors and len(self.product.authors) > 0 and "ror" in self.product.authors[0] else ""
+            # Skip authors_container as it's handled separately
+            if k == "authors_container":
+                continue
             else:
                 value = getattr(self.product, k)
                 # Special handling for creation_year field - handle both integer and string formats
@@ -322,6 +421,9 @@ class ProductMetadataDashboard:
                 elif k == "product_types" and isinstance(value, list):
                     value = ", ".join(value)
             self.widgets[k].value = value
+        
+        # Handle authors separately - recreate author widgets
+        self.setup_authors_interface()
         self.refresh_output(None)    
 
     @property
@@ -375,9 +477,7 @@ class ProductMetadataDashboard:
         return pn.Column(
             self.widgets["product_id"],
             self.widgets["definition"],
-            self.widgets["author_select"],
-            self.widgets["author_name"],
-            self.widgets["author_ror"],
+            self.widgets["authors_container"],
             self.widgets["creation_year"],
             self.widgets["product_types"],
             self.widgets["thematic_areas"],
