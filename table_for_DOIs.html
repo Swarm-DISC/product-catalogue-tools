@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display CSV with Handsontable</title>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@15.3.0/dist/handsontable.full.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@15.3.0/dist/handsontable.full.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        #csvData {
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button id="export-file">Download CSV</button>
+    </div>
+    <div id="csvData" class="hot"></div>
+    
+
+    <script>
+        // Fetch and parse the CSV file
+        fetch('table_for_DOIs.csv')
+            .then(response => response.text())
+            .then(csvText => {
+                const results = Papa.parse(csvText, {
+                    header: true,
+                    skipEmptyLines: true
+                });
+                displayData(results.data);
+            });
+
+        function displayData(data) {
+            const container = document.getElementById('csvData');
+
+            // Convert the object array to a 2D array for Handsontable
+            const headers = Object.keys(data[0]);
+            const rows = data.map(row => headers.map(header => row[header]));
+
+            // Combine headers and rows
+            const tableData = [headers, ...rows];
+            
+            const settings = {
+                data: rows,
+                rowHeaders: true,
+                colHeaders: headers,
+                contextMenu: true,
+                manualColumnResize: true,
+                manualRowResize: true,
+                outsideClickDeselects: false,
+                licenseKey: 'non-commercial-and-evaluation',
+                width: '100%',
+                height: 'auto',
+                stretchH: 'all'
+            };
+
+            const hot = new Handsontable(container, settings);
+
+            // Setup download button to fetch original CSV
+            const button = document.querySelector('#export-file');
+            button.addEventListener('click', () => {
+                fetch('table_for_DOIs.csv')
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'table_for_DOIs.csv';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => console.error('Error downloading CSV:', error));
+            });
+
+        }
+    </script>
+</body>
+</html>
