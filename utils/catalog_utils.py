@@ -70,7 +70,7 @@ class Product:
     related_resources: str = ""
     details: str = ""
     changelog: str = ""
-    fast_processing: str = ""
+    fast_processing: bool = False
     
     @staticmethod
     def allowed_thematic_areas():
@@ -162,7 +162,7 @@ class Product:
             f"**Applicable spacecraft:** {', '.join(self.applicable_spacecraft)}",
             f"## Description\n\n{self.description}",
             f"## Data access\n\n{self.markdown_links}",
-            f"## FAST processing\n\n{self.fast_processing if self.fast_processing else 'N/A'}",
+            f"## FAST processing\n\n{"This product is also available via the FAST processing chain." if self.fast_processing else ""}",
             f"## Preview image\n\n(delivered separately)",
             f"## File contents\n\n{self.tabulate_variables if self.tabulate_variables else 'N/A'}",
             f"## More details\n\n{self.details if self.details else 'N/A'}",
