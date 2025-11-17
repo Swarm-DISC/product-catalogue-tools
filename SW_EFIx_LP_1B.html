@@ -223,62 +223,62 @@
   <tr>
     <th>Flag</th>
     <th>Value</th>
-    <th>Description</th>
+    <th colspan="2">Description </th>
   </tr></thead>
 <tbody>
   <tr>
     <td rowspan="3">Flags_LP</td>
     <td>1</td>
-    <td>T_elec High gain probe data</td>
+    <td colspan="2">T_elec High gain probe data</td>
   </tr>
   <tr>
     <td>5</td>
-    <td>T_elec mixed gain probe data</td>
+    <td colspan="2">T_elec mixed gain probe data</td>
   </tr>
   <tr>
     <td>9</td>
-    <td>Sweep was done at this time stamp, estimate from previous second is duplicated </td>
+    <td colspan="2">Sweep was done at this time stamp, estimate from previous second is duplicated</td>
   </tr>
   <tr>
     <td rowspan="8">Flags_N_ion,<br>Flags_N_elec,<br>Flags_T_elec</td>
     <td>10</td>
-    <td>Nominal data, valid calibration offset and random error for this sample is computed, the estimate is from high gain probe</td>
+    <td colspan="2">Nominal data,<br>valid calibration offset and random error for this sample is computed,<br>The estimate is from high gain probe.</td>
   </tr>
   <tr>
     <td>19</td>
-    <td>Nominal data, calibration offset not computed/not available in this region,<br>random error computed, the estimate is from high gain probe</td>
+    <td colspan="2">Nominal data,<br>calibration offset not computed/not available in this region,<br>random error computed,<br>The estimate is from high gain probe.</td>
   </tr>
   <tr>
     <td>20</td>
-    <td>Nominal data, calibration offset computed, random error not computed for this sample, the estimate is from high gain probe</td>
+    <td colspan="2">Nominal data,<br>Calibration offset computed,<br>Random error not computed for this sample,<br>The estimate is from high gain probe.</td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td colspan="2">Nominal data,<br>Calibration offset not computed/not available in this region,<br>Random error not computed,<br>The estimate is from high gain probe.</td>
   </tr>
   <tr>
     <td>22</td>
-    <td>Nominal data, artificial spike detected (not implemented for N_elec), calibration offset computed, random error not computed for this sample, the estimate is from high gain probe</td>
+    <td colspan="2">Nominal data,<br>Artificial spike detected (not implemented for N_elec),<br>Calibration offset computed,<br>Random error not computed for this sample,<br>The estimate is from high gain probe</td>
   </tr>
   <tr>
     <td>23</td>
-    <td>Nominal data, artificial spike detected (not implemented for N_elec), calibration offset not computed/not available in this region, random error not computed, the estimate is from high gain probe.</td>
+    <td colspan="2">Nominal data,<br>Artificial spike detected (not implemented for N_elec),<br>Calibration offset not computed/not available in this region;<br>Random error not computed.<br>The estimate is from high gain probe.</td>
   </tr>
   <tr>
-    <td>22</td>
-    <td>Nominal data, artificial spike detected (not implemented for N_elec), calibration offset computed, random error not computed for this sample, the estimate is from high gain probe</td>
+    <td>30 </td>
+    <td colspan="2">The estimate is from low gain probe  for N_ion, N_elec;<br>The estimate is from mixed gain probe data for T_elec</td>
   </tr>
   <tr>
-    <td>30</td>
-    <td>The estimate is from low gain probe</td>
-  </tr>
-  <tr>
-    <td>40</td>
-    <td>The estimate is from low gain probe data for Nion, Nelec, from mixed gain probe data for Telec; however, none of this data is usable</td>
+    <td>40 </td>
+    <td colspan="2">The estimate is from low gain probe data for N_ion, N_elec, from mixed gain probe data for T_elec;<br>however, none of this data is usable</td>
   </tr>
   <tr>
     <td rowspan="2">Flags_Vs</td>
-    <td>20</td>
-    <td>Nominal data, error for this sample is not computed</td>
+    <td colspan="2">20 </td>
+    <td>Nominal data, error for this sample is not computed </td>
   </tr>
   <tr>
-    <td>30</td>
+    <td colspan="2">30</td>
     <td>Error detected, the estimate is from high gain</td>
   </tr>
 </tbody></table>
