@@ -1,6 +1,6 @@
 <h1>SW_EFIxLPI_1B</h1>
 <p>Electric field instrument (EFI) Langmuir probe (LP) measurements at 1Hz</p>
-<p><strong>Authored by:</strong> Swarm PDGS - </p>
+<p><strong>Authored by:</strong> Swarm PDGS</p>
 <p><strong>Creation year:</strong> 2013</p>
 <p><strong>Product types:</strong> SW_OPER_EFIALPI_1B, SW_OPER_EFIBLPI_1B, SW_OPER_EFICLPI_1B</p>
 <p><strong>Thematic areas:</strong> Plasma measurements, Space Weather</p>
@@ -33,7 +33,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Timestamp</td>
-<td style="text-align: left;">UTC</td>
+<td style="text-align: left;">-</td>
 <td style="text-align: left;">Time stamp</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_EPOCH</td>
@@ -62,7 +62,7 @@
 <tr>
 <td style="text-align: left;">Radius</td>
 <td style="text-align: left;">m</td>
-<td style="text-align: left;">Distance from the Earth’s center</td>
+<td style="text-align: left;">Distance from the Earth's center</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
@@ -70,34 +70,62 @@
 <td style="text-align: left;">U_orbit</td>
 <td style="text-align: left;">m/s</td>
 <td style="text-align: left;">Spacecraft velocity in the ITRF</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
-<td style="text-align: left;">Ne</td>
+<td style="text-align: left;">N_ion</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Plasma density (electron)</td>
+<td style="text-align: left;">Plasma density estimated from the ion current</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
-<td style="text-align: left;">Ne_error</td>
+<td style="text-align: left;">dN_ion</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Error estimate of plasma density (ne)</td>
+<td style="text-align: left;">Suggested calibration correction of N_ion</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
-<td style="text-align: left;">Te</td>
+<td style="text-align: left;">N_ion_error</td>
+<td style="text-align: left;">cm-3</td>
+<td style="text-align: left;">Statistical error of the ion density estimate</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">N_elec</td>
+<td style="text-align: left;">cm-3</td>
+<td style="text-align: left;">Plasma density estimated from the electron current</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">N_elec_error</td>
+<td style="text-align: left;">cm-3</td>
+<td style="text-align: left;">Statistical error of the electron density estimate</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">T_elec</td>
 <td style="text-align: left;">K</td>
 <td style="text-align: left;">Plasma electron temperature</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
-<td style="text-align: left;">Te_error</td>
+<td style="text-align: left;">T_elec_error</td>
 <td style="text-align: left;">K</td>
-<td style="text-align: left;">Error estimate of plasma electron temperature (T_elec)</td>
+<td style="text-align: left;">Error estimate of plasma electron temperature (Te)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">dT_elec</td>
+<td style="text-align: left;">cm-3</td>
+<td style="text-align: left;">Suggested calibration correction od T_elec</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
@@ -111,26 +139,33 @@
 <tr>
 <td style="text-align: left;">Vs_error</td>
 <td style="text-align: left;">V</td>
-<td style="text-align: left;">Error estimate of spacecraft potential (U_pol)</td>
+<td style="text-align: left;">Error estimate of spacecraft potential (Vs)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_LP</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags indicating the source/method of LP measurements (Ne, Te, Vs)</td>
+<td style="text-align: left;">Flags indicating the source/method of LP measurements (Ni, Te, Vs)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Flags_Ne</td>
+<td style="text-align: left;">Flags_N_ion</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags characterizing the plasma density measurement</td>
+<td style="text-align: left;">Flags characterizing the ion density estimate</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT1</td>
 </tr>
 <tr>
-<td style="text-align: left;">Flags_Te</td>
+<td style="text-align: left;">Flags_N_elec</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flags characterizing the electron density estimate</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_UINT1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flags_T_elec</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">Flags characterizing the electron temperature measurement</td>
 <td style="text-align: right;">1</td>
@@ -143,9 +178,41 @@
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT1</td>
 </tr>
+<tr>
+<td style="text-align: left;">Gamma1</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Sun inclination angle related to right-side solar-panel normal angle</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gamma2</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Sun inclination angle related to left-side solar-panel normal angle</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flagbits1</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Detailed indication of the source and anomalies</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_INT4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flagbits2</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Detailed indication of the source and anomalies</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_INT4</td>
+</tr>
 </tbody>
 </table>
 <h2>More details</h2>
+<p>
+<em>Warning: Format changes to this product were released in baseline version 07 (Ne to N_ion etc)</em>
+</p>
+
 <table border="1" class="tg">
     <thead>
         <tr>
