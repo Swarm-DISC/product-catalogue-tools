@@ -1,0 +1,198 @@
+<h1>SW_STRxEPF_1B</h1>
+<p>Star tracker energetic particle product</p>
+<p><strong>Authored by:</strong> Swarm PDGS</p>
+<p><strong>Creation year:</strong> 2025</p>
+<p><strong>Product types:</strong> SW_OPER_STRAEPF_1B, SW_OPER_STRBEPF_1B, SW_OPER_STRCEPF_1B</p>
+<p><strong>Thematic areas:</strong> Space Weather</p>
+<p><strong>Applicable missions:</strong> Swarm</p>
+<p><strong>Applicable spacecraft:</strong> Swarm-A, Swarm-B, Swarm-C</p>
+<h2>Description</h2>
+<h2>Data access</h2>
+<h2>FAST processing</h2>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Units</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: right;">Dim</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Timestamp</td>
+<td style="text-align: left;">UTC</td>
+<td style="text-align: left;">Time of observation</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+</tr>
+<tr>
+<td style="text-align: left;">SyncStatus</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Time synchronization status (of VFM), source and quality</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_UINT16</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric latitude</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Position in ITRF – Geocentric longitude</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Position in ITRF – Radius</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPF</td>
+<td style="text-align: left;">cm-2s-1</td>
+<td style="text-align: left;">Energetic particle flux, NaN if Flags_EPF &gt;= 16</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPD</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Energetic particle detections</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_UINT2</td>
+</tr>
+<tr>
+<td style="text-align: left;">T_CHU</td>
+<td style="text-align: left;">℃</td>
+<td style="text-align: left;">CHU temperature</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">RA</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Rect-ascension of CHU attitude</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">DEC</td>
+<td style="text-align: left;">deg</td>
+<td style="text-align: left;">Declination of CHU attitude</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPD_T_corr</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Temperature correction of particle count</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">EPD_Dens_corr</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Star density correction of particle count</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flags_EPF</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Flags characterizing the energetic particle flux estimate (EPF)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">CDF_UINT1</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<table><thead>
+  <tr>
+    <th>Flag</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th>Dim</th>
+    <th>Type</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td rowspan="10">Flags_EPF</td>
+    <td>0</td>
+    <td>Energetic particle flux estimate nominal</td>
+    <td>1</td>
+    <td>CDF_EPOCH</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Star density above limit in field of view</td>
+    <td>1</td>
+    <td>CDF_UINT16</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>CHU temperature above limit</td>
+    <td>1</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Gain control not stabilized</td>
+    <td>1</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Raw particle count above limit</td>
+    <td>1</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>Big bright object (BBO) detected</td>
+    <td>3</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>CHU in high-rate mode (image smir)</td>
+    <td>3</td>
+    <td>CDF_UINT2</td>
+  </tr>
+  <tr>
+    <td>64</td>
+    <td>Non-valid attitude sample</td>
+    <td>3</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>128</td>
+    <td>On-board processing not completed</td>
+    <td>3</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+  <tr>
+    <td>&gt;128</td>
+    <td>Any combination of the above</td>
+    <td>3</td>
+    <td>CDF_DOUBLE</td>
+  </tr>
+</tbody></table>
+
+<h2>Related resources</h2>
+<ul>
+    <li>Toldbo, C., Sushkova, J., Herceg, M. et al. Mapping High Energy Particles Using Augmented Star Trackers On-Board Swarm. Space Sci Rev 218, 58 (2022). https://doi.org/10.1007/s11214-022-00925-z</li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>
