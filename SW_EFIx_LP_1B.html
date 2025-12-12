@@ -39,99 +39,99 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Timestamp</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Time stamp</td>
+<td style="text-align: left;">UTC</td>
+<td style="text-align: left;">Timestamp of the LP measurement</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_EPOCH</td>
 </tr>
 <tr>
 <td style="text-align: left;">SyncStatus</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Synchronization status</td>
+<td style="text-align: left;">Time synchronization status (of LP), source and quality, see Appendix D</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT2</td>
 </tr>
 <tr>
 <td style="text-align: left;">Latitude</td>
 <td style="text-align: left;">deg</td>
-<td style="text-align: left;">Position in ITRF - Latitude</td>
+<td style="text-align: left;">Position in ITRF -- Geocentric latitude</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Longitude</td>
 <td style="text-align: left;">deg</td>
-<td style="text-align: left;">Position in ITRF - Longitude</td>
+<td style="text-align: left;">Position in ITRF -- Geocentric longitude</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Radius</td>
 <td style="text-align: left;">m</td>
-<td style="text-align: left;">Position in ITRF - Radius</td>
+<td style="text-align: left;">Position in ITRF -- Radius</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">U_orbit</td>
 <td style="text-align: left;">m/s</td>
-<td style="text-align: left;">Spacecraft velocity in the ITRF</td>
+<td style="text-align: left;">Magnitude of spacecraft velocity in the ITRF</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">N_ion</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Plasma density estimated from the ion current</td>
+<td style="text-align: left;">Ion density</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">dN_ion</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Suggested calibration correction of N_ion</td>
+<td style="text-align: left;">Calibration parameter for ion density w.r.t. ISRs</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">N_ion_error</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Statistical error of the ion density estimate</td>
+<td style="text-align: left;">Random error of the ion density estimate (empty)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">N_elec</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Plasma density estimated from the electron current</td>
+<td style="text-align: left;">Electron density</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">N_elec_error</td>
 <td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Statistical error of the electron density estimate</td>
+<td style="text-align: left;">Random error of the electron density estimate (empty)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">T_elec</td>
 <td style="text-align: left;">K</td>
-<td style="text-align: left;">Plasma electron temperature</td>
+<td style="text-align: left;">Electron temperature</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">T_elec_error</td>
 <td style="text-align: left;">K</td>
-<td style="text-align: left;">Error estimate of plasma electron temperature (Te)</td>
+<td style="text-align: left;">Random error of the electron temperature estimate (empty)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">dT_elec</td>
-<td style="text-align: left;">cm-3</td>
-<td style="text-align: left;">Suggested calibration correction od T_elec</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Calibration parameter for electron temperature w.r.t. ISRs</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
@@ -145,160 +145,659 @@
 <tr>
 <td style="text-align: left;">Vs_error</td>
 <td style="text-align: left;">V</td>
-<td style="text-align: left;">Error estimate of spacecraft potential (Vs)</td>
+<td style="text-align: left;">Error of the spacecraft potential estimate</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_LP</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags indicating the source/method of LP measurements (Ni, Te, Vs)</td>
+<td style="text-align: left;">Flags indicating the source of measurements, see Table 6-4</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT1</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_N_ion</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags characterizing the ion density estimate</td>
+<td style="text-align: left;">Flags characterizing the ion density measurement, see Table 6-4</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: left;">CDF_UINT8</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_N_elec</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags characterizing the electron density estimate</td>
+<td style="text-align: left;">Flags characterizing the electron density measurement, see Table 6-4</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: left;">CDF_UINT8</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_T_elec</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags characterizing the electron temperature measurement</td>
+<td style="text-align: left;">Flags characterizing the electron temperature measurement, see Table 6-4</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: left;">CDF_UINT8</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flags_Vs</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Flags characterizing the spacecraft potential measurement</td>
+<td style="text-align: left;">Flags characterizing the spacecraft potential measurement, see Table 6-4</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_UINT1</td>
+<td style="text-align: left;">CDF_UINT8</td>
 </tr>
 <tr>
 <td style="text-align: left;">Gamma1</td>
 <td style="text-align: left;">deg</td>
-<td style="text-align: left;">Sun inclination angle related to right-side solar-panel normal angle</td>
+<td style="text-align: left;">Inclination angle between Sun illumination incidence and right-side solar panel normal</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Gamma2</td>
 <td style="text-align: left;">deg</td>
-<td style="text-align: left;">Sun inclination angle related to left-side solar-panel normal angle</td>
+<td style="text-align: left;">Inclination angle between Sun illumination incidence and left-side solar panel normal</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_DOUBLE</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flagbits1</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Detailed indication of the source and anomalies</td>
+<td style="text-align: left;">Flag table for first subset of detailed information about LP instrument configuration and error conditions, see Table 6-5.</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_INT4</td>
+<td style="text-align: left;">Int32</td>
 </tr>
 <tr>
 <td style="text-align: left;">Flagbits2</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Detailed indication of the source and anomalies</td>
+<td style="text-align: left;">Flag table for second subset of detailed information about LP gain configuration and detected error conditions in data, see Table 6-6</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">CDF_INT4</td>
+<td style="text-align: left;">Int32</td>
 </tr>
 </tbody>
 </table>
 <h2>More details</h2>
 <p>
-<em>Warning: Format changes to this product were released in baseline version 07 (Ne to N_ion etc)</em>
+    Table 6-4: Flags of the LP Measurements:
+</p>
+<figure class="table">
+    <table class="ck-table-resized" border="1">
+        <colgroup><col style="width:33.33%;"><col style="width:33.33%;"><col style="width:33.34%;"></colgroup>
+        <thead>
+            <tr>
+                <th>
+                    Flag
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">
+                    Flags_LP
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    T_elec High gain probe data
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    T_elec mixed gain probe data
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    9
+                </td>
+                <td>
+                    Sweep was done at this time stamp, estimate from previous second is duplicated
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="8">
+                    Flags_N_ion, Flags_N_elec, Flags_T_elec
+                </td>
+                <td>
+                    10
+                </td>
+                <td>
+                    Nominal data, valid calibration offset and random error for this sample is computed, the estimate is from high gain probe
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    19
+                </td>
+                <td>
+                    Nominal data, calibration offset not computed/not available in this region, random error computed, the estimate is from high gain probe
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    20
+                </td>
+                <td>
+                    Nominal data, calibration offset computed, random error not computed for this sample, the estimate is from high gain probe
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    21
+                </td>
+                <td>
+                    Nominal data, calibration offset not computed/not available in this region, random error not computed, the estimate is from high gain probe.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    22
+                </td>
+                <td>
+                    Nominal data, artificial spike detected (not implemented for N_elec), calibration offset computed, random error not computed for this sample, the estimate is from high gain probe
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    23
+                </td>
+                <td>
+                    Nominal data, artificial spike detected (not implemented for N_elec), calibration offset not computed/not available in this region, random error not computed, the estimate is from high gain probe.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    30
+                </td>
+                <td>
+                    The estimate is from low gain probe
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    40
+                </td>
+                <td>
+                    The estimate is from low gain probe data for Nion, Nelec, from mixed gain probe data for Telec; however, none of this data is usable
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    Flags_Vs
+                </td>
+                <td>
+                    20
+                </td>
+                <td>
+                    Nominal data, error for this sample is not computed
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    30
+                </td>
+                <td>
+                    Error detected, the estimate is from high gain
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<p>
+    &nbsp;
+</p>
+<p>
+    Table 6-5: LP Instrument Configuration and Error Conditions (Flagbits1):
+</p>
+<figure class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Bit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Gain probe 1 (0=low, 1=high)
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gain probe 2 (0=low, 1=high)
+                </td>
+                <td>
+                    1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Linear overflow probe 1
+                </td>
+                <td>
+                    2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Linear overflow probe 2
+                </td>
+                <td>
+                    3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Retarded overflow probe 1
+                </td>
+                <td>
+                    4
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Retarded overflow probe 2
+                </td>
+                <td>
+                    5
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Current not tracked, vtr is set to zero, probe 1
+                </td>
+                <td>
+                    6
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Current not tracked, vtr is set to zero, probe 2
+                </td>
+                <td>
+                    7
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Duplicated packet replacing a sweep
+                </td>
+                <td>
+                    8
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    vlin &lt; vret, probe 1 (vlin not ok)
+                </td>
+                <td>
+                    9
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    vlin &lt; vret, probe 2
+                </td>
+                <td>
+                    10
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Vret_HG &lt; Vion_HG probe 1
+                </td>
+                <td>
+                    11
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Vret_HG &lt; Vion_HG probe 2
+                </td>
+                <td>
+                    12
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    vlin &gt; 5 V, probe 1 (vlin not ok)
+                </td>
+                <td>
+                    13
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    vlin &gt; 5 V, probe 2
+                </td>
+                <td>
+                    14
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlon &gt; dret, probe 1 (dret not ok)
+                </td>
+                <td>
+                    15
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlon &gt; dret, probe 2
+                </td>
+                <td>
+                    16
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Dret_HG &lt; (Dion_HG + Dion_offset) probe 1
+                </td>
+                <td>
+                    17
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Dret_HG &lt; (Dion_HG + Dion_offset) probe 2
+                </td>
+                <td>
+                    18
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ilon &gt; iret, probe 1 (iret not ok)
+                </td>
+                <td>
+                    19
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ilon &gt; iret, probe 2
+                </td>
+                <td>
+                    20
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dret &gt; dlin, probe 1 (dret and dlin not ok)
+                </td>
+                <td>
+                    21
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dret &gt; dlin, probe 2
+                </td>
+                <td>
+                    22
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    iret &gt; ilin, probe 1 (iret and ilin not ok)
+                </td>
+                <td>
+                    23
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    iret &gt; ilin, probe 2
+                </td>
+                <td>
+                    24
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlon &lt; 0, probe 1 (dion not ok)
+                </td>
+                <td>
+                    25
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlon &lt; 0, probe 2
+                </td>
+                <td>
+                    26
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dret &lt; 0, probe 1 (dret not ok)
+                </td>
+                <td>
+                    27
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dret &lt; 0, probe 2
+                </td>
+                <td>
+                    28
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlin &lt; 0, probe 1 (dlin not ok)
+                </td>
+                <td>
+                    29
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    dlin &lt; 0, probe 2
+                </td>
+                <td>
+                    30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Reserved for future use
+                </td>
+                <td>
+                    31
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<p>
+    &nbsp;
+</p>
+<p>
+    Table 6-6: LP Gain Configuration and Error Conditions (Flagbits2):
+</p>
+<figure class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Bit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Spike in Telec detected (according to [AD-8])
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Spike in Nion detected (according to [AD-8])
+                </td>
+                <td>
+                    1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical ion density Nion (negative), high gain
+                </td>
+                <td>
+                    2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical ion density Nion (negative), low gain
+                </td>
+                <td>
+                    3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme ion density Nion (&gt;threshold), high gain
+                </td>
+                <td>
+                    4
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme ion density Nion (&gt;threshold), low gain
+                </td>
+                <td>
+                    5
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical electron density Nelec (negative), high gain
+                </td>
+                <td>
+                    6
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical electron density Nelec (negative), low gain
+                </td>
+                <td>
+                    7
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme electron density Nelec (&gt;threshold), high gain
+                </td>
+                <td>
+                    8
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme electron density Nelec (&gt;threshold), low gain
+                </td>
+                <td>
+                    9
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical electron temperature Telec (&lt;Te_limit_low), high gain
+                </td>
+                <td>
+                    10
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Unphysical electron temperature Telec (&lt;Te_limit_low), low gain
+                </td>
+                <td>
+                    11
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme electron temperature Telec (&gt;Te_limit_high), high gain
+                </td>
+                <td>
+                    12
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Extreme electron temperature Telec (&gt;Te_limit_high), low gain
+                </td>
+                <td>
+                    13
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Spacecraft potential Vs out of range, high gain
+                </td>
+                <td>
+                    14
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Spacecraft potential Vs out of range, low gain
+                </td>
+                <td>
+                    15
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Reserved for future use
+                </td>
+                <td>
+                    16
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<p>
+    &nbsp;
+</p>
+<p>
+    The flagbits words, described in the above tables, have detailed information about detected error conditions. For just checking whether the parameters Nion, Telec, Nelec, and Vs are affected by errors or missing calibration information, Flag_N_elec, Flag_N_ion, Flag_T_elec, Flag_Vs&nbsp;provide simple and sufficient information, and the flagbits words are not needed for this purpose.
+</p>
+<p>
+    Bitwise AND (&amp; operator in C, Python, Julia, …, bitand function in Matlab) can be used to extract single bits or combinations of these from flag bits: flagbits &amp; (1 &lt;&lt; n) returns a logical true (integer different from zero) if bit n is set, a logical false (zero)&nbsp;otherwise. The &lt;&lt; operator (bitshift&nbsp;function in Matlab) right shifts the bits, equivalent to 2^n. Whether any in a combination of k flag bits is set can be tested with flagbits &amp; s, where s=(1&lt;&lt;n1)|...|(1&lt;&lt;nk), | is the bitwise OR operator. For example, to test whether any of bits 5,7,14,16,18,20,24 is set, s=0x00000000011540a0=18170016 and flagbits&amp;s returns either true or false. This exemplary combination of bits would be relevant to test for Flags_T_elec, if probe 2 is high gain (and probe 1 low).
 </p>
 
-<table><thead>
-  <tr>
-    <th>Flag</th>
-    <th>Value</th>
-    <th colspan="2">Description </th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td rowspan="3">Flags_LP</td>
-    <td>1</td>
-    <td colspan="2">T_elec High gain probe data</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td colspan="2">T_elec mixed gain probe data</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td colspan="2">Sweep was done at this time stamp, estimate from previous second is duplicated</td>
-  </tr>
-  <tr>
-    <td rowspan="8">Flags_N_ion,<br>Flags_N_elec,<br>Flags_T_elec</td>
-    <td>10</td>
-    <td colspan="2">Nominal data,<br>valid calibration offset and random error for this sample is computed,<br>The estimate is from high gain probe.</td>
-  </tr>
-  <tr>
-    <td>19</td>
-    <td colspan="2">Nominal data,<br>calibration offset not computed/not available in this region,<br>random error computed,<br>The estimate is from high gain probe.</td>
-  </tr>
-  <tr>
-    <td>20</td>
-    <td colspan="2">Nominal data,<br>Calibration offset computed,<br>Random error not computed for this sample,<br>The estimate is from high gain probe.</td>
-  </tr>
-  <tr>
-    <td>21</td>
-    <td colspan="2">Nominal data,<br>Calibration offset not computed/not available in this region,<br>Random error not computed,<br>The estimate is from high gain probe.</td>
-  </tr>
-  <tr>
-    <td>22</td>
-    <td colspan="2">Nominal data,<br>Artificial spike detected (not implemented for N_elec),<br>Calibration offset computed,<br>Random error not computed for this sample,<br>The estimate is from high gain probe</td>
-  </tr>
-  <tr>
-    <td>23</td>
-    <td colspan="2">Nominal data,<br>Artificial spike detected (not implemented for N_elec),<br>Calibration offset not computed/not available in this region;<br>Random error not computed.<br>The estimate is from high gain probe.</td>
-  </tr>
-  <tr>
-    <td>30 </td>
-    <td colspan="2">The estimate is from low gain probe  for N_ion, N_elec;<br>The estimate is from mixed gain probe data for T_elec</td>
-  </tr>
-  <tr>
-    <td>40 </td>
-    <td colspan="2">The estimate is from low gain probe data for N_ion, N_elec, from mixed gain probe data for T_elec;<br>however, none of this data is usable</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Flags_Vs</td>
-    <td colspan="2">20 </td>
-    <td>Nominal data, error for this sample is not computed </td>
-  </tr>
-  <tr>
-    <td colspan="2">30</td>
-    <td>Error detected, the estimate is from high gain</td>
-  </tr>
-</tbody></table>
-
 <h2>Related resources</h2>
-<p><strong>Level 1B Product Descriptions:</strong></p>
-
-<ul>
-    <li><a href="https://earth.esa.int/eogateway/documents/20142/37627/swarm-level-1b-product-definition-specification.pdf/12995649-fbcb-6ae2-5302-2269fecf5a08">Swarm Level 1B Product Definition</a></li>
-    <li><a href="https://earth.esa.int/eogateway/documents/20142/37627/swarm-level-1b-processor-algorithms.pdf/e0606842-41ca-fa48-0a40-05a0d4824501">Swarm Level 1B Processor Algorithms</a></li>
-    <li><a href="https://earth.esa.int/eogateway/documents/20142/37627/swarm-level-1b-plasma-processor-algorithm.pdf/bae64759-b901-d961-4d18-0a5b317f8c12">Swarm&nbsp;Swarm Level 1B&nbsp;Plasma Processor Algorithm</a></li>
-
-</ul>
-
-<p><strong>Level 1B Product Format page:</strong></p>
-
-<ul>
-<li><a href="https://earth.esa.int/eogateway/missions/swarm/product-data-handbook/level-1b-product-format">Swarm Level 1B Product Format</a></li>
-
-</ul>
-
+<p>N/A</p>
 <h2>Changelog</h2>
 <p>N/A</p>
