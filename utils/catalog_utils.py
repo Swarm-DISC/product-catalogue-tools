@@ -60,6 +60,7 @@ class Product:
     authors: "list[dict]|None" = field(default_factory=lambda: [])
     creation_year: "int|None" = None
     product_types: "list[str]|None" = field(default_factory=lambda: [])
+    identifiers: "list[dict]|None" = field(default_factory=lambda: [])
     description: str = ""
     link_files_http: str = ""
     link_files_ftp: str = ""
@@ -154,9 +155,10 @@ class Product:
         
         items = [
             f"# {self.product_id}\n\n{self.definition}",
+            f"**Citation:** {self.citation_text}",
+            f"**Product types:** {product_types_info}",
             f"**Authored by:** {authors_info}",
             f"**Creation year:** {creation_year_info}",
-            f"**Product types:** {product_types_info}",
             f"**Thematic areas:** {', '.join(self.thematic_areas)}",
             f"**Applicable missions:** {', '.join(self.applicable_missions)}",
             f"**Applicable spacecraft:** {', '.join(self.applicable_spacecraft)}",
@@ -170,6 +172,33 @@ class Product:
             f"## Changelog\n\n{self.changelog if self.changelog else 'N/A'}",
         ]
         return "\n\n".join(items)
+
+    @property
+    def citation_text(self):
+        author_names = [author.get("name", "").strip() for author in self.authors or []]
+        author_names = [name for name in author_names if name]
+        authors_info = ", ".join(author_names) if author_names else "N/A"
+        creation_year_info = str(self.creation_year) if self.creation_year else "N/A"
+
+        identifier_value = ""
+        if self.identifiers:
+            for identifier in self.identifiers:
+                if (
+                    identifier.get("identifierType") == "DOI"
+                    and identifier.get("role") == "concept"
+                ):
+                    identifier_value = identifier.get("identifier", "")
+                    break
+            if not identifier_value:
+                for identifier in self.identifiers:
+                    if identifier.get("identifierType") == "URL":
+                        identifier_value = identifier.get("identifier", "")
+                        break
+
+        return (
+            f"{authors_info}. ({creation_year_info}). {self.product_id}. "
+            f"European Space Agency. {identifier_value}".rstrip()
+        )
     
     @property
     def html_preview(self):

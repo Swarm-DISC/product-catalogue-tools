@@ -118,6 +118,7 @@ AUTHORS = load_authors()
 class ProductMetadataDashboard:
     def __init__(self):
         # Internal product state, initialise empty
+        self._suspend_autorefresh = False
         self.product = Product()
         # Widgets to alter product state (call .refresh to trigger the update from these)
         # names (dict keys) must match properties of Product
@@ -135,6 +136,7 @@ class ProductMetadataDashboard:
                 value=", ".join(self.product.product_types) if self.product.product_types else "",
                 placeholder="e.g. SW_MAGA_LR_1B, SW_MAGB_LR_1B, SW_MAGC_LR_1B"
             ),
+            identifiers_container = pn.Column(),
             applicable_spacecraft = pn.widgets.MultiChoice(name="applicable_spacecraft:", options=Product.allowed_spacecraft(), styles={"background": "white"}),
             # description = pn.widgets.TextEditor(
             #     name="description:", value=self.product.description,
@@ -163,17 +165,18 @@ class ProductMetadataDashboard:
         self.widgets_extra = dict(
             product_id_selector=pn.widgets.AutocompleteInput(options=CATALOG.product_ids, placeholder="Start typing SW_MAG...", min_characters=1, case_sensitive=False, width=200),
             refresh_editor_button=pn.widgets.Button(name="Load", width=50, button_type="primary"),
-            refresh_view_button=pn.widgets.Button(name="Refresh!", width=50, button_type="primary"),
             external_file_loader=pn.widgets.FileInput(),
             refresh_editor_button_from_file=pn.widgets.Button(name="Load", width=50, button_type="primary"),
         )
         self.widgets_extra["refresh_editor_button"].on_click(self.refresh_from_local)
-        self.widgets_extra["refresh_view_button"].on_click(self.refresh_output)
         self.widgets_extra["refresh_editor_button_from_file"].on_click(self.refresh_from_external_file)
         
         # Initialize authors management
         self.author_widgets = []
         self.setup_authors_interface()
+        # Initialize identifiers management
+        self.identifier_widgets = []
+        self.setup_identifiers_interface()
         # Tools to show the output view of the product
         self.json_viewer = pn.widgets.JSONEditor(
             value=self.product.as_dict(), schema=SCHEMA,
@@ -192,10 +195,22 @@ class ProductMetadataDashboard:
         pid_to_load = pid_from_url if pid_from_url else "SW_MAGx_LR_1B"
         self.widgets_extra["product_id_selector"].value = pid_to_load
         self.refresh_from_local(None)
+        self.setup_autorefresh()
     
     @staticmethod
     def _sanitise_text_input(s):
         return s.replace("\n", "").replace("\t", "")
+
+    def _auto_refresh(self, event):
+        if self._suspend_autorefresh:
+            return
+        self.refresh_output(None)
+
+    def setup_autorefresh(self):
+        for key, widget in self.widgets.items():
+            if key in ("authors_container", "identifiers_container"):
+                continue
+            widget.param.watch(self._auto_refresh, "value")
     
     def setup_authors_interface(self):
         """Initialize the authors interface with existing authors or one empty author"""
@@ -258,6 +273,7 @@ class ProductMetadataDashboard:
             lambda event, idx=author_index: self.on_author_select(event, idx), 
             "value"
         )
+        author_select.param.watch(self._auto_refresh, "value")
         remove_button.on_click(
             lambda event, idx=author_index: self.remove_author_widget(idx)
         )
@@ -292,6 +308,7 @@ class ProductMetadataDashboard:
                     lambda event, idx=i: self.remove_author_widget(idx)
                 )
             self.update_authors_container()
+            self._auto_refresh(None)
     
     def on_author_select(self, event, author_index):
         """Update author name and ROR when organization is selected"""
@@ -303,11 +320,13 @@ class ProductMetadataDashboard:
             else:
                 self.author_widgets[author_index]["name"].value = ""
                 self.author_widgets[author_index]["ror"].value = ""
+        self._auto_refresh(None)
     
     def add_new_author(self, event):
         """Add a new empty author widget"""
         self.add_author_widget()
         self.update_authors_container()
+        self._auto_refresh(None)
     
     def update_authors_container(self):
         """Update the authors container with current widgets"""
@@ -335,12 +354,135 @@ class ProductMetadataDashboard:
             *author_rows,
             add_button
         ]
+
+    def setup_identifiers_interface(self):
+        """Initialize the identifiers interface with existing identifiers or one empty row"""
+        self.identifier_widgets = []
+
+        if self.product.identifiers:
+            for identifier in self.product.identifiers:
+                self.add_identifier_widget(identifier)
+        else:
+            self.add_identifier_widget()
+
+        self.update_identifiers_container()
+
+    def add_identifier_widget(self, identifier=None):
+        """Add a new identifier widget set"""
+        identifier = identifier or {
+            "identifier": "",
+            "identifierType": "DOI",
+            "role": "",
+            "version": "",
+        }
+
+        identifier_value = pn.widgets.TextInput(
+            name=f"Identifier {len(self.identifier_widgets) + 1}:",
+            value=identifier.get("identifier", ""),
+            placeholder="e.g., 10.5281/zenodo.12345 or https://example.org"
+        )
+
+        identifier_type = pn.widgets.Select(
+            name="Type:",
+            options=["DOI", "URL"],
+            value=identifier.get("identifierType", "DOI"),
+            width=120
+        )
+
+        identifier_role = pn.widgets.Select(
+            name="Role:",
+            options=["", "concept", "version", "external"],
+            value=identifier.get("role", ""),
+            width=140
+        )
+
+        identifier_version = pn.widgets.TextInput(
+            name="Version:",
+            value=identifier.get("version", ""),
+            placeholder="e.g., v1.2",
+            width=120
+        )
+
+        remove_button = pn.widgets.Button(
+            name="Remove",
+            button_type="danger",
+            width=80,
+            margin=(25, 5, 5, 5)
+        )
+
+        identifier_index = len(self.identifier_widgets)
+        remove_button.on_click(
+            lambda event, idx=identifier_index: self.remove_identifier_widget(idx)
+        )
+
+        identifier_value.param.watch(self._auto_refresh, "value")
+        identifier_type.param.watch(self._auto_refresh, "value")
+        identifier_role.param.watch(self._auto_refresh, "value")
+        identifier_version.param.watch(self._auto_refresh, "value")
+
+        identifier_widget_set = {
+            "identifier": identifier_value,
+            "identifierType": identifier_type,
+            "role": identifier_role,
+            "version": identifier_version,
+            "remove": remove_button
+        }
+
+        self.identifier_widgets.append(identifier_widget_set)
+
+    def remove_identifier_widget(self, index):
+        """Remove an identifier widget set"""
+        if len(self.identifier_widgets) > 1:
+            self.identifier_widgets.pop(index)
+            for i, widget_set in enumerate(self.identifier_widgets):
+                widget_set["identifier"].name = f"Identifier {i + 1}:"
+                widget_set["remove"].on_click(
+                    lambda event, idx=i: self.remove_identifier_widget(idx)
+                )
+            self.update_identifiers_container()
+            self._auto_refresh(None)
+
+    def add_new_identifier(self, event):
+        """Add a new empty identifier widget"""
+        self.add_identifier_widget()
+        self.update_identifiers_container()
+        self._auto_refresh(None)
+
+    def update_identifiers_container(self):
+        """Update the identifiers container with current widgets"""
+        identifier_rows = []
+
+        for widget_set in self.identifier_widgets:
+            identifier_row = pn.Row(
+                widget_set["identifier"],
+                widget_set["identifierType"],
+                widget_set["role"],
+                widget_set["version"],
+                widget_set["remove"],
+                sizing_mode="stretch_width"
+            )
+            identifier_rows.append(identifier_row)
+
+        add_button = pn.widgets.Button(
+            name="+ Add Identifier",
+            button_type="primary",
+            width=140
+        )
+        add_button.on_click(self.add_new_identifier)
+
+        self.widgets["identifiers_container"][:] = [
+            pn.pane.Markdown("**Identifiers (DOI/URL):**"),
+            *identifier_rows,
+            add_button
+        ]
     
     def refresh_output(self, event):
+        if self._suspend_autorefresh:
+            return
         # Update Product attributes
         for k in self.widgets.keys():
             # Skip authors_container as it's handled separately
-            if k == "authors_container":
+            if k in ("authors_container", "identifiers_container"):
                 continue
                 
             value = self.widgets[k].value
@@ -372,6 +514,25 @@ class ProductMetadataDashboard:
                     author["ror"] = author_ror
                 authors.append(author)
         self.product.authors = authors
+
+        # Handle identifiers from multiple identifier widgets
+        identifiers = []
+        for widget_set in self.identifier_widgets:
+            identifier_value = widget_set["identifier"].value.strip()
+            identifier_type = widget_set["identifierType"].value.strip()
+            identifier_role = widget_set["role"].value.strip()
+            identifier_version = widget_set["version"].value.strip()
+            if identifier_value and identifier_type:
+                identifier = {
+                    "identifier": identifier_value,
+                    "identifierType": identifier_type
+                }
+                if identifier_role:
+                    identifier["role"] = identifier_role
+                if identifier_version:
+                    identifier["version"] = identifier_version
+                identifiers.append(identifier)
+        self.product.identifiers = identifiers
             
         self.product.applicable_spacecraft.sort()
         self.product.applicable_missions = list(set([SC2MISSIONS.get(sc, "ERROR") for sc in self.product.applicable_spacecraft]))
@@ -398,10 +559,11 @@ class ProductMetadataDashboard:
         )
     
     def update_product(self, product):
+        self._suspend_autorefresh = True
         self.product = deepcopy(product)
         for k in self.widgets.keys():
             # Skip authors_container as it's handled separately
-            if k == "authors_container":
+            if k in ("authors_container", "identifiers_container"):
                 continue
             else:
                 value = getattr(self.product, k)
@@ -425,6 +587,9 @@ class ProductMetadataDashboard:
         
         # Handle authors separately - recreate author widgets
         self.setup_authors_interface()
+        # Handle identifiers separately - recreate identifier widgets
+        self.setup_identifiers_interface()
+        self._suspend_autorefresh = False
         self.refresh_output(None)    
 
     @property
@@ -474,13 +639,14 @@ class ProductMetadataDashboard:
         )
         
     @property
-    def editor(self):
+    def editor_core(self):
         return pn.Column(
             self.widgets["product_id"],
             self.widgets["definition"],
             self.widgets["authors_container"],
             self.widgets["creation_year"],
             self.widgets["product_types"],
+            self.widgets["identifiers_container"],
             self.widgets["fast_processing"],
             self.widgets["thematic_areas"],
             self.widgets["applicable_spacecraft"],
@@ -490,37 +656,36 @@ class ProductMetadataDashboard:
             self.widgets["link_vires_gui"],
             self.widgets["link_notebook"],
             self.widgets["link_hapi"],
+            sizing_mode="stretch_both",
+            scroll=True
+        )
+
+    @property
+    def editor_details(self):
+        return pn.Column(
             self.widgets["description"],
             self.widgets["variables_table"],
             self.widgets["details"],
             self.widgets["related_resources"],
             self.widgets["changelog"],
-            # styles={"background": "lightblue"},
-            sizing_mode="stretch_both"
+            sizing_mode="stretch_both",
+            scroll=True
         )
 
     @property
     def viewer(self):
-        return pn.Card(
+        return pn.Column(
             pn.Column(
-                pn.Column(
-                    "**Check display preview and download output json**",
-                    self.widgets_extra["refresh_view_button"],
-                    self.json_downloader,
-                    styles={"background": "lightgreen"},
-                ),
-                pn.Tabs(
-                    ("Output preview", self.markdown_viewer),
-                    ("JSON", self.json_viewer),
-                    sizing_mode="stretch_both",
-                ),
-                # styles={"background": "lightgreen"},
+                "**Check display preview and download output json**",
+                self.json_downloader,
+                styles={"background": "lightgreen"},
+            ),
+            pn.Tabs(
+                ("Output preview", self.markdown_viewer),
+                ("JSON", self.json_viewer),
                 sizing_mode="stretch_both",
             ),
             sizing_mode="stretch_both",
-            title="Previews",
-            collapsible=False,
-            margin=10,
         )
 
     @property
@@ -529,10 +694,10 @@ class ProductMetadataDashboard:
         gspec[:, 0] = pn.Accordion(
             ("Instructions", self.instructions),
             ("Load data", self.loader),
-            ("Edit properties", self.editor),
+            ("Edit core properties", self.editor_core),
+            ("Edit details", self.editor_details),
             margin=10,
-            # sizing_mode="stretch_both",
-            active = [0, 1, 2]
+            active = [1, 2, 3]
         )
         gspec[:, 1] = self.viewer
         return gspec
