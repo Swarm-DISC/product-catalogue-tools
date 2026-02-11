@@ -1,8 +1,8 @@
 <h1>SW_EEFxTMS_2F</h1>
 <p>Dayside equatorial electric field</p>
-<p><strong>Citation:</strong> Technical University of Denmark. (2020). SW_EEFxTMS_2F. European Space Agency. https://swarmhandbook.earth.esa.int/catalogue/SW_EEFxTMS_2F</p>
+<p><strong>Citation:</strong> University of Colorado Boulder, Technical University of Denmark. (2020). SW_EEFxTMS_2F. European Space Agency. https://swarmhandbook.earth.esa.int/catalogue/SW_EEFxTMS_2F</p>
 <p><strong>Product types:</strong> SW_OPER_EEFATMS_2F, SW_OPER_EEFBTMS_2F, SW_OPER_EEFCTMS_2F</p>
-<p><strong>Authored by:</strong> Technical University of Denmark - https://ror.org/04qtj9h94</p>
+<p><strong>Authored by:</strong> University of Colorado Boulder - https://ror.org/02ttsq026, Technical University of Denmark - https://ror.org/04qtj9h94</p>
 <p><strong>Creation year:</strong> 2020</p>
 <p><strong>Thematic areas:</strong> Ionosphere/Magnetosphere, Space Weather</p>
 <p><strong>Applicable missions:</strong> Swarm</p>
@@ -66,9 +66,16 @@
 <td style="text-align: left;">CDF_REAL8</td>
 </tr>
 <tr>
-<td style="text-align: left;">EEJ</td>
-<td style="text-align: left;">mA/m</td>
-<td style="text-align: left;">Height-integrated east current profile in QD latitude, spanning [-20:0.5:20] degrees</td>
+<td style="text-align: left;">EEJ_meast</td>
+<td style="text-align: left;">A/km</td>
+<td style="text-align: left;">Height-integrated magnetic eastward current profile, spanning [-20:0.5:20] degrees QD latitude</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">EEJ_mnorth</td>
+<td style="text-align: left;">A/km</td>
+<td style="text-align: left;">Height-integrated magnetic northward current profile, spanning [-20:0.5:20] degrees QD latitude</td>
 <td style="text-align: right;">81</td>
 <td style="text-align: left;">CDF_REAL8</td>
 </tr>
@@ -86,82 +93,159 @@
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">CDF_UINT2</td>
 </tr>
+<tr>
+<td style="text-align: left;">Timestamp_Track</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Timestamps along track, length provided in Length_Track</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude_Track</td>
+<td style="text-align: left;">degrees</td>
+<td style="text-align: left;">Latitudes along track, length provided in Length_Track</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude_Track</td>
+<td style="text-align: left;">degress</td>
+<td style="text-align: left;">Longitudes along track, length provided in Length_Track</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius_Track</td>
+<td style="text-align: left;">km</td>
+<td style="text-align: left;">Geocentric radii along track, length provided in Length_Track</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ksq_Track</td>
+<td style="text-align: left;">A/km</td>
+<td style="text-align: left;">Surface current of estimated Sq signal, packed in geocentric north,east components,, length 2*Length_Track</td>
+<td style="text-align: right;">6000</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Keej_Track</td>
+<td style="text-align: left;">A/km</td>
+<td style="text-align: left;">Surface current of estimated EEJ signal, packed in geocentric north,east components,, length 2*Length_Track</td>
+<td style="text-align: right;">6000</td>
+<td style="text-align: left;">CDF_REAL8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Length_Track</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Array of track lengths</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">CDF_UINT4</td>
+</tr>
 </tbody>
 </table>
 <h2>More details</h2>
-<table border="1">
-    <tbody>
-        <tr>
-            <td>Product identifier</td>
-            <td>EEFxTMS_2F</td>
-        </tr>
-        <tr>
-            <td>Definition</td>
-            <td>Dayside equatorial electric field</td>
-        </tr>
-        <tr>
-            <td>Input data</td>
-            <td>MAGx_LR_1B, MCO_SHA_2X</td>
-        </tr>
-        <tr>
-            <td>Input time span</td>
-            <td>Every dayside equator crossing &plusmn;20 minutes</td>
-        </tr>
-        <tr>
-            <td>Spatial representation</td>
-            <td>One longitude/latitude pair (on the magnetic equator) for each output value</td>
-        </tr>
-        <tr>
-            <td>Time representation</td>
-            <td>Single values at time of dayside equator crossing</td>
-        </tr>
-        <tr>
-            <td>Units</td>
-            <td>V/m</td>
-        </tr>
-        <tr>
-            <td>Resolution</td>
-            <td>0.1 mV/m</td>
-        </tr>
-        <tr>
-            <td>Uncertainty</td>
-            <td>0.1 mV/m</td>
-        </tr>
-        <tr>
-            <td>Quality indicator</td>
-            <td>Relative error between modeled and observed current profile</td>
-        </tr>
-        <tr>
-            <td>Data volume</td>
-            <td>&lt; 2 kB</td>
-        </tr>
-        <tr>
-            <td>Output data</td>
-            <td>CDF file with time series</td>
-        </tr>
-        <tr>
-            <td>Output time span</td>
-            <td>Continuous for entire mission. One value for each day-side equator crossing (90 minute sampling for day-night local time orbits, 45 minutes for dawn-dusk orbits)</td>
-        </tr>
-        <tr>
-            <td>Update rate</td>
-            <td>One output file per day</td>
-        </tr>
-        <tr>
-            <td>Latency</td>
-            <td>30 hours</td>
-        </tr>
-        <tr>
-            <td>Notes</td>
-            <td>The EEJ vector has length 81 and corresponds to QD latitudes ranging from -20&deg; to +20&deg; in steps of 0.5&deg;. So for example, the corresponding QD latitude vector could be constructed using the following MATLAB syntax: qdvec = [-20:0.5:20].</td>
-        </tr>
-    </tbody>
+<table>
+    <tr>
+        <td>Product Identifier</td>
+        <td>EEFxTMS_2F</td>
+    </tr>
+    <tr>
+        <td>Definition</td>
+        <td>Dayside equatorial electric field</td>
+    </tr>
+    <tr>
+        <td>Input Data</td>
+        <td>MCO_SHA_2X, AUX_LIT_2, AUX_IGR_2</td>
+    </tr>
+    <tr>
+        <td>Input Time Span</td>
+        <td>Every dayside equator crossing &plusmn;20 minutes</td>
+    </tr>
+    <tr>
+        <td>Spatial Representation</td>
+        <td>One longitude/latitude pair (on the magnetic equator) for each output value</td>
+    </tr>
+    <tr>
+        <td>Time Representation</td>
+        <td>Single values at time of dayside equator crossing</td>
+    </tr>
+    <tr>
+        <td>Units</td>
+        <td>mV/m</td>
+    </tr>
+    <tr>
+        <td>Resolution</td>
+        <td>0.1 mV/m</td>
+    </tr>
+    <tr>
+        <td>Uncertainty</td>
+        <td>0.1 mV/m</td>
+    </tr>
+    <tr>
+        <td>Quality Indicator</td>
+        <td>Relative error between modeled and observed current profile</td>
+    </tr>
+    <tr>
+        <td>Data Volume</td>
+        <td>&lt; 10 MB</td>
+    </tr>
+    <tr>
+        <td>Output Data</td>
+        <td>CDF file with time series</td>
+    </tr>
+    <tr>
+        <td>Output Time Span</td>
+        <td>Continuous for entire mission. One value for each day-side equator crossing (90 minute sampling for day-night local time orbits, 45 minutes for dawn-dusk orbits)</td>
+    </tr>
+    <tr>
+        <td>Update Rate</td>
+        <td>One output file per day</td>
+    </tr>
+    <tr>
+        <td>Latency</td>
+        <td>30 hours</td>
+    </tr>
+    <tr>
+        <td>Notes</td>
+        <td>The EEJ_meast and EEJ_mnorth vectors have length 81 and correspond to quasi-dipole (QD) latitudes ranging from -20° to +20° in steps of 0.5°. So for example, the corresponding QD latitude vector could be constructed using the following MATLAB syntax: qdvec = [-20:0.5:20]. The EEJ_meast profile is the projection of the EEJ current along the QD F1 basis vector. The EEJ_mnorth profile is the projection of the EEJ current along the QD F2 basis vector.<br>The variables with suffix _Track have variable lengths depending upon the value in Length_Track</td>
+    </tr>
 </table>
 
 <h2>Related resources</h2>
 <ul>
-<li><a href="https://earth.esa.int/eogateway/documents/20142/37627/Swarm-Equatorial-Electric-Field-Level-2-Product.pdf/1efbb6fc-60fc-cd0a-abcc-505b19a16a73">Swarm equatorial electric field (EEF)</a></li>
+<li><a href="https://earth.esa.int/eogateway/documents/20142/37627/Swarm-Equatorial-Electric-Field-Level-2-Product.pd">Swarm equatorial electric field (EEF)</a></li>
 </ul>
 
 <h2>Changelog</h2>
-<p>N/A</p>
+<p>
+    <strong>Version 0502</strong>
+</p>
+<p>
+    Old variables (version 0501):
+</p>
+<pre style="background-color:#f8f8f8;border-radius:4px;border:1px solid #dddddd;font-family:Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;font-size:12px;margin:8px 0;padding:8px 12px;white-space:pre-wrap;">Timestamp             CDF_EPOCH/1       0:[]    T/  
+Latitude              CDF_REAL8/1       0:[]    T/  
+Longitude             CDF_REAL8/1       0:[]    T/  
+EEJ                   CDF_REAL8/1       1:[81]  T/T
+EEF                   CDF_REAL8/1       0:[]    T/  
+RelErr                CDF_REAL8/1       0:[]    T/  
+Flags                 CDF_UINT2/1       0:[]    T/ </pre>
+<p>
+    New variables (version 0502):
+</p>
+<pre style="background-color:#f8f8f8;border-radius:4px;border:1px solid #dddddd;font-family:Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;font-size:12px;margin:8px 0;padding:8px 12px;white-space:pre-wrap;">Timestamp             CDF_EPOCH/1       0:[]    T/  
+Latitude              CDF_REAL8/1       0:[]    T/  
+Longitude             CDF_REAL8/1       0:[]    T/  
+EEJ_meast             CDF_REAL8/1       1:[81]  T/T
+EEJ_mnorth            CDF_REAL8/1       1:[81]  T/T
+EEF                   CDF_REAL8/1       0:[]    T/  
+RelErr                CDF_REAL8/1       0:[]    T/  
+Flags                 CDF_UINT2/1       0:[]    T/  
+Timestamp_Track       CDF_EPOCH/1       1:[3000]        T/T
+Latitude_Track        CDF_REAL8/1       1:[3000]        T/T
+Longitude_Track       CDF_REAL8/1       1:[3000]        T/T
+Radius_Track          CDF_REAL8/1       1:[3000]        T/T
+Ksq_Track             CDF_REAL8/1       1:[6000]        T/T
+Keej_Track            CDF_REAL8/1       1:[6000]        T/T
+Length_Track          CDF_UINT4/1       0:[]    T/</pre>
