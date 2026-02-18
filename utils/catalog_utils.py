@@ -187,7 +187,9 @@ class Product:
                     identifier.get("identifierType") == "DOI"
                     and identifier.get("role") == "concept"
                 ):
-                    identifier_value = identifier.get("identifier", "")
+                    doi_value = identifier.get("identifier", "")
+                    if doi_value:
+                        identifier_value = f"[{doi_value}](https://doi.org/{doi_value})"
                     break
             if not identifier_value:
                 for identifier in self.identifiers:
