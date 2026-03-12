@@ -1,4 +1,9 @@
 {
+    "ESA": {
+        "name": "European Space Agency",
+        "abbreviation": "ESA",
+        "ror": "https://ror.org/03wd9za21"
+    },
     "DUT": {
         "name": "Delft University of Technology",
         "abbreviation": "DUT",

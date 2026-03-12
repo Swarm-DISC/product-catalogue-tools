@@ -533,6 +533,7 @@ class ProductMetadataDashboard:
                     identifier["version"] = identifier_version
                 identifiers.append(identifier)
         self.product.identifiers = identifiers
+        self.product.ensure_citations()
             
         self.product.applicable_spacecraft.sort()
         self.product.applicable_missions = list(set([SC2MISSIONS.get(sc, "ERROR") for sc in self.product.applicable_spacecraft]))
