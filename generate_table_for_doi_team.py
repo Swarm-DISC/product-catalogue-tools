@@ -38,10 +38,22 @@ def format_authors(authors: List[Dict[str, str]], authors_db: Dict[str, Dict[str
     """Format authors list into comma-separated string using full names"""
     if not authors:
         return ""
+
+    excluded_names = {
+        "european space agency",
+    }
+    excluded_rors = {
+        "https://ror.org/03wd9za21",
+    }
     
     author_names = []
     for author in authors:
         name = author.get('name', '')
+        ror = author.get('ror', '')
+        if name.strip().lower() in excluded_names:
+            continue
+        if ror.strip().lower() in excluded_rors:
+            continue
         author_names.append(name)
     
     return ', '.join(author_names)
