@@ -21,7 +21,7 @@
 <p><strong>Applicable missions:</strong> Swarm</p>
 <p><strong>Applicable spacecraft:</strong> Swarm-A, Swarm-B, Swarm-C</p>
 <h2>Description</h2>
-<p>Climatological model of ionospheric bubble probability</p>
+<p>Climatological model of ionospheric bubble probability based on electron density and magnetic field observations</p>
 <h2>Data access</h2>
 <ul>
 <li>Files:<ul>
@@ -101,15 +101,15 @@
   </tr>
   <tr>
     <td>Input data</td>
-    <td>IBIxTMS_2F, AUX_F10_2, Bubble detection index of CHAMP vector magnetic field data (similar procedure as for IBIxTMS_2F)</td>
+    <td>IBIxTMS_2F, EFIx_LP_1B, AUX_F10_2, Bubble detection index of CHAMP vector magnetic field data (similar procedure as for IBIxTMS_2F)</td>
   </tr>
   <tr>
     <td>Input time span</td>
-    <td>Entire Swarm mission + entire CHAMP mission</td>
+    <td>Model based on magnetic data: Entire Swarm mission + Entire CHAMP mission; Model based on electron density data: Entire Swarm mission</td>
   </tr>
   <tr>
     <td>Spatial representation</td>
-    <td>Low geographic latitudes (ITRF) &lt; 45°, continuous in geographic longitude (ITRF)</td>
+    <td>Continuous in geographic longitude at a step size of 1&deg</td>
   </tr>
   <tr>
     <td>Time representation</td>
@@ -125,7 +125,7 @@
   </tr>
   <tr>
     <td>Uncertainty</td>
-    <td>See presentation 8th SDQW (https://earth.esa.int/web/guest/missions/esa-eo-missions/swarm/activities/conferences/8th-data-quality-workshop#Wednesday)</td>
+    <td> Refer to Stolle et al. (2024) (An empirical model of the occurrence rate of low latitude post-sunset plasma irregularities derived from CHAMP and Swarm magnetic observations. Space Weather, 10.1029/2023SW003809) </td>
   </tr>
   <tr>
     <td>Quality indicator</td>
@@ -133,11 +133,14 @@
   </tr>
   <tr>
     <td>Data volume</td>
-    <td>Approximately 100 kB per file</td>
+    <td>Approximately 400 kB per file</td>
   </tr>
   <tr>
     <td>Data format</td>
-    <td>CDF</td>
+    <td><ul>
+      <li>Coefficients of climatological model of ionospheric bubble probability based on magnetic data are stored in .cdf file </li>
+      <li>Coefficients of climatological model of ionospheric bubble probability based on electron density data are stored in .pth file </li>
+    </ul></td>
   </tr>
   <tr>
     <td>Output data</td>
@@ -145,19 +148,19 @@
   </tr>
   <tr>
     <td>Output time span</td>
-    <td>Model is based on data from entire CHAMP and Swarm missions, but it is in valid for any time of solar flux 80 &lt; F10.7 &lt; 200 sfu; resolution: 1 LT hour</td>
+    <td>N/A </td>
   </tr>
   <tr>
     <td>Update rate</td>
-    <td>half-yearly</td>
+    <td>yearly</td>
   </tr>
   <tr>
     <td>Latency</td>
-    <td>Two months</td>
+    <td>&lt 3 months </td>
   </tr>
   <tr>
     <td>Notes</td>
-    <td>The coefficient file, the applicable forward modelling code (in Python), and related documentation are available at https://igit.iap-kborn.de/ibp/ibp-model</td>
+    <td>The coefficient file, the machine learning model file, the applicable forward modelling code (in Python), and related documentation are available at https://igit.iap-kborn.de/ibp/ibp-model</td>
   </tr>
 </tbody>
 </table>
