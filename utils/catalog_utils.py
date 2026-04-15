@@ -62,7 +62,6 @@ class Product:
     creation_year: "int|None" = None
     product_types: "list[str]|None" = field(default_factory=lambda: [])
     identifiers: "list[dict]|None" = field(default_factory=lambda: [])
-    citations: "list[dict]|None" = field(default_factory=lambda: [])
     description: str = ""
     link_files_http: str = ""
     link_files_ftp: str = ""
@@ -155,10 +154,14 @@ class Product:
         # Format product types
         product_types_info = ", ".join(self.product_types) if self.product_types else "N/A"
         
+        has_primary = any((i or {}).get("primary") for i in (self.identifiers or []))
+        cite_as = self.preview_citation_text if has_primary else "N/A"
+        cite_bibtex = self.preview_citation_bibtex_block if has_primary else ""
         items = [
             f"# {self.product_id}\n\n{self.definition}",
-            f"**Citation:** {self.preview_citation_text}",
-            self.preview_citation_bibtex_block,
+            f"**Cite as:** {cite_as}",
+            cite_bibtex,
+            self.additional_references_block,
             f"**Product types:** {product_types_info}",
             f"**Authored by:** {authors_info}",
             f"**Creation year:** {creation_year_info}",
@@ -179,6 +182,9 @@ class Product:
     def _citation_identifier(self):
         if not self.identifiers:
             return None
+        for identifier in self.identifiers:
+            if identifier.get("primary") and identifier.get("identifier"):
+                return identifier
         for identifier in self.identifiers:
             if (
                 identifier.get("identifierType") == "DOI"
@@ -216,15 +222,15 @@ class Product:
         identifier_md = self._format_identifier_for_markdown(self._citation_identifier())
         return ", ".join([
             authors_info,
-            f"({creation_year_info})",
-            f"{self.product_id}",
+            creation_year_info,
+            f'"{self.product_id}"',
             "European Space Agency",
             identifier_md,
         ]).rstrip(", ")
 
     def _generated_citation_bibtex(self):
         author_names = [author.get("name", "").strip() for author in self.authors or []]
-        authors_info = " and ".join([name for name in author_names if name]) or "Unknown"
+        authors_info = " and ".join([f"{{{name}}}" for name in author_names if name]) or "Unknown"
         year_info = str(self.creation_year) if self.creation_year else "n.d."
         identifier = self._citation_identifier() or {}
         identifier_value = identifier.get("identifier", "")
@@ -246,50 +252,103 @@ class Product:
         lines.append("}")
         return "\n".join(lines)
 
-    def ensure_citations(self):
-        if self.citations is None:
-            self.citations = []
-        generated_text = self._generated_citation_text()
-        generated_bibtex = self._generated_citation_bibtex()
-        if not self.citations:
-            self.citations = [{
-                "text": generated_text,
-                "bibtex": generated_bibtex,
-            }]
+    def ensure_primary_citation(self):
+        if not self.identifiers:
             return
-        first = self.citations[0] if isinstance(self.citations[0], dict) else {}
-        first["text"] = generated_text
-        first["bibtex"] = generated_bibtex
-        self.citations[0] = first
+        primary = next(
+            (i for i in self.identifiers if (i or {}).get("primary")),
+            None,
+        )
+        if primary is None:
+            return
+        citation = primary.get("citation") or {}
+        citation["text"] = self._generated_citation_text()
+        citation["bibtex"] = self._generated_citation_bibtex()
+        primary["citation"] = citation
 
     @property
     def preview_citation_text(self):
-        if self.citations and isinstance(self.citations[0], dict):
-            citation_text = self.citations[0].get("text", "").strip()
-            if citation_text:
-                return citation_text
+        primary = self._citation_identifier()
+        if primary:
+            citation = primary.get("citation") or {}
+            text = (citation.get("text") or "").strip()
+            if text:
+                return text
         return self._generated_citation_text()
 
     @property
     def preview_citation_bibtex(self):
-        if self.citations and isinstance(self.citations[0], dict):
-            citation_bibtex = self.citations[0].get("bibtex", "").strip()
-            if citation_bibtex:
-                return citation_bibtex
+        primary = self._citation_identifier()
+        if primary:
+            citation = primary.get("citation") or {}
+            bibtex = (citation.get("bibtex") or "").strip()
+            if bibtex:
+                return bibtex
         return self._generated_citation_bibtex()
 
     @property
     def preview_citation_bibtex_block(self):
-        bibtex_raw = self.preview_citation_bibtex.replace("\\n", "\n")
-        bibtex_text = escape(bibtex_raw)
+        return self._bibtex_details_block(self.preview_citation_bibtex)
+
+    @staticmethod
+    def _bibtex_details_block(bibtex_raw):
+        bibtex_text = escape((bibtex_raw or "").replace("\\n", "\n"))
         return "\n".join([
+            "<div style='margin-left: 2em;'>",
             "<details>",
             "<summary>BibTeX</summary>",
             "<textarea readonly rows=10 style='width: 100%; font-family: monospace;'>",
             bibtex_text,
             "</textarea>",
             "</details>",
+            "</div>",
         ])
+
+    @property
+    def additional_references_block(self):
+        parts = []
+        for identifier in self.identifiers or []:
+            if (identifier or {}).get("primary"):
+                continue
+            if not identifier.get("identifier"):
+                continue
+            citation = identifier.get("citation") or {}
+            text = (citation.get("text") or "").strip()
+            bibtex = (citation.get("bibtex") or "").strip()
+            if text:
+                display = self._linkify_urls(escape(text))
+            else:
+                display = self._identifier_as_link(identifier)
+            item = [f"<li>{display}"]
+            if bibtex:
+                item.append(self._bibtex_details_block(bibtex))
+            item.append("</li>")
+            parts.append("\n".join(item))
+        if not parts:
+            return "**Additional references:** N/A"
+        return "**Additional references:**\n\n<ul>\n" + "\n".join(parts) + "\n</ul>"
+
+    @staticmethod
+    def _linkify_urls(escaped_text):
+        import re
+        return re.sub(
+            r"(https?://[^\s<]+?)(?=[.,;:)\]]*(?:\s|$))",
+            lambda m: f"<a href='{m.group(1)}'>{m.group(1)}</a>",
+            escaped_text,
+        )
+
+    @staticmethod
+    def _identifier_as_link(identifier):
+        value = (identifier.get("identifier") or "").strip()
+        if not value:
+            return ""
+        if identifier.get("identifierType") == "DOI":
+            href = f"https://doi.org/{value}"
+            label = value
+        else:
+            href = value
+            label = value
+        return f"<a href='{escape(href)}'>{escape(label)}</a>"
 
     @property
     def citation_text(self):

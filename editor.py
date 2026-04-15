@@ -22,16 +22,20 @@
 # %%
 from copy import deepcopy
 import subprocess
+import sys
 import json
 
 import panel as pn
 
-# Update the product-catalogue submodule so we use the latest version online
-try:
-    subprocess.run(["git", "submodule", "update", "--init", "--recursive", "--remote"], check=True)
-except subprocess.CalledProcessError:
-    # when running in the docker container:
-    subprocess.run(["git", "-C", "product-catalogue", "pull"], check=True)
+# Only pull the product-catalogue submodule when explicitly requested, e.g.
+#   uv run panel serve editor.py --args --re-pull-catalogue
+# Pulling unconditionally can clobber unpushed local submodule commits.
+if "--re-pull-catalogue" in sys.argv:
+    try:
+        subprocess.run(["git", "submodule", "update", "--init", "--recursive", "--remote"], check=True)
+    except subprocess.CalledProcessError:
+        # when running in the docker container:
+        subprocess.run(["git", "-C", "product-catalogue", "pull"], check=True)
 
 # 'quill' is not working (used for TextEditor)
 pn.extension('ace', 'jsoneditor', 'texteditor', 'tabulator', notifications=True, sizing_mode="stretch_width")
@@ -374,7 +378,10 @@ class ProductMetadataDashboard:
             "identifierType": "DOI",
             "role": "",
             "version": "",
+            "primary": False,
+            "citation": {"text": "", "bibtex": ""},
         }
+        citation = identifier.get("citation") or {}
 
         identifier_value = pn.widgets.TextInput(
             name=f"Identifier {len(self.identifier_widgets) + 1}:",
@@ -391,7 +398,7 @@ class ProductMetadataDashboard:
 
         identifier_role = pn.widgets.Select(
             name="Role:",
-            options=["", "concept", "version", "external"],
+            options=["", "concept", "version", "external", "related"],
             value=identifier.get("role", ""),
             width=140
         )
@@ -401,6 +408,26 @@ class ProductMetadataDashboard:
             value=identifier.get("version", ""),
             placeholder="e.g., v1.2",
             width=120
+        )
+
+        identifier_primary = pn.widgets.Checkbox(
+            name="Primary",
+            value=bool(identifier.get("primary", False)),
+            margin=(25, 5, 5, 5),
+            width=90,
+        )
+
+        citation_text = pn.widgets.TextAreaInput(
+            name="Citation text:",
+            value=citation.get("text", ""),
+            placeholder="Human-readable citation",
+            height=80,
+        )
+        citation_bibtex = pn.widgets.TextAreaInput(
+            name="Citation BibTeX:",
+            value=citation.get("bibtex", ""),
+            placeholder="@misc{...}",
+            height=120,
         )
 
         remove_button = pn.widgets.Button(
@@ -414,21 +441,45 @@ class ProductMetadataDashboard:
         remove_button.on_click(
             lambda event, idx=identifier_index: self.remove_identifier_widget(idx)
         )
+        identifier_primary.param.watch(
+            lambda event, idx=identifier_index: self._on_primary_toggle(event, idx),
+            "value",
+        )
 
         identifier_value.param.watch(self._auto_refresh, "value")
         identifier_type.param.watch(self._auto_refresh, "value")
         identifier_role.param.watch(self._auto_refresh, "value")
         identifier_version.param.watch(self._auto_refresh, "value")
+        citation_text.param.watch(self._auto_refresh, "value")
+        citation_bibtex.param.watch(self._auto_refresh, "value")
 
         identifier_widget_set = {
             "identifier": identifier_value,
             "identifierType": identifier_type,
             "role": identifier_role,
             "version": identifier_version,
+            "primary": identifier_primary,
+            "citation_text": citation_text,
+            "citation_bibtex": citation_bibtex,
             "remove": remove_button
         }
 
         self.identifier_widgets.append(identifier_widget_set)
+
+    def _on_primary_toggle(self, event, index):
+        """Enforce at-most-one primary identifier."""
+        if not event.new:
+            self._auto_refresh(None)
+            return
+        prev = self._suspend_autorefresh
+        self._suspend_autorefresh = True
+        try:
+            for i, widget_set in enumerate(self.identifier_widgets):
+                if i != index and widget_set["primary"].value:
+                    widget_set["primary"].value = False
+        finally:
+            self._suspend_autorefresh = prev
+        self._auto_refresh(None)
 
     def remove_identifier_widget(self, index):
         """Remove an identifier widget set"""
@@ -450,18 +501,30 @@ class ProductMetadataDashboard:
 
     def update_identifiers_container(self):
         """Update the identifiers container with current widgets"""
-        identifier_rows = []
+        identifier_blocks = []
 
         for widget_set in self.identifier_widgets:
-            identifier_row = pn.Row(
+            header_row = pn.Row(
                 widget_set["identifier"],
                 widget_set["identifierType"],
                 widget_set["role"],
                 widget_set["version"],
+                widget_set["primary"],
                 widget_set["remove"],
                 sizing_mode="stretch_width"
             )
-            identifier_rows.append(identifier_row)
+            citation_block = pn.Card(
+                widget_set["citation_text"],
+                widget_set["citation_bibtex"],
+                title="Citation (optional)",
+                collapsed=not (
+                    widget_set["citation_text"].value.strip()
+                    or widget_set["citation_bibtex"].value.strip()
+                ),
+                sizing_mode="stretch_width",
+                margin=(5, 5, 15, 40),
+            )
+            identifier_blocks.append(pn.Column(header_row, citation_block))
 
         add_button = pn.widgets.Button(
             name="+ Add Identifier",
@@ -472,7 +535,7 @@ class ProductMetadataDashboard:
 
         self.widgets["identifiers_container"][:] = [
             pn.pane.Markdown("**Identifiers (DOI/URL):**"),
-            *identifier_rows,
+            *identifier_blocks,
             add_button
         ]
     
@@ -522,6 +585,9 @@ class ProductMetadataDashboard:
             identifier_type = widget_set["identifierType"].value.strip()
             identifier_role = widget_set["role"].value.strip()
             identifier_version = widget_set["version"].value.strip()
+            is_primary = bool(widget_set["primary"].value)
+            citation_text_val = widget_set["citation_text"].value.strip()
+            citation_bibtex_val = widget_set["citation_bibtex"].value.strip()
             if identifier_value and identifier_type:
                 identifier = {
                     "identifier": identifier_value,
@@ -531,9 +597,18 @@ class ProductMetadataDashboard:
                     identifier["role"] = identifier_role
                 if identifier_version:
                     identifier["version"] = identifier_version
+                if is_primary:
+                    identifier["primary"] = True
+                citation = {}
+                if citation_text_val:
+                    citation["text"] = citation_text_val
+                if citation_bibtex_val:
+                    citation["bibtex"] = citation_bibtex_val
+                if citation:
+                    identifier["citation"] = citation
                 identifiers.append(identifier)
         self.product.identifiers = identifiers
-        self.product.ensure_citations()
+        self.product.ensure_primary_citation()
             
         self.product.applicable_spacecraft.sort()
         self.product.applicable_missions = list(set([SC2MISSIONS.get(sc, "ERROR") for sc in self.product.applicable_spacecraft]))
