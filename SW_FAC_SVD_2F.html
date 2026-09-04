@@ -1,0 +1,309 @@
+<h1>SW_FAC_SVD_2F</h1>
+<p>Field-aligned currents (dual-satellite A-C, singular value decomposition method)</p>
+<p><strong>Cite as:</strong> European Space Agency, Institute of Space Science, Romania, 2025, "SW_FAC_SVD_2F", European Space Agency, https://swarmhandbook.earth.esa.int/catalogue/SW_FAC_SVD_2F</p>
+<div style='margin-left: 2em;'>
+<details>
+<summary>BibTeX</summary>
+<textarea readonly rows=10 style='width: 100%; font-family: monospace;'>
+@misc{SW_FAC_SVD_2F,
+  author = {{European Space Agency} and {Institute of Space Science, Romania}},
+  title = {SW_FAC_SVD_2F},
+  year = {2025},
+  publisher = {European Space Agency},
+  url = {https://swarmhandbook.earth.esa.int/catalogue/SW_FAC_SVD_2F},
+}
+</textarea>
+</details>
+</div>
+
+<p><strong>Additional references:</strong> N/A</p>
+<p><strong>Product types:</strong> SW_OPER_FAC_SVD_2F</p>
+<p><strong>Authored by:</strong> European Space Agency - https://ror.org/03wd9za21, Institute of Space Science, Romania - https://ror.org/054a6wv56</p>
+<p><strong>Creation year:</strong> 2025</p>
+<p><strong>Thematic areas:</strong> Ionosphere/Magnetosphere, Space Weather</p>
+<p><strong>Applicable missions:</strong> Swarm</p>
+<p><strong>Applicable spacecraft:</strong> Swarm-A, Swarm-C</p>
+<h2>Description</h2>
+<p>Time-series of field-aligned current (FAC) and radial current (IRC) densities along the orbit using the dual-satellite singular value decomposition (SVD) method. IRC density is obtained by applying the Ampere's law on four-point configurations, formed along the orbit by combining satellite positions from Swarm A and Swarm C. When the satellite's cross-track separation is much smaller than the along-track distance, only the along-track gradients are used in the analysis and the algorithm yields estimates that are close to the average (over the satellites) single-satellite estimates. To avoid discontinuous current density solutions, the transition between full planar and linear gradient estimations is smoothed. IRC density is thus provided along the whole orbit. The FAC density, derived from IRC density by considering the local inclination of the magnetic field, can only be calculated at latitudes where the geomagnetic field inclination is &gt; 30° or &lt; - 30°.</p>
+<p>Note: to minimize the influence of small-scale fluctuations at each satellite and to match the scale of the magnetic perturbations with the configuration scale, the magnetic field data is filtered with a Butterworth, order 5, 20 s cut-off low-pass filter.</p>
+<h2>Data access</h2>
+<ul>
+<li>Files:<ul>
+<li><a href="https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/FAC/SVD">https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/FAC/SVD</a></li>
+<li>ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/FAC/SVD</li>
+</ul>
+</li>
+</ul>
+<h2>FAST processing</h2>
+<h2>Preview image</h2>
+<p>(delivered separately)</p>
+<h2>File contents</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Timestamp</td>
+<td style="text-align: left;">CDF_EPOCH</td>
+<td style="text-align: left;">Time, UTC</td>
+<td style="text-align: left;">milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;">Latitude</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">Position in ITRF, Latitude</td>
+<td style="text-align: left;">degrees</td>
+</tr>
+<tr>
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">Position in ITRF, Longitude</td>
+<td style="text-align: left;">degrees</td>
+</tr>
+<tr>
+<td style="text-align: left;">Radius</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">Position in ITRF, Radius</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr>
+<td style="text-align: left;">FAC</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">FAC density</td>
+<td style="text-align: left;">µA/m2</td>
+</tr>
+<tr>
+<td style="text-align: left;">IRC</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">IRC density</td>
+<td style="text-align: left;">µA/m2</td>
+</tr>
+<tr>
+<td style="text-align: left;">FACerr</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">Uncertainty of FAC</td>
+<td style="text-align: left;">µA/m2</td>
+</tr>
+<tr>
+<td style="text-align: left;">IRCerr</td>
+<td style="text-align: left;">CDF_DOUBLE</td>
+<td style="text-align: left;">Uncertainty of IRC</td>
+<td style="text-align: left;">µA/m2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flag</td>
+<td style="text-align: left;">CDF_UINT2</td>
+<td style="text-align: left;">Quality flag</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<h2>More details</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Product Identifier</th>
+      <th>FAC_SVD_2F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Definition</td>
+      <td>
+        Time-series of field-aligned current (FAC) and radial current (IRC) densities along the orbit using the dual-satellite singular value decomposition (SVD) method. IRC density is obtained by applying the Ampere’s law on four-point configurations, formed along the orbit by combining satellite positions from Swarm A and Swarm C. When the satellite’s cross-track separation is much smaller than the along-track distance, only the along-track gradients are used in the analysis and the algorithm yields estimates that are close to the average (over the satellites) single-satellite estimates. To avoid discontinuous current density solutions, the transition between full planar and linear gradient estimations is smoothed. IRC density is thus provided along the whole orbit. The FAC density, derived from IRC density by considering the local inclination of the magnetic field, can only be calculated at latitudes where the geomagnetic field inclination is > 30° or < - 30°.
+        <br><br>
+        Note: to minimize the influence of small-scale fluctuations at each satellite and to match the scale of the magnetic perturbations with the configuration scale, the magnetic field data is filtered with a Butterworth, order 5, 20 s cut-off low-pass filter.
+      </td>
+    </tr>
+    <tr>
+      <td>Input Data</td>
+      <td>MAGx_LR_1B, AUXxORBCNT, x = [A,C], latest CHAOS model<sup>1</sup> including contributions from core, lithosphere, magnetosphere and secondary currents.</td>
+    </tr>
+    <tr>
+      <td>Input Time Span</td>
+      <td>3 days</td>
+    </tr>
+    <tr>
+      <td>Spatial representation</td>
+      <td>Current density estimates along the entire orbits at positions between Swarm A and Swarm C</td>
+    </tr>
+    <tr>
+      <td>Time representation</td>
+      <td>Time-series of current densities at 1 s resolution</td>
+    </tr>
+    <tr>
+      <td>Units</td>
+      <td>Current densities: µA/m<sup>2</sup></td>
+    </tr>
+    <tr>
+      <td>Resolution</td>
+      <td>Current density: 1E-6 µA/m<sup>2</sup></td>
+    </tr>
+    <tr>
+      <td>Uncertainty</td>
+      <td>25 nA/m<sup>2</sup> around ± 86.6°, decreasing towards Equator and poles</td>
+    </tr>
+    <tr>
+      <td>Quality Indicator</td>
+      <td>
+        Product quality flag. The meaning of the individual bits are described below:
+        <br><br>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Bit nr.</th>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>0/1</td>
+              <td>Value is 1 when at least one absent magnetic field value at quad’s corners</td>
+            </tr>
+            <tr>
+              <td>2-4</td>
+              <td>0/N</td>
+              <td>Number of bad magnetic field values (i.e. magnetic field components set to zero in the MAGx_LR_1B files) at quad’s corners. N = 0 - 4</td>
+            </tr>
+            <tr>
+              <td>5-7</td>
+              <td>0/N</td>
+              <td>Number of interpolated magnetic field value at quad’s corners. Interpolated values occur when the interval of bad magnetic data is less than 4 s. N = 0 - 4</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>0/1</td>
+              <td>Value is 1 when the interval of valid magnetic data is too small for data filtering. This occurs when the interval of time-consecutive quads is &lt; 30 s.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>0/1</td>
+              <td>Value is 1 when the quad is too close to the Equator and the FAC density cannot be computed. This occurs when the (absolute value of) magnetic field inclination with respect to the quad plane is &lt; 30 deg.</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        Examples:
+        <ul>
+          <li>Flag = 1 (binary 000000001): Valid IRC estimation; FAC density could not be computed because the quad is too close to the Equator.</li>
+          <li>Flag = 128 (binary 001000000): 2 bad magnetic field values at quad’s corners that were not interpolated. IRC and FAC are set to NaN.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Data Volume</td>
+      <td>&lt; 4 MB per day</td>
+    </tr>
+    <tr>
+      <td>Data Format</td>
+      <td>CDF</td>
+    </tr>
+    <tr>
+      <td>Output Data</td>
+      <td>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Variable Name</th>
+              <th>Data Type</th>
+              <th>Description</th>
+              <th>Units</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Timestamp</td>
+              <td>CDF_EPOCH</td>
+              <td>Time, UTC</td>
+              <td>milliseconds</td>
+            </tr>
+            <tr>
+              <td>Latitude</td>
+              <td>CDF_DOUBLE</td>
+              <td>Position in ITRF, Latitude</td>
+              <td>degrees</td>
+            </tr>
+            <tr>
+              <td>Longitude</td>
+              <td>CDF_DOUBLE</td>
+              <td>Position in ITRF, Longitude</td>
+              <td>degrees</td>
+            </tr>
+            <tr>
+              <td>Radius</td>
+              <td>CDF_DOUBLE</td>
+              <td>Position in ITRF, Radius</td>
+              <td>m</td>
+            </tr>
+            <tr>
+              <td>FAC</td>
+              <td>CDF_DOUBLE</td>
+              <td>FAC density</td>
+              <td>µA/m<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>IRC</td>
+              <td>CDF_DOUBLE</td>
+              <td>IRC density</td>
+              <td>µA/m<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>FACerr</td>
+              <td>CDF_DOUBLE</td>
+              <td>Uncertainty of FAC</td>
+              <td>µA/m<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>IRCerr</td>
+              <td>CDF_DOUBLE</td>
+              <td>Uncertainty of IRC</td>
+              <td>µA/m<sup>2</sup></td>
+            </tr>
+            <tr>
+              <td>Flag</td>
+              <td>CDF_UINT2</td>
+              <td>Quality flag</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>Output Time Span</td>
+      <td>1 day</td>
+    </tr>
+    <tr>
+      <td>Update Rate</td>
+      <td>daily</td>
+    </tr>
+    <tr>
+      <td>Latency</td>
+      <td>&lt; 1 min</td>
+    </tr>
+    <tr>
+      <td>Notes</td>
+      <td><sup>1</sup>Version information of Input Data are available in the CDF global attributes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Related resources</h2>
+<ul>
+<li><a href="https://earth.esa.int/eogateway/documents/d/earth-online/swarm-fac-svd-product-definition">Swarm FAC_SVD Product Definition (SW-TN-ISS-GS-001)</a></li>
+<li><a href="https://earth.esa.int/eogateway/documents/d/earth-online/swarm-fac-svd-validation-report">Swarm FAC_SVD Validation Report (SW-TN-ISS-GS-003)</a></li>
+<li><a href="https://earth.esa.int/eogateway/activities/sifacit">SIFACIT project</a></li>
+<li>Vogt, J., Blagau, A., and Pick, L. (2020). Robust adaptive spacecraft array derivative analysis. Earth and Space Science, 7, e2019EA000953. <a href="https://doi.org/10.1029/2019EA000953">https://doi.org/10.1029/2019EA000953</a></li>
+<li>Blagau, A., and Vogt, J. (2022). SwarmFACE: a Python Package for Field-Aligned Currents Exploration with Swarm. Frontiers in Astronomy and Space Sciences, 9. <a href="https://doi.org/10.3389/fspas.2022.1077845">https://doi.org/10.3389/fspas.2022.1077845</a></li>
+</ul>
+
+<h2>Changelog</h2>
+<p>N/A</p>
