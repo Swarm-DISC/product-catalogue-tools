@@ -1,0 +1,127 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-ed79355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AOBxFAC_2F",
+  "name": "SW_AOBxFAC_2F",
+  "alternateName": "Auroral oval boundaries derived from FACs",
+  "description": "Auroral oval boundaries, associated with auroral precipitation, estimated from the presence of small-scale (<150 km) field-aligned currents.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_AOBxFAC_2F",
+    "https://doi.org/10.57780/esa-ed79355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/AOB/FAC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/AOB/FAC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_AOBAFAC_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "t",
+      "description": "Time of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF - Geocentric radius (from the Earth center)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic Local Time (QD)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Boundary_Flag",
+      "unitText": "nan",
+      "description": "Indicator for equatorward (=1) or poleward (=2) boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quality",
+      "unitText": "nan",
+      "description": "Quality indicator of equatorward/poleward boundary (Pa, Sigma)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Pair_Indicator",
+      "unitText": "nan",
+      "description": "Indicator of equatorward/poleward boundary of auroral oval. If the auroral oval boundaries are detectable as one pair, the pair indicator represents the record of previous (-1) or next (1) equatorward/poleward boundary within one pair; otherwise, the pair indicator is set to 0"
+    }
+  ]
+}

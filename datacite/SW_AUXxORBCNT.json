@@ -1,0 +1,60 @@
+{
+  "doi": "10.57780/esa-f1bc8c2",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AUXxORBCNT",
+  "titles": [
+    {
+      "title": "SW_AUXxORBCNT"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2013,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Precise Swarm orbit number information",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The Swarm orbit counter auxiliary data file provides precise Swarm orbit number information. The start of an orbit is defined as the Equator crossing of the ascending node (i.e. the northbound Equator crossing).",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Orbit information"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

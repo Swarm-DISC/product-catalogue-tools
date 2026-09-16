@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-be497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_DNSxACC_2_",
+  "titles": [
+    {
+      "title": "SW_DNSxACC_2_"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Delft University of Technology",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/02e2c7k09",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2018,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Thermospheric density",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Time series of neutral thermospheric density from precise orbit determination and accelerometer data",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Thermosphere"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

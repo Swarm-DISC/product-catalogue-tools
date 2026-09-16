@@ -1,0 +1,134 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-9f7bf0b",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_STRxEPF_1B",
+  "name": "SW_STRxEPF_1B",
+  "alternateName": "Star tracker energetic particle flux",
+  "description": "Proton flux of energetic particles (>100 MeV) measured by each CHU (Camera Head Unit)",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_STRxEPF_1B",
+    "https://doi.org/10.57780/esa-9f7bf0b"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2025",
+  "keywords": [
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/STRxEPF",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/STRxEPF",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Time synchronization status (of VFM), source and quality"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF – Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF – Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF – Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EPF",
+      "unitText": "cm-2s-1",
+      "description": "Energetic particle flux, NaN if Flags_EPF >= 16"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EPD",
+      "description": "Energetic particle detections"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_CHU",
+      "unitText": "℃",
+      "description": "CHU temperature"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RA",
+      "unitText": "deg",
+      "description": "Rect-ascension of CHU attitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DEC",
+      "unitText": "deg",
+      "description": "Declination of CHU attitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EPD_T_corr",
+      "description": "Temperature correction of particle count"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EPD_Dens_corr",
+      "description": "Star density correction of particle count"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_EPF",
+      "description": "Flags characterizing the energetic particle flux estimate (EPF)"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-5b497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/GF_TECxTMS_2F",
+  "name": "GF_TECxTMS_2F",
+  "alternateName": "Time series of the ionospheric Total Electron Content (TEC) derived for GRACE-FO 1 and 2 satellites",
+  "description": "Integrated electron density along the line of sight from GRACE-FO 1 and 2 to GNSS satellites",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/GF_TECxTMS_2F",
+    "https://doi.org/10.57780/esa-5b497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Space Weather",
+    "Ionosphere/Magnetosphere",
+    "GRACE-FO",
+    "GRACE-FO-1",
+    "GRACE-FO-2"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/GRACE-FO/TEC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/GRACE-FO/TEC",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-0e69b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/GFx_FGM_ACAL_CORR",
+  "titles": [
+    {
+      "title": "GFx_FGM_ACAL_CORR"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2022,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Magnetic measurements derived from GRACE-FO platform magnetometers",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "This product contains calibrated magnetic measurements derived from GRACE-FO platform magnetometers",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Magnetic measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

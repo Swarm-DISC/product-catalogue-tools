@@ -1,0 +1,121 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-4369b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ASMxBUR_1B",
+  "name": "SW_ASMxBUR_1B",
+  "alternateName": "ASM 250Hz Experimental Burst Mode Data",
+  "description": "The ASMxBUR_1B Product contains magnetic scalar data at 250 Hz rate. The ASM data are processed and provided at ASM instrument time stamp.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_ASMxBUR_1B",
+    "https://doi.org/10.57780/esa-4369b15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Magnetic measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/Magnetic_Data/ASM_Burst_Mode_Data/Data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/Magnetic_Data/ASM_Burst_Mode_Data/Data",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "TimeFrac",
+      "unitText": "ns",
+      "description": "Fractional time of observation: ns within second"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF - Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F",
+      "unitText": "nT",
+      "description": "Magnetic field intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_Stray",
+      "unitText": "nT",
+      "description": "Magnetic stray fields correction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_BlochSiegert",
+      "unitText": "nT",
+      "description": "Bloch-Siegert correction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags",
+      "description": "Binary combination of the values taken by Flag_outlier, Flag_magnetic_condition, Flag_heater and Flag_step"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Time_piezo",
+      "unitText": "UTC",
+      "description": "Timestamp of ASM motor activations"
+    }
+  ]
+}

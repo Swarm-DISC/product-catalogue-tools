@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-1369f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_IBIxTMS_2F",
+  "titles": [
+    {
+      "title": "SW_IBIxTMS_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2015,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Ionospheric bubble index",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "By combining electron density and magnetic field observations the IBI product gives information on bubble climatology and on disturbance level of magnetic field data.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

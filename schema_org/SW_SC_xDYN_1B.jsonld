@@ -1,0 +1,176 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-2ebc006",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_SC_xDYN_1B",
+  "name": "SW_SC_xDYN_1B",
+  "alternateName": "Auxiliary data needed for precise orbit determination and non-gravitational force modelling",
+  "description": "The SC_xDYN_1B Product contains auxiliary data needed for precise orbit determination and non-gravitational force modelling.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_SC_xDYN_1B",
+    "https://doi.org/10.57780/esa-2ebc006"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "HK data",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/SC_xDYN",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/SC_xDYN",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Synchronization status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_Sun",
+      "unitText": "m/s2",
+      "description": "Acceleration due to Solar radiation pressure, S/C frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "e_Sun",
+      "description": "Direction to the Sun, unit vector, S/C frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "m_SC",
+      "unitText": "kg",
+      "description": "Actual mass of S/C"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "r_CoG",
+      "unitText": "m",
+      "description": "Center of gravity, S/C frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "A_head",
+      "unitText": "m2",
+      "description": "Cross sections of the S/C, orbit frame,front"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "A_right",
+      "unitText": "m2",
+      "description": "Cross sections of the S/C, orbit frame,right"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "A_left",
+      "unitText": "m2",
+      "description": "Cross sections of the S/C, orbit frame,left"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "A_down",
+      "unitText": "m2",
+      "description": "Cross sections of the S/C, orbit frame,down"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "K_Earth",
+      "unitText": "m2",
+      "description": "Downward optical reflectivity of the S/C"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "P_Gas",
+      "unitText": "Pa",
+      "description": "Pressure of gas tanks"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_Gas",
+      "unitText": "deg C",
+      "description": "Temperature of gas tanks"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_Platform",
+      "description": "Flags characterizing the S/C platform information"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_q",
+      "description": "Flags characterizing the attitude information"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dt_thr",
+      "unitText": "s",
+      "description": "Thruster on-time"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "thr_set",
+      "description": "Flag indicating which thruster branch is active"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "f_thr",
+      "unitText": "mN",
+      "description": "Nominal thrust force of activated thrusters (combined x, y, z)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_centr",
+      "unitText": "m/s2",
+      "description": "Centrifugal acceleration, S/C frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_GG",
+      "unitText": "m/s2",
+      "description": "Gravity gradient acceleration, S/C frame"
+    }
+  ]
+}

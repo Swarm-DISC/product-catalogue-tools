@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-b969b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2E",
+  "titles": [
+    {
+      "title": "SW_MIO_SHA_2E"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "University of Bergen",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03zga2b32",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2018,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Model of polar daily geomagnetic variation caused by ionospheric currents (AMPS model)",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Model of polar daily geomagnetic variation caused by ionospheric currents (AMPS model)",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

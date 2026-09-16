@@ -1,0 +1,179 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-8c69715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TII1B",
+  "name": "SW_EFIx_TII1B",
+  "alternateName": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) Provisional plasma dataset",
+  "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) parameter for ionospheric ions bulk velocity, ion temperature, and electric field measurements obtained from a development, or \"sandbox\", processor from University of Calgary.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TII1B",
+    "https://doi.org/10.57780/esa-8c69715"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Calgary",
+      "@id": "https://ror.org/03yjb2x39"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2014",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/Plasma_Data/Provisional_Plasma_dataset/Thermal_Ion_Imagers_Data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/Plasma_Data/Provisional_Plasma_dataset/Thermal_Ion_Imagers_Data",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "s",
+      "description": "Times are seconds from 1 Jan 2000 00:00:00 UT"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "latitude",
+      "unitText": "deg",
+      "description": "ITRF spherical latitude derived from L1B Medium Orbit Determination (MOD)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "longitude",
+      "unitText": "deg",
+      "description": "ITRF spherical longitude derived from L1B MOD"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "radius",
+      "unitText": "m",
+      "description": "ITRF spherical radius derived from L1B MOD"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "v_SC",
+      "unitText": "m/s",
+      "description": "Satellite velocity vector in North East and Centre (NEC) frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "v_ion",
+      "unitText": "m/s",
+      "description": "Ion velocity vector in NEC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "E",
+      "unitText": "mV/s",
+      "description": "Electric field vector in NEC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_ion",
+      "unitText": "K",
+      "description": "Ion temperature"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "v_ion_H",
+      "unitText": "m/s",
+      "description": "Horizontal sensor ion velocity in TII coordinates x and y"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "v_ion_V",
+      "unitText": "m/s",
+      "description": "Vertical sensor ion velocity in TII coordinates x and y"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "rms_fit_H",
+      "unitText": "DN",
+      "description": "RMS error from TII x-profile 2-Gaussian fits H sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "rms_fit_V",
+      "unitText": "DN",
+      "description": "RMS error from TII x-profile 2-Gaussian fits V sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "var_x_H",
+      "unitText": "pixel^2",
+      "description": "Variance of 16 Hz X moment H sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "var_y_H",
+      "unitText": "pixel^2",
+      "description": "Variance of 16 Hz Y moment H sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "var_x_V",
+      "unitText": "pixel^2",
+      "description": "Variance of 16 Hz X moment V sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "var_y_V",
+      "unitText": "pixel^2",
+      "description": "Variance of 16 Hz Y moment V sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SAA",
+      "description": "South Atlantic Anomaly proximity indicator"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_TII",
+      "description": "TII quality flag"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_Platform",
+      "description": "Satellite platform flag"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Maneuver_Id",
+      "description": "Satellite maneuver identification code"
+    }
+  ]
+}

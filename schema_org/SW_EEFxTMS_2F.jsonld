@@ -1,0 +1,158 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-7d59fd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EEFxTMS_2F",
+  "name": "SW_EEFxTMS_2F",
+  "alternateName": "Dayside equatorial electric field",
+  "description": "Estimate of eastward equatorial electric field component, by using magnetic measurements of the equatorial electrojet (EEJ) current as the satellites fly overhead. Since the magnetic signal of the EEJ current is directly measured by the satellite, this product also provides an estimate of the EEJ current strength.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EEFxTMS_2F",
+    "https://doi.org/10.57780/esa-7d59fd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Colorado Boulder",
+      "@id": "https://ror.org/02ttsq026"
+    },
+    {
+      "@type": "Organization",
+      "name": "Technical University of Denmark",
+      "@id": "https://ror.org/04qtj9h94"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/EEF/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/EEF/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_EEFATMS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "description": "Time of satellite crossing of the magnetic equator, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degrees",
+      "description": "Geographic longitude of satellite crossing of the magnetic equator"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degrees",
+      "description": "Geographic latitude of satellite crossing of the magnetic equator"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EEF",
+      "unitText": "mV/m",
+      "description": "Estimate of the equatorial electric field"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EEJ_meast",
+      "unitText": "A/km",
+      "description": "Height-integrated magnetic eastward current profile, spanning [-20:0.5:20] degrees QD latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EEJ_mnorth",
+      "unitText": "A/km",
+      "description": "Height-integrated magnetic northward current profile, spanning [-20:0.5:20] degrees QD latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RelErr",
+      "description": "Quality indicator of EEF estimate; relative error between modeled and observed current profile"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags",
+      "description": "Flags describing data gaps and satellite identification"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp_Track",
+      "description": "Timestamps along track, length provided in Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_Track",
+      "unitText": "degrees",
+      "description": "Latitudes along track, length provided in Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_Track",
+      "unitText": "degress",
+      "description": "Longitudes along track, length provided in Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius_Track",
+      "unitText": "km",
+      "description": "Geocentric radii along track, length provided in Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ksq_Track",
+      "unitText": "A/km",
+      "description": "Surface current of estimated Sq signal, packed in geocentric north,east components,, length 2*Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Keej_Track",
+      "unitText": "A/km",
+      "description": "Surface current of estimated EEJ signal, packed in geocentric north,east components,, length 2*Length_Track"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Length_Track",
+      "description": "Array of track lengths"
+    }
+  ]
+}

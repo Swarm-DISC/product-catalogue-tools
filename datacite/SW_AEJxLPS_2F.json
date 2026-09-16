@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-a3497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxLPS_2F",
+  "titles": [
+    {
+      "title": "SW_AEJxLPS_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Finnish Meteorological Institute",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/05hppb561",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2020,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Auroral electrojets line profile - SECS method",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Characterization of the electrojet sheet current density as well as the total horizontal sheet and associated large-scale field-aligned current density along the Swarm orbit ionospheric footprints at auroral latitudes (by using SECS method).",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

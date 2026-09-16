@@ -1,0 +1,252 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-13497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TCT16",
+  "name": "SW_EFIx_TCT16",
+  "alternateName": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) 16Hz Cross-Track ion flow velocity dataset",
+  "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) dataset at 16 Hz cadence containing cross-track ion measurements: the TII L1B data processing is simplified by deriving ion flow velocity components perpendicular to the satellite velocity vector. The data also include the electric field, magnetic field in the same coordinate frame.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TCT16",
+    "https://doi.org/10.57780/esa-13497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Calgary",
+      "@id": "https://ror.org/03yjb2x39"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2017",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/Plasma_Data/16Hz_TII_Cross-track_Dataset/",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/Plasma_Data/16Hz_TII_Cross-track_Dataset/",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_EXPT_EFIA_TCT16",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degrees",
+      "description": "Geocentric latitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degrees",
+      "description": "Geocentric longitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Geocentric radius."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "QDLatitude",
+      "unitText": "degrees",
+      "description": "Quasi-dipole magnetic latitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic local time."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vixh",
+      "unitText": "m/s",
+      "description": "Along-track ion drift from horizontal TII sensor in satellite-track coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vixh_error",
+      "unitText": "m/s",
+      "description": "Random error estimate for along-track ion drift from horizontal TII sensor in satellite-track coordinates. Negative value indicates no estimate available."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vixv",
+      "unitText": "m/s",
+      "description": "Along-track ion drift from vertical TII sensor in satellite-track coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vixv_error",
+      "unitText": "m/s",
+      "description": "Random error estimate for along-track ion drift from vertical TII sensor in satellite-track coordinates. Negative value indicates no estimate available."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Viy",
+      "unitText": "m/s",
+      "description": "Cross-track horizontal ion drift from horizontal TII sensor in satellite-track coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Viy_error",
+      "unitText": "m/s",
+      "description": "Random error estimate for cross-track horizontal ion drift from horizontal TII sensor in satellite-track coordinates. Negative value indicates no estimate available."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Viz",
+      "unitText": "m/s",
+      "description": "Cross-track vertical ion drift from vertical TII sensor in satellite-track coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Viz_error",
+      "unitText": "m/s",
+      "description": "Random error estimate for cross-track vertical ion drift from vertical TII sensor in satellite-track coordinates. Negative value indicates no estimate available."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "VsatN",
+      "unitText": "m/s",
+      "description": "Satellite velocity N component in north-east-centre coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "VsatE",
+      "unitText": "m/s",
+      "description": "Satellite velocity E component in north-east-centre coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "VsatC",
+      "unitText": "m/s",
+      "description": "Satellite velocity C component in north-east-centre coordinates."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ehx",
+      "unitText": "mV/m",
+      "description": "Electric field x component in satellite-track coordinates, derived from -VxB with along-track ion drift from horizontal sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ehy",
+      "unitText": "mV/m",
+      "description": "Electric field y component in satellite-track coordinates, derived from -VxB with along-track ion drift from horizontal sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ehz",
+      "unitText": "mV/m",
+      "description": "Electric field z component in satellite-track coordinates, derived from -VxB with along-track ion drift from horizontal sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Evx",
+      "unitText": "mV/m",
+      "description": "Electric field x component in satellite-track coordinates, derived from -VxB with along-track ion drift from vertical sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Evy",
+      "unitText": "mV/m",
+      "description": "Electric field y component in satellite-track coordinates, derived from -VxB with along-track ion drift from vertical sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Evz",
+      "unitText": "mV/m",
+      "description": "Electric field z component in satellite-track coordinates, derived from -VxB with along-track ion drift from vertical sensor."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Bx",
+      "unitText": "nT",
+      "description": "Geomagnetic field x component in satellite-track coordinates, derived from the 1 Hz product."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "By",
+      "unitText": "nT",
+      "description": "Geomagnetic field y component in satellite-track coordinates, derived from the 1 Hz product."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Bz",
+      "unitText": "nT",
+      "description": "Geomagnetic field z component in satellite-track coordinates, derived from the 1 Hz product."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vicrx",
+      "unitText": "m/s",
+      "description": "Ion drift corotation signal x component in satellite-track coorinates. This has been removed from ion drift and electric field."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vicry",
+      "unitText": "m/s",
+      "description": "Ion drift corotation signal y component in satellite-track coorinates. This has been removed from ion drift and electric field."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vicrz",
+      "unitText": "m/s",
+      "description": "Ion drift corotation signal z component in satellite-track coorinates. This has been removed from ion drift and electric field."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quality_flags",
+      "description": "Bitwise flag for each velocity component, where a value of 1 for a particular component signifies that calibration was successful, and that the baseline 1-sigma noise level is less than or equal to 100 m/s at 2 Hz. Electric field quality can be assessed from these flags according to -vxB. Bit0 (least significant) = Vixh, bit1 = Vixv, bit2 = Viy, bit3 = Viz. Refer to the release notes for details."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Calibration_flags",
+      "description": "Information about the calibration process. Refer to the release notes for details."
+    }
+  ]
+}

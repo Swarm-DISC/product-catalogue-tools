@@ -1,0 +1,73 @@
+{
+  "doi": "10.57780/esa-1a69b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_TIX_TMS_2F",
+  "titles": [
+    {
+      "title": "SW_TIX_TMS_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04bwf3e34",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2025,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "TEGIX: TEC-gradient ionosphere index",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "TEGIX is the TEC-gradient ionosphere index developed as part of the MIGRAS project to monitor mid-scale irregularities in the total electron content domain with horizontal spatial scales in the order of 100 km. Similar to NEGIX, this product also benefits from the coordinated flight of Swarm satellites A and C that are orbiting the Earth in high inclination Polar orbits, and availability of GNSS satellites in view. The location (referred as measurement points) of the vertical TEC data used for the estimation of gradients is determined by the intersection of the GNSS-Swarm links and an ionospheric layer at an altitude of about 670 km above the Earth’s surface (height of Swarm orbit + 200 km).",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Space Weather"
+    },
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Plasma measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

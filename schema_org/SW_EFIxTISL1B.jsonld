@@ -1,0 +1,296 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-6359315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxTISL1B",
+  "name": "SW_EFIxTISL1B",
+  "alternateName": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) Raw and Corrected Imagery and Spectra at Low resolution (TISL)",
+  "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) raw and corrected imagery and column sum spectra products at ligh resolution. Measurements are derived by University of Calgary within the \"TII Raw And Corrected Imagery / Spectra\" (TRACIS) project. This product represents an official archive of Level 0 TII full images and derived (Level 1B) gain-corrected images and energy and angle-of-arrival count-rate spectra. The low-resolution (LR) product consists of TII full images and derived products at the variable TII full image cadence, which varies from a few seconds to several minutes according to the operation plan for each satellite. Image quality is characterized with respect to various TII imaging anomalies.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxTISL1B",
+    "https://doi.org/10.57780/esa-6359315"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Calgary",
+      "@id": "https://ror.org/03yjb2x39"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm%2FAdvanced%2FPlasma_Data%2FTRACIS%2FTISL1B",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/Plasma_Data/TRACIS/TISL1B",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Geocentric latitude of orbit"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Geocentric longitude of orbit"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Geocentric radius of orbit"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_image_H",
+      "unitText": "DN",
+      "description": "40x66 array of raw image data for TII H sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_image_V",
+      "unitText": "DN",
+      "description": "40x66 array of raw image data for TII V sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Processed_image_H",
+      "unitText": "DN",
+      "description": "40x66 array of gain-corrected image data for TII H sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Processed_image_V",
+      "unitText": "DN",
+      "description": "40x66 array of gain-corrected image data for TII V sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Valid_imagery_H",
+      "description": "0: no or partial image; 1: full image (H sensor)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Valid_imagery_V",
+      "description": "0: no or partial image; 1: full image (V sensor)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "TII_imaging_mode",
+      "description": "Imaging mode. 0: non-nominal; 1: nominal science"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Image_anomaly_flags_H",
+      "description": "H sensor bit-wise OR’d imaging anomaly flags."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Image_anomaly_flags_V",
+      "description": "V sensor bit-wise OR’d imaging anomaly flags."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "CCD_dark_current_H",
+      "unitText": "DN",
+      "description": "H sensor CCD dark current (from a single pixel)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "CCD_dark_current_V",
+      "unitText": "DN",
+      "description": "V sensor CCD dark current (from a single pixel)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "CCD_temperature_H",
+      "unitText": "deg.C",
+      "description": "H sensor CCD temperature (derived from dark current)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "CCD_temperature_V",
+      "unitText": "deg.C",
+      "description": "V sensor CCD temperature (derived from dark current)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_MCP_H",
+      "unitText": "V",
+      "description": "H sensor MCP front voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_MCP_V",
+      "unitText": "V",
+      "description": "V sensor MCP front voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_Phos_H",
+      "unitText": "V",
+      "description": "H sensor phosphor voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_Phos_V",
+      "unitText": "V",
+      "description": "V sensor phosphor voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_Bias_H",
+      "unitText": "V",
+      "description": "H sensor inner dome bias voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_Bias_V",
+      "unitText": "V",
+      "description": "V sensor inner dome bias voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_Faceplate",
+      "unitText": "V",
+      "description": "Faceplate voltage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Shutter_duty_cycle_H",
+      "description": "H sensor electrostatic shutter open duty cycle"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Shutter_duty_cycle_V",
+      "description": "V sensor electrostatic shutter open duty cycle"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energy_map_H",
+      "unitText": "eV",
+      "description": "H sensor pixel kinetic energy map"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energy_map_V",
+      "unitText": "eV",
+      "description": "V sensor pixel kinetic energy map"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Angle_of_arrival_map_H",
+      "unitText": "eV",
+      "description": "H sensor pixel angle-of-arrival map"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Angle_of_arrival_map_V",
+      "unitText": "eV",
+      "description": "V sensor pixel angle-of-arrival map"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energy_spectrum_H",
+      "description": "H sensor ion kinetic energy spectrum (adjusted detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energy_spectrum_V",
+      "description": "V sensor ion kinetic energy spectrum (adjusted detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Angle_of_arrival_spectrum_H",
+      "description": "H sensor ion angle-of-arrival spectrum (adjusted detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Angle_of_arrival_spectrum_V",
+      "description": "V sensor ion angle-of-arrival spectrum (detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_energy_spectrum_H",
+      "description": "H sensor ion kinetic energy spectrum from uncorrected image (detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_energy_spectrum_V",
+      "description": "V sensor ion kinetic energy spectrum from uncorrected image (detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_angle_of_arrival_spectrum_H",
+      "unitText": "C",
+      "description": "H sensor ion angle-of-arrival spectrum from uncorrected image (detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Raw_angle_of_arrival_spectrum_V",
+      "unitText": "C",
+      "description": "V sensor ion angle-of-arrival spectrum from uncorrected image (detector counts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energies_H",
+      "unitText": "eV",
+      "description": "H sensor energy spectrum energies"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energies_V",
+      "unitText": "eV",
+      "description": "V sensor energy spectrum energies"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Angles_of_arrival",
+      "unitText": "deg",
+      "description": "Angle-of-arrival spectrum angles (both sensors)"
+    }
+  ]
+}

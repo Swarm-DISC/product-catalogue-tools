@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-ce59fd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MMA_SHA_2C",
+  "titles": [
+    {
+      "title": "SW_MMA_SHA_2C"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Technical University of Denmark",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04qtj9h94",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2015,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Timeseries of spherical harmonic expansion coefficients of the large-scale magnetospheric field from the comprehensive inversion chain",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Timeseries of spherical harmonic expansion coefficients of the large-scale magnetospheric field from the comprehensive inversion chain",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

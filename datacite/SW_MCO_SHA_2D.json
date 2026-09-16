@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-2c69715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MCO_SHA_2D",
+  "titles": [
+    {
+      "title": "SW_MCO_SHA_2D"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2015,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Spherical harmonic model of the main (core) field and its temporal variation derived in Dedicated Inversion chain",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Spherical harmonic model of the main (core) field and its temporal variation derived in Dedicated Inversion chain",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Core field"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

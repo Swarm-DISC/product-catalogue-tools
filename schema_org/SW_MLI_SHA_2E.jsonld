@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-5e497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MLI_SHA_2E",
+  "name": "SW_MLI_SHA_2E",
+  "alternateName": "Final map of the lithospheric field from the Revised Spherical Cap Harmonic analysis (R-SCHA) Dedicated Lithospheric Inversion, expressed in terms of high degree Spherical Harmonics",
+  "description": "Final map of the lithospheric field from the Revised Spherical Cap Harmonic analysis (R-SCHA) Dedicated Lithospheric Inversion, expressed in terms of high degree Spherical Harmonics",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MLI_SHA_2E",
+    "https://doi.org/10.57780/esa-5e497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Institut de physique du globe de Paris",
+      "@id": "https://ror.org/004gzqz66"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Lithosphere",
+    "CHAMP",
+    "Miscellaneous",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MLI",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/MLI",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

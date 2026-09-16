@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-c4597d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2C",
+  "name": "SW_MIO_SHA_2C",
+  "alternateName": "Model of non-polar daily geomagnetic variation caused by ionospheric currents, derived in comprehensive chain (CI)",
+  "description": "Model of non-polar daily geomagnetic variation caused by ionospheric currents, including their variability with season and solar flux, derived in Comprehensive Inversion chain",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2C",
+    "https://doi.org/10.57780/esa-c4597d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Technical University of Denmark",
+      "@id": "https://ror.org/04qtj9h94"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2015",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/MIO",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

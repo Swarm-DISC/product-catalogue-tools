@@ -1,0 +1,60 @@
+{
+  "doi": "10.57780/esa-9f7bf0b",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_STRxEPF_1B",
+  "titles": [
+    {
+      "title": "SW_STRxEPF_1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2025,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Star tracker energetic particle flux",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Proton flux of energetic particles (>100 MeV) measured by each CHU (Camera Head Unit)",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-8679755",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_IBP_CLI_2_",
+  "name": "SW_IBP_CLI_2_",
+  "alternateName": "Climatological model of ionospheric bubble probability",
+  "description": "Climatological model of ionospheric bubble probability based on electron density and magnetic field observations",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_IBP_CLI_2_",
+    "https://doi.org/10.57780/esa-8679755"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Leibniz Institute of Atmospheric Physics",
+      "@id": "https://ror.org/04enhpe73"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2023",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/IBP",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/IBP",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Parameters",
+      "description": "Bubble Parameters"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Intensity",
+      "description": "Periodic Signal Intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Monthly_LT_Shift",
+      "unitText": "1",
+      "description": "Density estimations table, 12 month"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Density_Estimators",
+      "unitText": "1",
+      "description": "Density estimations table, 12 month"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Density_Estimator_Lons",
+      "unitText": "degree",
+      "description": "Longitudes of density estimations table"
+    }
+  ]
+}

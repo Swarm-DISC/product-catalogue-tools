@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-9559bd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MLI_SHA_2D",
+  "name": "SW_MLI_SHA_2D",
+  "alternateName": "Spherical Harmonic Models of the lithospheric field from the dedicated inversion",
+  "description": "Spherical Harmonic Models of the lithospheric field from the dedicated inversion",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MLI_SHA_2D",
+    "https://doi.org/10.57780/esa-9559bd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Institut de physique du globe de Paris",
+      "@id": "https://ror.org/004gzqz66"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2015",
+  "keywords": [
+    "Lithosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MLI",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/MLI",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-ef59315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_DNSxPOD_2_",
+  "name": "SW_DNSxPOD_2_",
+  "alternateName": "Thermospheric density",
+  "description": "Thermospheric density at the satellite location along with auxiliary parameters (altitude, latitude, longitude and local solar time). Derived from aerodynamic accelerations based on precise orbit determination data only (ACCxPOD_2_)",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_DNSxPOD_2_",
+    "https://doi.org/10.57780/esa-ef59315"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Delft University of Technology",
+      "@id": "https://ror.org/02e2c7k09"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2017",
+  "keywords": [
+    "Thermosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/DNS/POD",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/DNS/POD",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_DNSAPOD_2_",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "time",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "density",
+      "unitText": "kg/m3",
+      "description": "Density from GPS-derived accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "density_orbitmean",
+      "unitText": "kg/m3",
+      "description": "Orbit-average of density from GPS-derived accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "validity_flag",
+      "description": "Flag: 0 = nominal data, 1 = anomalous data"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "altitude",
+      "unitText": "m",
+      "description": "Altitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "latitude",
+      "unitText": "deg",
+      "description": "Geodetic latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "longitude",
+      "unitText": "deg",
+      "description": "Geodetic longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "local_solar_time",
+      "unitText": "h",
+      "description": "Local solar time"
+    }
+  ]
+}

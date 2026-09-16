@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-f069715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MTI_SHA_2C",
+  "titles": [
+    {
+      "title": "SW_MTI_SHA_2C"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Technical University of Denmark",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04qtj9h94",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2018,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Spherical harmonic model of the magnetic signature of oceanic M2 tide",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "This product contains the representation of a model of the magnetic field of the Lunar M 2 ocean tides using spherical harmonic coefficients. The model is estimated from Swarm and ground observatory data using the Comprehensive Inversion scheme within the Swarm Level 2 Processing system.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ocean Tides"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

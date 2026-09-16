@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOI checklist — SW_VOBS_1M_2_</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 72em; margin: 1em auto; padding: 0 1em; line-height: 1.4; color: #1a1a1a; }
+table { border-collapse: collapse; width: 100%; margin: 0.5em 0 1em; }
+th, td { border: 1px solid #ccc; padding: 0.3em 0.5em; vertical-align: top; text-align: left; }
+th { background: #f0f0f0; }
+.value { white-space: pre-wrap; font-family: ui-monospace, monospace; }
+.blank { color: #666; font-style: italic; }
+.note { color: #555; font-size: 0.9em; margin-top: 0.3em; }
+.callout { border-left: 4px solid; padding: 0.4em 0.8em; margin: 0.6em 0; }
+.callout.issue { border-color: #c0392b; background: #fdf0ee; }
+.callout.warning { border-color: #d68910; background: #fef5e7; }
+.callout.info { border-color: #2e86c1; background: #eef6fc; }
+.callout ul { margin: 0.2em 0; padding-left: 1.2em; }
+.flag { display: inline-block; font-size: 0.8em; padding: 0 0.4em; margin: 0 0.2em 0.2em 0; border-radius: 3px; background: #fef5e7; border: 1px solid #d68910; }
+.flag.issue { background: #fdf0ee; border-color: #c0392b; }
+tr.readonly td { color: #555; }
+tr.done td { background: #eafaf1; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; }
+button { cursor: pointer; }
+footer { margin-top: 2em; color: #666; font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 0.5em; }
+</style>
+<script>
+const PREFIX = "doi-checklist:";
+function store(key, on) {
+  try { on ? localStorage.setItem(PREFIX + key, "1") : localStorage.removeItem(PREFIX + key); } catch (e) {}
+}
+function stored(key) {
+  try { return localStorage.getItem(PREFIX + key) === "1"; } catch (e) { return false; }
+}
+function countStored(prefix) {
+  let n = 0;
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k.startsWith(PREFIX + prefix) && !k.endsWith(":done") && localStorage.getItem(k) === "1") n++;
+    }
+  } catch (e) {}
+  return n;
+}
+function refresh() {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    const row = cb.closest("tr");
+    if (row) row.classList.toggle("done", cb.checked);
+  });
+  const progress = document.getElementById("progress");
+  if (progress) {
+    const boxes = document.querySelectorAll("input[data-key]");
+    const done = [...boxes].filter(cb => cb.checked).length;
+    progress.textContent = done + " of " + boxes.length + " done";
+  }
+  document.querySelectorAll("[data-fields-prefix]").forEach(el => {
+    const n = countStored(el.dataset.fieldsPrefix);
+    el.textContent = n ? n + "/" + el.dataset.fieldsTotal + " fields ticked" : "";
+  });
+}
+function selectContents(el) {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+function copyValue(btn) {
+  const el = document.getElementById(btn.dataset.target);
+  const text = el.textContent;
+  const label = btn.textContent;
+  const flash = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+  const fallback = () => {
+    // navigator.clipboard is unavailable on plain http other than localhost,
+    // e.g. `make serve` shared over a LAN address.
+    selectContents(el);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    flash(ok ? "Copied" : "Selected — press Ctrl+C");
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => flash("Copied"), fallback);
+  } else {
+    fallback();
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    cb.checked = stored(cb.dataset.key);
+    cb.addEventListener("change", () => { store(cb.dataset.key, cb.checked); refresh(); });
+  });
+  document.querySelectorAll("button[data-target]").forEach(btn => {
+    btn.addEventListener("click", () => copyValue(btn));
+  });
+  refresh();
+});
+</script>
+</head>
+<body>
+
+<p><a href="index.html">&larr; all records</a> · <a href="../index.html">product catalogue</a></p>
+<h1>SW_VOBS_1M_2_</h1>
+<p>DOI: <a href='https://doi.org/10.57780/esa-33497d1'>10.57780/esa-33497d1</a><br><a href='https://swarmhandbook.earth.esa.int/catalogue/SW_VOBS_1M_2_'>handbook landing page</a> · <a href='../SW_VOBS_1M_2_.html'>catalogue preview</a> · <a href='../schema_org/SW_VOBS_1M_2_.jsonld'>JSON-LD</a> · <a href='../datacite/SW_VOBS_1M_2_.json'>DataCite JSON</a></p>
+<div class='callout issue'><strong>Known issues in the registered DataCite record</strong><ul><li>§3 Comma dropped before &quot;on a uniform grid&quot;. The same text is registered in both descriptions[SeriesInformation] and container.title.</li></ul></div><div class='callout issue'><strong>Batch-wide issues (all registered records)</strong><ul><li>§1 Every non-ESA creator is registered with nameType=&quot;Personal&quot;; it should be &quot;Organizational&quot;.</li><li>§2 No creator carries its ROR nameIdentifier (only the publisher has ESA&#x27;s ROR).</li><li>The form has no nameType or ROR input, so issues §1 and §2 cannot be fixed through this form — and per schema_org_handoff.md §6, landing-page harvesting cannot carry creator ROR either. The routes that work are the &quot;Creator ROR&quot; spreadsheet column proposed in datacite_metadata_issues.md §2, or a DataCite API push of the DataCite JSON below.</li></ul></div>
+<h2>Form fields <small id="progress"></small></h2>
+<table>
+<tr><th></th><th>#</th><th>Form field</th><th>Value</th><th></th></tr>
+<tr class=readonly><td></td><td>1</td><td>Product types <em>(read-only)</em></td><td><span class=value id='v-product-types'>SW_OPER_VOBS_1M_2_</span></td><td></td></tr><tr class=readonly><td></td><td>2</td><td>EO Dataset / Collection Name <em>(read-only)</em></td><td><span class=value id='v-eo-dataset-collection-name'>SW_VOBS_1M_2_</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:collection-description' aria-label='done'></td><td>5</td><td>Collection Description</td><td><span class=value id='v-collection-description'>One-monthly time series of vector magnetic field values at fixed locations, on a uniform grid at satellite altitude</span><div class=note>The catalogue definition; registered as descriptions[SeriesInformation].</div></td><td><button data-target='v-collection-description'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:landing-page-url' aria-label='done'></td><td>6</td><td>Landing Page URL</td><td><span class=value id='v-landing-page-url'>https://swarmhandbook.earth.esa.int/catalogue/SW_VOBS_1M_2_</span></td><td><button data-target='v-landing-page-url'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:collection-file-format' aria-label='done'></td><td>7</td><td>Collection File Format</td><td><span class=blank>leave blank</span><div class=note>No “Data format” in the product details.</div></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:collection-creation-year' aria-label='done'></td><td>8</td><td>Collection Creation Year</td><td><span class=value id='v-collection-creation-year'>2021</span></td><td><button data-target='v-collection-creation-year'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:collection-publication-year' aria-label='done'></td><td>9</td><td>Collection Publication Year</td><td><span class=value id='v-collection-publication-year'>2021</span><div class=note>Same as the creation year, by convention.</div></td><td><button data-target='v-collection-publication-year'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:sizes' aria-label='done'></td><td>10</td><td>Sizes</td><td><span class=blank>leave blank</span><div class=note>The form means the size of the whole collection, which the catalogue does not hold.</div></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:subjects' aria-label='done'></td><td>13</td><td>Subjects</td><td><span class=value id='v-subjects'>Magnetic measurements</span><div class=note>The catalogue thematic areas.</div></td><td><button data-target='v-subjects'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:authors' aria-label='done'></td><td>14</td><td>Authors</td><td><span class=value id='v-authors'>British Geological Survey</span><div class=note>Non-ESA authors (ESA is excluded by name and by ROR). The form has no ROR input; RORs shown for reference.</div><table><tr><th>Author</th><th>ROR</th></tr><tr><td>British Geological Survey</td><td>https://ror.org/04a7gbp98</td></tr></table></td><td><button data-target='v-authors'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:projects' aria-label='done'></td><td>15</td><td>Projects</td><td><span class=blank>leave as-is</span><div class=note>No DataCite or catalogue equivalent.</div></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:data-policy-url' aria-label='done'></td><td>16</td><td>Data Policy URL</td><td><span class=value id='v-data-policy-url'>https://earth.esa.int/eogateway/documents/20142/1564626/Terms-and-Conditions-for-the-use-of-ESA-Data.pdf</span></td><td><button data-target='v-data-policy-url'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:geolocations' aria-label='done'></td><td>17</td><td>Geolocations</td><td><span class=blank>Leave empty — global/orbital coverage, no bounding box in the catalogue</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:temporal-coverage-attributes' aria-label='done'></td><td>18</td><td>Temporal Coverage Attributes</td><td><span class=blank>Leave empty — not held in the catalogue</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:event-attributes' aria-label='done'></td><td>19</td><td>Event Attributes</td><td><span class=blank>Leave empty — not applicable</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:parameters-attributes' aria-label='done'></td><td>20</td><td>Parameters Attributes</td><td><span class=blank>optional — see variables below</span><details><summary>11 variables (optional)</summary><table><tr><th>Variable</th><th>Units</th><th>Description</th><th>Dim</th><th>Type</th></tr><tr><td>Timestamp</td><td>-</td><td>Time of observation</td><td>1</td><td>CDF_EPOCH</td></tr><tr><td>Latitude</td><td>deg</td><td>Geocentric latitude</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Longitude</td><td>deg</td><td>Geocentric longitude</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Radius</td><td>m</td><td>Radius</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>B_OB</td><td>nT</td><td>Estimated observed GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]</td><td>3</td><td>CDF_DOUBLE</td></tr><tr><td>sigma_OB</td><td>nT</td><td>Observed field estimated error</td><td>3</td><td>CDF_DOUBLE</td></tr><tr><td>B_CF</td><td>nT</td><td>Estimated core GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]</td><td>3</td><td>CDF_DOUBLE</td></tr><tr><td>sigma_CF</td><td>nT</td><td>Core field estimated error</td><td>3</td><td>CDF_DOUBLE</td></tr><tr><td>Timestamp_SV</td><td>-</td><td>Time of Secular Variation (*_SV) data</td><td>1</td><td>CDF_EPOCH</td></tr><tr><td>B_SV</td><td>nT/yr</td><td>Estimated secular variation (SV) GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]</td><td>3</td><td>CDF_DOUBLE</td></tr><tr><td>sigma_SV</td><td>nT/yr</td><td>Secular variation field estimated error</td><td>3</td><td>CDF_DOUBLE</td></tr></table></details></td><td></td></tr><tr><td><input type=checkbox data-key='SW_VOBS_1M_2_:related-identifiers' aria-label='done'></td><td>21</td><td>Related Identifiers</td><td><span class=blank>leave blank</span><div class=note>Identifiers with role “external” or “related”. None exist in the catalogue today. Role-less URL identifiers are excluded because they are the handbook landing page, already entered as Landing Page URL.</div></td><td></td></tr>
+</table>
+<details><summary>Constant fields (same on every record)</summary>
+<table><tr><th>#</th><th>Form field</th><th>Value</th></tr><tr><td>3</td><td>Version / Baseline</td><td><span class=value id=''>0</span><div class=note>Matches the registered DataCite version.</div></td></tr><tr><td>4</td><td>Contributors</td><td><span class=value id=''>D/EOP</span><div class=note>Registered as a DataCite contributor with contributorType=Other.</div></td></tr><tr><td>11</td><td>Creators</td><td><span class=value id=''>European Space Agency</span></td></tr><tr><td>12</td><td>Publisher</td><td><span class=value id=''>European Space Agency</span></td></tr></table>
+</details>
+<h2>DataCite JSON</h2><p>The <code>attributes</code> of a DataCite REST update for this DOI, generated from the catalogue with the fixes above applied. Not sent anywhere.</p><details><summary>Show DataCite JSON</summary><p><button data-target='datacite-json'>Copy JSON</button></p><pre id='datacite-json'>{
+  &quot;doi&quot;: &quot;10.57780/esa-33497d1&quot;,
+  &quot;url&quot;: &quot;https://swarmhandbook.earth.esa.int/catalogue/SW_VOBS_1M_2_&quot;,
+  &quot;titles&quot;: [
+    {
+      &quot;title&quot;: &quot;SW_VOBS_1M_2_&quot;
+    }
+  ],
+  &quot;creators&quot;: [
+    {
+      &quot;name&quot;: &quot;European Space Agency&quot;,
+      &quot;nameType&quot;: &quot;Organizational&quot;,
+      &quot;nameIdentifiers&quot;: [
+        {
+          &quot;nameIdentifier&quot;: &quot;https://ror.org/03wd9za21&quot;,
+          &quot;nameIdentifierScheme&quot;: &quot;ROR&quot;,
+          &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;British Geological Survey&quot;,
+      &quot;nameType&quot;: &quot;Organizational&quot;,
+      &quot;nameIdentifiers&quot;: [
+        {
+          &quot;nameIdentifier&quot;: &quot;https://ror.org/04a7gbp98&quot;,
+          &quot;nameIdentifierScheme&quot;: &quot;ROR&quot;,
+          &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+        }
+      ]
+    }
+  ],
+  &quot;publisher&quot;: {
+    &quot;name&quot;: &quot;European Space Agency&quot;,
+    &quot;publisherIdentifier&quot;: &quot;https://ror.org/03wd9za21&quot;,
+    &quot;publisherIdentifierScheme&quot;: &quot;ROR&quot;,
+    &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+  },
+  &quot;publicationYear&quot;: 2021,
+  &quot;types&quot;: {
+    &quot;resourceTypeGeneral&quot;: &quot;Dataset&quot;
+  },
+  &quot;contributors&quot;: [
+    {
+      &quot;name&quot;: &quot;D/EOP&quot;,
+      &quot;contributorType&quot;: &quot;Other&quot;
+    }
+  ],
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;version&quot;: &quot;0&quot;,
+  &quot;descriptions&quot;: [
+    {
+      &quot;description&quot;: &quot;One-monthly time series of vector magnetic field values at fixed locations, on a uniform grid at satellite altitude&quot;,
+      &quot;descriptionType&quot;: &quot;SeriesInformation&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Such data, regularly distributed in space and time are suitable for modelling the main geomagnetic field, for core flow inversion studies, and for data assimilation studies of the core dynamo process.&quot;,
+      &quot;descriptionType&quot;: &quot;Abstract&quot;
+    }
+  ],
+  &quot;subjects&quot;: [
+    {
+      &quot;subject&quot;: &quot;Magnetic measurements&quot;
+    }
+  ],
+  &quot;schemaVersion&quot;: &quot;http://datacite.org/schema/kernel-4&quot;
+}</pre></details>
+
+<footer>Built 2026-09-16 17:09 UTC from product-catalogue 23039a2. Tick-boxes are a personal scratchpad: they are stored in this browser only (localStorage) and do not travel with the shared URL.</footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-b859bd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_LP_FP",
+  "name": "SW_EFIx_LP_FP",
+  "alternateName": "Electric field instrument (EFI) faceplate (FP) plasma density at 16 Hz",
+  "description": "The EFIx_LP_FP Product contains extended Swarm Electrical Field Instrument (EFI) plasma data derived from the faceplate (FP) current at 16 Hz. They include: - estimates of the ionospheric electron density from the faceplate current at 16 Hz resolution; - the actual 16 Hz faceplate current measurements; - geodetic coordinates of the satellite positions interpolated to the times of the current measurements.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_LP_FP",
+    "https://doi.org/10.57780/esa-b859bd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swedish Institute of Space Physics",
+      "@id": "https://ror.org/043kppn11"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2017",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/Plasma_Data/16_Hz_Faceplate_plasma_density",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/Plasma_Data/16_Hz_Faceplate_plasma_density",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time stamp in milliseconds  since 01-Jan-0000 00:00:00.000 UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Geodetic latitude, WGS84 ellipsoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Geodetic longitude, WGS84 ellipsoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Height",
+      "unitText": "km",
+      "description": "Height above reference ellipsoid, WGS84"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Current",
+      "unitText": "nA",
+      "description": "Calibrated measured Faceplate current"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Density",
+      "unitText": "cm-3",
+      "description": "Plasma density from the faceplate current"
+    }
+  ]
+}

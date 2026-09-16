@@ -1,0 +1,123 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-2c59bd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/GRACE_x_MAG",
+  "name": "GRACE_x_MAG",
+  "alternateName": "Magnetic measurements derived from GRACE platform magnetometers",
+  "description": "This product contains calibrated magnetic measurements derived from GRACE platform magnetometers",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/GRACE_x_MAG",
+    "https://doi.org/10.57780/esa-2c59bd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Technical University of Denmark",
+      "@id": "https://ror.org/04qtj9h94"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Magnetic measurements",
+    "GRACE",
+    "GRACE-A",
+    "GRACE-B"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/GRACE/Magnetic_data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/GRACE/Magnetic_data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=GRACE_A_MAG",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "description": "Time stamp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF: Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF: Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF: Geocentric Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_FGM",
+      "unitText": "nT",
+      "description": "calibrated magnetic vector from FGM, in instrument frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_NEC_raw",
+      "unitText": "nT",
+      "description": "calibrated and aligned magnetic vector in NEC (North, East, Center) frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_NEC",
+      "unitText": "nT",
+      "description": "calibrated and aligned magnetic vector in NEC (North, East, Center) frame, 11 sample (i.e. 11 second) robust average"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F",
+      "unitText": "nT",
+      "description": "magnetic field intensity determined from B_NEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q_NEC_CRF",
+      "description": "Quaternion, transformation: NEC <- CRF"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q_error",
+      "description": "experimental error indicator of attitude given in Quaternion q_NEC_CRF. Bad attitude if > approx 40"
+    }
+  ]
+}

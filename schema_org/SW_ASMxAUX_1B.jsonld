@@ -1,0 +1,132 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-e80168d",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ASMxAUX_1B",
+  "name": "SW_ASMxAUX_1B",
+  "alternateName": "Spacecraft (S/C) magnetic stray fields at ASM sensor position",
+  "description": "The ASMxAUX_1B Product contains detailed information on the S/C magnetic stray fields and the Sun induced stray field at the ASM sensor position. The data are provided at 50 Hz at the time-instants of the VFM measurements (for internal practical purposes); the stray field vectors are provided in the ASM sensor frame.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_ASMxAUX_1B",
+    "https://doi.org/10.57780/esa-e80168d"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "Magnetic measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/ASMxAUX",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/ASMxAUX",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Synchronization status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_AOCS",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of AOCS magneto-torquer coils, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Thrust",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of AOCS thruster activations, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Battery",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of battery currents, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_SP",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of solar panels currents, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Bus",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of S/C bus currents, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_VFM",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of VFM sensor, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Static",
+      "unitText": "nT",
+      "description": "Static magnetic stray field vector of S/C platform, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Sun",
+      "unitText": "nT",
+      "description": "Magnetic stray field vector of Sun induced stray field at ASM sensor, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Ind",
+      "unitText": "nT",
+      "description": "Magnetically induced stray field vector of S/C platform, ASM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_State",
+      "unitText": "nT",
+      "description": "Instrument and sub-system state dependent magnetic stray field vector, ASM frame"
+    }
+  ]
+}

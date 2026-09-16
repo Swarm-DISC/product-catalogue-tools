@@ -1,0 +1,186 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-66497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/GO_MAG_ACAL_CORR",
+  "name": "GO_MAG_ACAL_CORR",
+  "alternateName": "Magnetic measurements derived from GOCE platform magnetometers",
+  "description": "This product contains calibrated magnetic measurements derived from GOCE platform magnetometers",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/GO_MAG_ACAL_CORR",
+    "https://doi.org/10.57780/esa-66497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Magnetic measurements",
+    "GOCE"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/GOCE/Magnetic_data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/GOCE/Magnetic_data",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=GO_MAG_ACAL_CORR",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Timestamp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "description": "-"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "description": "-"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "description": "-"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_MAG",
+      "unitText": "nT",
+      "description": "[nT] Fluxgate magnetometer, combined MAG, aligned, vector-vector calibrated and corrected for satellite disturbances, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_NEC",
+      "unitText": "nT",
+      "description": "[nT] Fluxgate magnetometer, combined MAG, aligned, vector-vector calibrated and corrected for satellite disturbances, NEC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q_SC_NEC",
+      "description": "Quaternion, transformation: SC .. NEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_MTQ_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to magnetorquer, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_XI_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to 2nd order non-linearities, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_NY_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to 3rd order non-linearities, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_BT_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to temperature dependency of offsets, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_ST_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to temperature dependency of scale factors, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_SA_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to solar array currents, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_BAT_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to battery currents, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_HK_SC",
+      "unitText": "nT",
+      "description": "[nT] Disturbance field related to housekeeping data, SC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_BLOCK_CORR",
+      "unitText": "nT",
+      "description": "[nT] Block correction for MAG2 and MAG3, MAG frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_FLAG",
+      "description": "-"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q_MAG_SC",
+      "description": "Quaternion, transformation: combined MAG ... SC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "LABELS_B",
+      "description": "LABELS_B"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "LABELS_BNEC",
+      "description": "LABELS_BNEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "LABELS_Q",
+      "description": "LABELS_Q"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "LABELS_BLOCK_CORR",
+      "description": "LABELS_BLOCK_CORR"
+    }
+  ]
+}

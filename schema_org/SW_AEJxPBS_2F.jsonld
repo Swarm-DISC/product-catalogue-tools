@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-4d79355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxPBS_2F",
+  "name": "SW_AEJxPBS_2F",
+  "alternateName": "Auroral electrojets peaks and boundaries from SECS",
+  "description": "Characterization of the auroral electrojets and auroral oval boundaries (by using SECS method).",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxPBS_2F",
+    "https://doi.org/10.57780/esa-4d79355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Finnish Meteorological Institute",
+      "@id": "https://ror.org/05hppb561"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/AEJ/PBS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/AEJ/PBS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_AEJAPBS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "t_Peak",
+      "description": "Time of WEJ and EEJ peaks in the order as they appear in the satellite flight direction, UTC<sup>4</sup>"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_Peak",
+      "unitText": "deg",
+      "description": "Geocentric latitude in ITRF of WEJ and EEJ peaks in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_Peak",
+      "unitText": "deg",
+      "description": "Geocentric longitude in ITRF of WEJ and EEJ peaks in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_Peak_QD",
+      "unitText": "deg",
+      "description": "QD latitude of WEJ and EEJ peaks in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_Peak_QD",
+      "unitText": "deg",
+      "description": "QD latitude of WEJ and EEJ peaks in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT_Peak",
+      "unitText": "hour",
+      "description": "Magnetic Local Time (QD) of WEJ and EEH peaks in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_DF",
+      "unitText": "A/km",
+      "description": "Peaks (minimum (WEJ) and maximum (EEJ)) of the divergence-free sheet current density in semiQD<sup>1</sup> frame in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "t_EB",
+      "description": "Time of WEJ and EEJ equatorward boundaries in the order as they appear in the satellite flight direction, UTC<sup>4</sup>"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_EB",
+      "unitText": "deg",
+      "description": "Geocentric latitude of WEJ and EEJ equatorward boundaries in ITRF in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_EB",
+      "unitText": "deg",
+      "description": "Geocentric longitude of WEJ and EEJ equatorward boundaries in ITRF in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_EB_QD",
+      "unitText": "deg",
+      "description": "QD latitude of WEJ and EEJ equatorward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_EB_QD",
+      "unitText": "deg",
+      "description": "QD longitude of WEJ and EEJ equatorward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT_EB",
+      "unitText": "hour",
+      "description": "Magnetic Local Time (QD) of WEJ and EEJ equatorward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "t_PB",
+      "description": "Time of WEJ and EEJ poleward boundaries in the order as they appear in the satellite flight direction, UTC<sup>4</sup>"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_PB",
+      "unitText": "deg",
+      "description": "Geocentric latitude of WEJ and EEJ poleward boundaries in ITRF in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_PB",
+      "unitText": "deg",
+      "description": "Geocentric longitude of WEJ and EEJ poleward boundaries in ITRF in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_PB_QD",
+      "unitText": "deg",
+      "description": "QD latitude of WEJ and EEJ poleward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_PB_QD",
+      "unitText": "deg",
+      "description": "QD longitude of WEJ and EEJ poleward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT_PB",
+      "unitText": "hour",
+      "description": "Magnetic Local Time (QD) of WEJ and EEJ poleward boundaries in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_B",
+      "unitText": "deg",
+      "description": "Geodetic latitude of peaks (minimum and maximum) in ground magnetic field disturbance in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_B",
+      "unitText": "deg",
+      "description": "Geodetic longitude of peaks (minimum and maximum) in ground magnetic field disturbance in the order as they appear in the satellite flight direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B",
+      "unitText": "nT",
+      "description": "Maximum (first row) and minimum (second row) of ground magnetic field disturbance. First (second) column gives the north (east) component geodetic frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags",
+      "description": "Quality indicator"
+    }
+  ]
+}

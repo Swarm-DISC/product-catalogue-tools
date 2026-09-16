@@ -1,0 +1,131 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-ba497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxLPL_2F",
+  "name": "SW_AEJxLPL_2F",
+  "alternateName": "Auroral electrojets line profile - Line current method (LC)",
+  "description": "Characterization of the electrojet sheet current density as well as the total horizontal sheet and associated large-scale field-aligned current density along the Swarm orbit ionospheric footprints at auroral latitudes (by using LC method).",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxLPL_2F",
+    "https://doi.org/10.57780/esa-ba497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/AEJ/LPL",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/AEJ/LPL",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_AEJALPL_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "t",
+      "description": "Time of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic Local Time (QD)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J",
+      "unitText": "A/km",
+      "description": "North and East component of horizontal sheet current density vector in geocentric frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_QD",
+      "unitText": "A/km",
+      "description": "East component of horizontal sheet current density in QD frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "t_qual",
+      "description": "Time instants of quality information (RMS_misfit and Confidence), UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RMS_misfit",
+      "unitText": "nT",
+      "description": "Root Mean Square error misfit between observations and model values for the oval crossings<sup>3</sup>"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Confidence",
+      "description": "Goodness of fit computed as 1 - (residual rms / signal rms) for the oval crossings<sup>3</sup>"
+    }
+  ]
+}

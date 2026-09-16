@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-b859bd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_LP_FP",
+  "titles": [
+    {
+      "title": "SW_EFIx_LP_FP"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swedish Institute of Space Physics",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/043kppn11",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2017,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Electric field instrument (EFI) faceplate (FP) plasma density at 16 Hz",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The EFIx_LP_FP Product contains extended Swarm Electrical Field Instrument (EFI) plasma data derived from the faceplate (FP) current at 16 Hz. They include: - estimates of the ionospheric electron density from the faceplate current at 16 Hz resolution; - the actual 16 Hz faceplate current measurements; - geodetic coordinates of the satellite positions interpolated to the times of the current measurements.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Plasma measurements"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

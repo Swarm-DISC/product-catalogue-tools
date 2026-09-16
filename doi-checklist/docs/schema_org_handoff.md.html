@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>schema_org_handoff.md</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 72em; margin: 1em auto; padding: 0 1em; line-height: 1.4; color: #1a1a1a; }
+table { border-collapse: collapse; width: 100%; margin: 0.5em 0 1em; }
+th, td { border: 1px solid #ccc; padding: 0.3em 0.5em; vertical-align: top; text-align: left; }
+th { background: #f0f0f0; }
+.value { white-space: pre-wrap; font-family: ui-monospace, monospace; }
+.blank { color: #666; font-style: italic; }
+.note { color: #555; font-size: 0.9em; margin-top: 0.3em; }
+.callout { border-left: 4px solid; padding: 0.4em 0.8em; margin: 0.6em 0; }
+.callout.issue { border-color: #c0392b; background: #fdf0ee; }
+.callout.warning { border-color: #d68910; background: #fef5e7; }
+.callout.info { border-color: #2e86c1; background: #eef6fc; }
+.callout ul { margin: 0.2em 0; padding-left: 1.2em; }
+.flag { display: inline-block; font-size: 0.8em; padding: 0 0.4em; margin: 0 0.2em 0.2em 0; border-radius: 3px; background: #fef5e7; border: 1px solid #d68910; }
+.flag.issue { background: #fdf0ee; border-color: #c0392b; }
+tr.readonly td { color: #555; }
+tr.done td { background: #eafaf1; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; }
+button { cursor: pointer; }
+footer { margin-top: 2em; color: #666; font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 0.5em; }
+</style>
+<script>
+const PREFIX = "doi-checklist:";
+function store(key, on) {
+  try { on ? localStorage.setItem(PREFIX + key, "1") : localStorage.removeItem(PREFIX + key); } catch (e) {}
+}
+function stored(key) {
+  try { return localStorage.getItem(PREFIX + key) === "1"; } catch (e) { return false; }
+}
+function countStored(prefix) {
+  let n = 0;
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k.startsWith(PREFIX + prefix) && !k.endsWith(":done") && localStorage.getItem(k) === "1") n++;
+    }
+  } catch (e) {}
+  return n;
+}
+function refresh() {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    const row = cb.closest("tr");
+    if (row) row.classList.toggle("done", cb.checked);
+  });
+  const progress = document.getElementById("progress");
+  if (progress) {
+    const boxes = document.querySelectorAll("input[data-key]");
+    const done = [...boxes].filter(cb => cb.checked).length;
+    progress.textContent = done + " of " + boxes.length + " done";
+  }
+  document.querySelectorAll("[data-fields-prefix]").forEach(el => {
+    const n = countStored(el.dataset.fieldsPrefix);
+    el.textContent = n ? n + "/" + el.dataset.fieldsTotal + " fields ticked" : "";
+  });
+}
+function selectContents(el) {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+function copyValue(btn) {
+  const el = document.getElementById(btn.dataset.target);
+  const text = el.textContent;
+  const label = btn.textContent;
+  const flash = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+  const fallback = () => {
+    // navigator.clipboard is unavailable on plain http other than localhost,
+    // e.g. `make serve` shared over a LAN address.
+    selectContents(el);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    flash(ok ? "Copied" : "Selected — press Ctrl+C");
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => flash("Copied"), fallback);
+  } else {
+    fallback();
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    cb.checked = stored(cb.dataset.key);
+    cb.addEventListener("change", () => { store(cb.dataset.key, cb.checked); refresh(); });
+  });
+  document.querySelectorAll("button[data-target]").forEach(btn => {
+    btn.addEventListener("click", () => copyValue(btn));
+  });
+  refresh();
+});
+</script>
+</head>
+<body>
+<p><a href='../index.html'>&larr; checklist</a></p><h1>Handoff — schema.org JSON-LD for DataCite landing-page harvesting</h1>
+<p><strong>Repo:</strong> <code>Swarm-DISC/product-catalogue-tools</code> (branch <code>main</code>, work uncommitted)
+<strong>Date:</strong> 2026-09-16
+<strong>Related:</strong> <code>datacite_metadata_issues.md</code> (the 74-DOI batch registered 2026-09-15)</p>
+<hr />
+<h2>1. The question that started this</h2>
+<p>DataCite Fabrica can populate a DOI record by harvesting schema.org metadata from
+the landing page: you paste the landing page URL into the metadata field instead of
+uploading a file. We wanted to know whether our catalogue JSON is in the right shape
+for that, and what would have to change.</p>
+<p><strong>Answer: no, not as-is — and the catalogue JSON is the smaller of the two problems.
+The blocker is the handbook landing page.</strong></p>
+<hr />
+<h2>2. How the harvester actually works (verified from source, not docs)</h2>
+<p>Read these if you need to re-check any mapping claim below:</p>
+<ul>
+<li><code>datacite/bolognese</code> → <code>lib/bolognese/readers/schema_org_reader.rb</code> and <code>lib/bolognese/utils.rb</code></li>
+<li><code>front-matter/commonmeta-py</code> → <code>commonmeta/readers/schema_org_reader.py</code> and <code>commonmeta/utils.py</code></li>
+</ul>
+<p>Key behaviours:</p>
+<table>
+<thead>
+<tr>
+<th>Behaviour</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reads <strong>one</strong> ld+json block. bolognese takes literally the first (<code>doc.at('script[type="application/ld+json"]')</code>); commonmeta takes the first with a recognised <code>@type</code> (<code>pick_json_ld</code>).</td>
+<td><code>schema_org_reader.rb</code> <code>get_schema_org</code>; <code>so_reader.py:281</code></td>
+</tr>
+<tr>
+<td>Title comes from <code>name</code> only — <strong>not</strong> <code>headline</code>.</td>
+<td><code>titles</code> in <code>read_schema_org</code></td>
+</tr>
+<tr>
+<td><code>@type: Dataset</code> → <code>resourceTypeGeneral: Dataset</code>; <code>@type: Article</code> → <code>Text</code>.</td>
+<td><code>SO_TO_DC_TRANSLATIONS</code>, <code>utils.rb:274</code></td>
+</tr>
+<tr>
+<td><code>creator["@type"]: "Organization"</code> → <code>nameType="Organizational"</code> (literally <code>@type.titleize + "al"</code>).</td>
+<td><code>from_schema_org_creators</code>, <code>utils.rb:997</code></td>
+</tr>
+<tr>
+<td>A creator's <code>@id</code> becomes a <code>nameIdentifier</code> <strong>only if it is an ORCID</strong>. ROR is recognised on <code>affiliation</code> and <code>publisher</code>, never on the creator itself.</td>
+<td><code>utils.rb:995</code>; <code>cm_utils.py:1541</code></td>
+</tr>
+<tr>
+<td><code>publisher["@id"]</code> → <code>publisherIdentifier</code>.</td>
+<td><code>read_schema_org</code>, publisher block</td>
+</tr>
+<tr>
+<td><code>datePublished</code> → <code>publicationYear</code> (EDTF, so a bare <code>"2018"</code> is fine).</td>
+<td><code>read_schema_org</code>, dates block</td>
+</tr>
+<tr>
+<td><code>sameAs</code> → <code>IsIdenticalTo</code>; <code>citation</code> → <code>References</code>; <code>isPartOf</code>/<code>hasPart</code> → as named.</td>
+<td><code>SO_TO_DC_RELATION_TYPES</code></td>
+</tr>
+<tr>
+<td><code>keywords</code> → subjects (array or comma-separated string).</td>
+<td><code>subjects</code> block</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. State of the landing pages (blockers)</h2>
+<p>Checked <code>https://swarmhandbook.earth.esa.int/catalogue/SW_DNSxACC_2_</code> on 2026-09-16.
+It is a Next.js SSR page, so JSON-LD <strong>is</strong> present in the raw HTML — good, a
+non-JS harvester can see it. But:</p>
+<ol>
+<li><strong>Four ld+json blocks, in this order: <code>Organization</code>, <code>WebSite</code>, <code>BreadcrumbList</code>,
+   <code>Article</code>.</strong> bolognese would harvest the <code>Organization</code> block — the site-wide logo
+   stub. Result is junk.</li>
+<li><strong>The <code>Article</code> block is wrong even if it were picked.</strong> <code>@type: Article</code> →
+   <code>Text</code>, not <code>Dataset</code>. It uses <code>headline</code>, which the harvester does not read, so
+   the <strong>title would come out empty</strong>. Its <code>author</code> is hardcoded to ESA, losing every
+   real institutional creator.</li>
+<li><strong>No DOI on the page.</strong> <code>__NEXT_DATA__.props.pageProps.doi</code> is <code>""</code> for
+   <code>SW_DNSxACC_2_</code>. <code>SW_MAGx_LR_1B</code> <em>does</em> have one
+   (<code>https://doi.org/10.57780/esa-091794d</code>), so the CMS supports the field — the new
+   74-DOI batch simply has not been ingested yet.</li>
+<li><strong>The page carries no authors and no creation year at all.</strong> Page props are:
+   <code>seo, title, productFullName, doi, doiLink, description, *DataAccessLink,
+   fastProcessingDescription, previewImage, details, relatedResources, changeLog,
+   outputVariablesTable*, missions, subsets, products, url, navigationMenu,
+   isArchived, schema</code>. No harvester tweak fixes this; the handbook ingest must carry
+   the fields.</li>
+</ol>
+<p><strong>Separate bug to report to the handbook team:</strong> <code>ARTICLE_URL</code> and the breadcrumb
+items are built as <code>https://swarmhandbook.earth.esa.intcatalogue/SW_DNSxACC_2_</code> —
+missing slash between host and path.</p>
+<hr />
+<h2>4. What was built</h2>
+<p><strong><code>utils/schema_org.py</code></strong> (new, untracked) — converts catalogue records to
+schema.org <code>Dataset</code> JSON-LD.</p>
+<pre><code>uv run python -m utils.schema_org SW_DNSxACC_2_   # print one record
+uv run python -m utils.schema_org                 # dump all 91 to schema_org/
+</code></pre>
+<p>Public API: <code>product_to_schema_org(product)</code> and <code>dump_schema_org_output(directory)</code>.
+Not wired into the <code>Makefile</code> — see open question 3.</p>
+<p>Mapping implemented:</p>
+<table>
+<thead>
+<tr>
+<th>Catalogue field</th>
+<th>schema.org</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>primary DOI</td>
+<td><code>@id</code>, <code>identifier[]</code></td>
+</tr>
+<tr>
+<td><code>product_id</code></td>
+<td><code>name</code> (matches the titles already registered at DataCite)</td>
+</tr>
+<tr>
+<td><code>definition</code></td>
+<td><code>alternateName</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>description</code>, HTML stripped</td>
+</tr>
+<tr>
+<td><code>authors[]</code></td>
+<td><code>creator[] {@type: Organization, @id: &lt;ror&gt;}</code></td>
+</tr>
+<tr>
+<td><code>creation_year</code></td>
+<td><code>datePublished</code></td>
+</tr>
+<tr>
+<td><code>thematic_areas</code> + <code>applicable_missions</code> + <code>applicable_spacecraft</code></td>
+<td><code>keywords</code></td>
+</tr>
+<tr>
+<td><code>link_files_http</code> / <code>link_files_ftp</code> / <code>link_hapi</code></td>
+<td><code>distribution[] DataDownload</code></td>
+</tr>
+<tr>
+<td><code>variables_table</code></td>
+<td><code>variableMeasured[] PropertyValue</code> (name/unitText/description)</td>
+</tr>
+<tr>
+<td><code>identifiers[].role: external</code></td>
+<td><code>sameAs</code></td>
+</tr>
+<tr>
+<td><code>identifiers[].role: related</code></td>
+<td><code>citation</code></td>
+</tr>
+<tr>
+<td>— (hardcoded)</td>
+<td><code>publisher</code> + <code>provider</code> = ESA with ROR <code>https://ror.org/03wd9za21</code></td>
+</tr>
+<tr>
+<td>— (hardcoded)</td>
+<td><code>includedInDataCatalog</code> = Swarm Product Data Handbook</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. Catalogue audit (91 records, run 2026-09-16)</h2>
+<ul>
+<li>89/91 have a concept DOI marked <code>primary</code>. The two without are <code>SW_EFIx_LP_1B</code> and
+  <code>SW_FAC_SVD_2F</code>; for these the generator falls back to the landing page URL as
+  <code>@id</code>, which is correct behaviour.</li>
+<li>All 91 have <code>authors</code>, <code>creation_year</code>, <code>description</code>, <code>definition</code>,
+  <code>thematic_areas</code>.</li>
+<li>23 have an empty <code>variables_table</code> → no <code>variableMeasured</code>. Not an error.</li>
+<li>5 have HTML markup inside <code>description</code> → stripped by <code>_strip_html</code>.</li>
+</ul>
+<p><strong>Fields we cannot supply because the catalogue schema has no home for them:</strong>
+<code>license</code>, <code>temporalCoverage</code>, <code>spatialCoverage</code>, <code>version</code>, and real
+<code>encodingFormat</code> values (the generator currently assumes <code>application/x-cdf</code> for file
+links). Adding these needs <code>product-catalogue/schema.json</code> changes plus per-record
+data entry.</p>
+<hr />
+<h2>6. Impact on <code>datacite_metadata_issues.md</code></h2>
+<ul>
+<li><strong>Issue 1 (organisations registered as <code>nameType="Personal"</code>, 74/74): fixed</strong> by this
+  route — <code>"@type": "Organization"</code> maps straight to <code>Organizational</code>.</li>
+<li><strong>Issue 2 (no ROR on any creator, 74/74): NOT fixed.</strong> Neither converter promotes a
+  creator's ROR <code>@id</code> to a <code>nameIdentifier</code>. The generator emits it anyway because it
+  is correct schema.org and Google reads it, but DataCite will drop it. This still
+  needs either the <code>Creator ROR</code> spreadsheet column or a direct API upload.</li>
+<li><strong>Issues 3 and 4 (transcription drift, stray whitespace):</strong> structurally fixed by any
+  machine-generated route, since text stops being retyped. Note <code>SW_EEFxTMS_2F</code> has a
+  leading space in a creator name and <code>SW_EFIx_TCT02</code> a leading space in <code>definition</code>
+  — both are ours to fix in the catalogue. <code>_creators</code> strips whitespace; the
+  <code>definition</code> one is not stripped.</li>
+</ul>
+<hr />
+<h2>7. Recommendation carried forward</h2>
+<p>Landing-page harvesting is the wrong <em>primary</em> channel: it is lossy (no creator ROR,
+no relatedIdentifier precision) and it puts our metadata behind a CMS we do not
+control. Preferred shape:</p>
+<ul>
+<li><strong>Primary:</strong> generate DataCite JSON from the catalogue and push via the DataCite
+  API. Full control including ROR <code>nameIdentifier</code>s.</li>
+<li><strong>Complementary:</strong> hand the JSON-LD to the handbook team to embed as the <strong>first</strong>
+  ld+json block on each catalogue page. Buys Google Dataset Search indexing and a
+  correct harvest as fallback.</li>
+</ul>
+<hr />
+<h2>8. Open questions / next steps</h2>
+<ol>
+<li><strong>Write the DataCite JSON generator?</strong> Offered to the user, not yet answered. This
+   is the higher-value piece per section 7.</li>
+<li><strong>Who owns the handbook page template?</strong> The JSON-LD is useless until someone on
+   the handbook/CMS side embeds it, ingests <code>authors</code> + <code>creation_year</code> + <code>doi</code>, and
+   reorders the ld+json blocks. Need a contact and a channel for handing over 91
+   JSON-LD documents.</li>
+<li><strong>Wire <code>utils/schema_org.py</code> into <code>make html</code>?</strong> Deliberately not done — the HTML
+   target builds <em>previews</em> for us, whereas the JSON-LD needs to reach the handbook
+   CMS. Decide the delivery mechanism first (committed artefacts in
+   <code>product-catalogue</code>? published alongside the GitHub Pages previews? API push?).</li>
+<li><strong>Extend <code>product-catalogue/schema.json</code></strong> with <code>license</code>, <code>version</code>,
+   <code>temporalCoverage</code>, <code>spatialCoverage</code>, <code>encodingFormat</code>? Worth doing for the
+   DataCite JSON route too, not just JSON-LD.</li>
+<li><strong>Validate a sample</strong> against Google's Rich Results Test and, if a test prefix is
+   available, a DataCite <em>sandbox</em> harvest before touching production DOIs.</li>
+</ol>
+<hr />
+<h2>9. Files</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>utils/schema_org.py</code></td>
+<td>new, untracked — the converter</td>
+</tr>
+<tr>
+<td><code>schema_org_handoff.md</code></td>
+<td>this file</td>
+</tr>
+<tr>
+<td><code>datacite_metadata_issues.md</code></td>
+<td>pre-existing, untracked — the four registration issues</td>
+</tr>
+<tr>
+<td><code>utils/catalog_utils.py</code></td>
+<td>unchanged — <code>Product</code>, <code>load_catalog</code>, <code>dump_html_output</code></td>
+</tr>
+<tr>
+<td><code>product-catalogue/schema.json</code></td>
+<td>unchanged — submodule, catalogue schema</td>
+</tr>
+</tbody>
+</table>
+<p>Nothing has been committed. The working tree also holds unrelated untracked work
+(<code>add_registered_dois.py</code>, <code>update_from_csv.py</code>, spreadsheets, <code>input.csv</code>).</p>
+<footer>Built 2026-09-16 17:09 UTC from product-catalogue 23039a2. Tick-boxes are a personal scratchpad: they are stored in this browser only (localStorage) and do not travel with the shared URL.</footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-7269b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_IPDxIRR_2F",
+  "name": "SW_IPDxIRR_2F",
+  "alternateName": "Ionospheric Plasma IRregularities characterised by the Swarm satellites (Swarm IPIR).",
+  "description": "Time series of characteristics of the plasma density and plasma irregularities along the orbit from single satellite measurements. Time series of local plasma conditions, including background density and total electron content. Data related to geomagnetic regions in the ionosphere. Indication of severity of plasma irregularities for ground-based users provided. Contains ionospheric plasma characteristics from multiple instruments derived at 1Hz, updated daily with 24-hour timespan.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_IPDxIRR_2F",
+    "https://doi.org/10.57780/esa-7269b15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Oslo",
+      "@id": "https://ror.org/01xtthb56"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2019",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/IPD/IRR",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/IPD/IRR",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_IPDAIRR_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "description": "CDF_EPOCH of the measurement."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Latitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Longitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF - Radius."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ne",
+      "unitText": "cm^-3",
+      "description": "Plasma density, directly copied from the Langmuir probe files."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Background_Ne",
+      "unitText": "cm^-3",
+      "description": "Background density, as calculated from Ne using a percentile filter of 551 datapoints (2 Hz raw data) and 35 as the percentile."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Foreground_Ne",
+      "unitText": "cm^-3",
+      "description": "Foreground density, as calculated from ndens using a percentile filter of 7 datapoints (2 Hz raw data) and 50 as the percentile."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Te",
+      "unitText": "K",
+      "description": "Electron temperature, directly copied from the Langmuir probe files."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PCP_flag",
+      "description": "The polar cap patch flag:  0 if the plasma density measurement occurred OUTSIDE a polar cap patch. 1 if the plasma density measurement occurred at one of the edges of a polar cap patch (no plasma velocity measurements are available). 2 if the plasma density measurement occurred at the LEADING edge of a polar cap patch. 3 if the plasma density measurement occurred at the TRAILING edge of a polar cap patch. 4 if the plasma density measurement occurred INSIDE a polar cap patch proper. When no ion drift data is available, the leading and trailing edges cannot be distinguished. In this case the polar cap patch flag is set to 4 throughout the patch proper and to 1 throughout both edges."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Grad_Ne_at_100km",
+      "unitText": "cm^-3/m",
+      "description": "The electron density gradient in a running window calculated via linear regression over 27 data points for the 2 Hz electron density data."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Grad_Ne_at_50km",
+      "unitText": "cm^-3/m",
+      "description": "The electron density gradient in a running window calculated via linear regression over 13 data points for the 2 Hz electron density data."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Grad_Ne_at_20km",
+      "unitText": "cm^-3/m",
+      "description": "The electron density gradient in a running window calculated via linear regression over 5 data points for the 2 Hz electron density data."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Grad_Ne_at_PCP_edge",
+      "unitText": "cm^-3/m",
+      "description": "The linear electron density gradient calculated over the edges of a patch. This variable is non-zero only at the edges of polar cap patches."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ROD",
+      "unitText": "cm^-3/s",
+      "description": "Rate Of change of Density"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RODI10s",
+      "unitText": "cm^-3/s",
+      "description": "Rate Of change of Density Index (RODI) is the standard deviation of ROD over 10 seconds."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RODI20s",
+      "unitText": "cm^-3/s",
+      "description": "Rate Of change of Density Index (RODI) is the standard deviation of ROD over 20 seconds."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "delta_Ne10s",
+      "unitText": "cm^-3",
+      "description": "Derived by subtracting Ne by its median filtered value in 10 seconds. As a result, delta_Ne10s indicates the electron density fluctuations smaller than 75 km."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "delta_Ne20s",
+      "unitText": "cm^-3",
+      "description": "Derived by subtracting Ne by its median filtered value in 20 seconds. As a result, delta_Ne20s indicates the electron density fluctuations smaller than 150 km."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "delta_Ne40s",
+      "unitText": "cm^-3",
+      "description": "Derived by subtracting Ne by its median filtered value in 40 seconds. As a result, delta_Ne40s indicates the electron density fluctuations smaller than 300 km."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Num_GPS_satellites",
+      "description": "Total number of tracked GPS satellites above 20 degrees."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mVTEC",
+      "unitText": "TECU",
+      "description": "Median of VTEC from all available GPS satellites above 30 degrees."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mROT",
+      "unitText": "TECU/s",
+      "description": "Median of Rate Of change of TEC (ROT) from all available GPS satellites above 30 degrees."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mROTI10s",
+      "unitText": "TECU/s",
+      "description": "Median of Rate Of change of TEC Index (ROTI) from all available GPS satellites above 30 degrees. The ROTI of each satellite is the standard deviation of ROT over 10 seconds."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mROTI20s",
+      "unitText": "TECU/s",
+      "description": "Median of Rate Of change of TEC Index (ROTI) from all available GPS satellites above 30 degrees. The ROTI of each satellite is the standard deviation of ROT over 20 seconds."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBI_flag",
+      "description": "Plasma Bubble Index, copied from the level-2 Ionospheric Bubble Index product, IBIxTMS_2F."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ionosphere_region_flag",
+      "description": "0: equator, 1: mid-latitudes; 2: auroral oval; 3: polar cap."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IPIR_index",
+      "description": "The numeric index for plasma fluctuations and irregularities: 0-3 low, 4-5 medium, and > 6 high level of ionosphericplasma irregularities."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ne_quality_flag",
+      "description": "Quality flag for the Ne data and the derived data from Ne, e.g., background density, foreground density etc."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "TEC_STD",
+      "unitText": "TECU",
+      "description": "STD of VTEC from all GPS satellites."
+    }
+  ]
+}

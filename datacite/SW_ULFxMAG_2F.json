@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-7c79355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ULFxMAG_2F",
+  "titles": [
+    {
+      "title": "SW_ULFxMAG_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "HUN-REN Institute of Earth Physics and Space Science",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/05c9vr219",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2025,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Swarm ULF wave characterisation from LR Vector Magnetometer Data",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The Swarm-ULF product package consists of two independent L2 products. The ULFxMAG_2F product contains information on the instantaneous power, prominence, frequency, etc. of Pc2, Pc3, Pc4 and Pi2 events, the average event properties (e.g., mean frequency, power and duration) as well as minute resolution time series of the rms of the total field filtered in the various ULF bands. The satellite positions are given in both in geographic and QD magnetic coordinates. Auxiliary data, such as time of observation, magnetic local time, and the solar zenith angle complement ULF wave characterisation. Similarly, the PC1xMAG_2F product contains the characterisation of Pc1 events derived from the HR vector magnetic field data.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

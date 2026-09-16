@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-4479f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ACCxPOD_2_",
+  "titles": [
+    {
+      "title": "SW_ACCxPOD_2_"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Delft University of Technology",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/02e2c7k09",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2017,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Non-gravitational and aerodynamic accelerations",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Time series of non-gravitational and aerodynamic accelerations obtained by Precise Orbit Determination (POD).",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Thermosphere"
+    },
+    {
+      "subject": "Acceleration measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

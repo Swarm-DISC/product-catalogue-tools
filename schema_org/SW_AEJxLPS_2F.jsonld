@@ -1,0 +1,149 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-a3497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxLPS_2F",
+  "name": "SW_AEJxLPS_2F",
+  "alternateName": "Auroral electrojets line profile - SECS method",
+  "description": "Characterization of the electrojet sheet current density as well as the total horizontal sheet and associated large-scale field-aligned current density along the Swarm orbit ionospheric footprints at auroral latitudes (by using SECS method).",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_AEJxLPS_2F",
+    "https://doi.org/10.57780/esa-a3497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Finnish Meteorological Institute",
+      "@id": "https://ror.org/05hppb561"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2020",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/AEJ/LPS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/AEJ/LPS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_AEJALPS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "t",
+      "description": "Time of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD",
+      "unitText": "deg",
+      "description": "Quasi-dipole longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic local time (QD)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_CF",
+      "unitText": "A/km",
+      "description": "North and East component of the curl-free horizontal sheet current density vector in geocentric frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_DF",
+      "unitText": "A/km",
+      "description": "North and East component of the divergence-free horizontal sheet current density vector in geocentric frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_CF_SemiQD",
+      "unitText": "A/km",
+      "description": "North component of the curl-free horizontal sheet current density in SemiQD<sup>3</sup> frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_DF_SemiQD",
+      "unitText": "A/km",
+      "description": "East component of the divergence-free horizontal sheet current density in SemiQD<sup>3</sup> frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "J_r",
+      "unitText": "A/km^2",
+      "description": "Radial ionospheric current density at 110 km altitude in SemiQD<sup>3</sup> frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "t_qual",
+      "description": "Time instants of quality information (RMS_misfit and Confidence), attached to the beginning time of the oval crossing<sup>4</sup>, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "RMS_misfit",
+      "unitText": "nT",
+      "description": "Root Mean Square error misfit between observations and model values for the oval crossing<sup>4</sup>"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Confidence",
+      "description": "Goodness of fit computed as 1 - (residual rms / signal rms) for the oval crossing<sup>4</sup>"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-8c69715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TII1B",
+  "titles": [
+    {
+      "title": "SW_EFIx_TII1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "University of Calgary",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03yjb2x39",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2014,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) Provisional plasma dataset",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) parameter for ionospheric ions bulk velocity, ion temperature, and electric field measurements obtained from a development, or \"sandbox\", processor from University of Calgary.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Plasma measurements"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

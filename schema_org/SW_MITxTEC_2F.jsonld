@@ -1,0 +1,234 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-3a59315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MITxTEC_2F",
+  "name": "SW_MITxTEC_2F",
+  "alternateName": "Midlatitude Ionospheric Trough Boundaries and Minima derived from TEC",
+  "description": "Midlatitude Ionospheric Trough Boundaries and Minima derived from TEC",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MITxTEC_2F",
+    "https://doi.org/10.57780/esa-3a59315"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2021",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/MIT/TEC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/MIT/TEC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_MITATEC_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Counter",
+      "description": "Swarm orbit counter and quarter orbit (four per Swarm orbit) counter that are based on magnetic coordinates as defined in [AD-2] (Sect. 4.1.2.2)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position of the MIT minimum in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position of the MIT minimum in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position of the MIT minimum in ITRF - Geocentric radius (from the Earth center)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD",
+      "unitText": "deg",
+      "description": "QD latitude of the MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD",
+      "unitText": "deg",
+      "description": "QD longitude of the MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "h",
+      "description": "Magnetic Local Time of MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L_value",
+      "description": "L-value of the MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SZA",
+      "unitText": "deg",
+      "description": "Solar zenith angle of the MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "TEC",
+      "unitText": "TECU",
+      "description": "Total electron content of the MIT minimum"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Depth",
+      "unitText": "cm<sup>-3</sup>",
+      "description": "Depth of the MIT"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DR",
+      "unitText": "%",
+      "description": "Relative change in density within the MIT"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Width",
+      "unitText": "deg",
+      "description": "Width of the MIT calculated from QD latitudes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dL",
+      "description": "Width of the MIT calculated from L-values"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PW_Gradient",
+      "unitText": "TECU/deg",
+      "description": "Change in TEC at the poleward wall of the MIT divided by QD latitude difference"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EW_Gradient",
+      "unitText": "TECU/deg",
+      "description": "Change in TEC at the equatorward wall of the MIT divided by QD latitude difference"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quality",
+      "description": "Characterizes the detection quality of the MIT as a whole"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp_ID",
+      "description": "Vector of times of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_ID",
+      "unitText": "deg",
+      "description": "Vector of Positions in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_ID",
+      "unitText": "deg",
+      "description": "Vector of Positions in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius_ID",
+      "unitText": "m",
+      "description": "Vector of Positions in ITRF - Geocentric radius (from the Earth centre)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD_ID",
+      "unitText": "deg",
+      "description": "Vector of QD latitudes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD_ID",
+      "unitText": "deg",
+      "description": "Vector of QD longitudes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT_ID",
+      "unitText": "h",
+      "description": "Vector of Magnetic Local Times"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L_value_ID",
+      "description": "Vector of L-values in Earth radii"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SZA_ID",
+      "unitText": "deg",
+      "description": "Vector of solar zenith angles"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "TEC_ID",
+      "unitText": "TECU",
+      "description": "Vector of TEC values"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Position_Quality_ID",
+      "description": "Vector of quality indicators characterizing the detection quality of each single positions"
+    }
+  ]
+}

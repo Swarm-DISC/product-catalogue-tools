@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-0d69715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_FAC_TMS_2F",
+  "titles": [
+    {
+      "title": "SW_FAC_TMS_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2014,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Field-aligned currents (dual-satellite A-C)",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Time series of field-aligned and radial current densities along the orbit using the dual-satellite method. Field-aligned current (FAC) density is derived by the multiplication of the radial current (IRC) density with the inclination angle of the geomagnetic field. The field-aligned current density can only be calculated at latitudes, where the magnetic field is well inclined, i.e. |I| > 30°. Near the magnetic equator for magnetic inclination angles |I| 86° (near poles), where both FAC and IRC values are set to NaN. Note that the magnetic field data used for the dual-satellite method is low-pass filtered with a 3-dB cutoff period of 20 s (corresponding to a wavelength of 150 km). This step is indispensable because the lateral distance between Swarm A and Swarm C has to be taken into account.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

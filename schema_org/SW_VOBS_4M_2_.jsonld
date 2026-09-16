@@ -1,0 +1,126 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-9879355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_VOBS_4M_2_",
+  "name": "SW_VOBS_4M_2_",
+  "alternateName": "Four-monthly time series of vector magnetic field values at fixed locations, on a uniform grid at satellite altitude",
+  "description": "Such data, regularly distributed in space and time are suitable for modelling the main geomagnetic field, for core flow inversion studies, and for data assimilation studies of the core dynamo process.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_VOBS_4M_2_",
+    "https://doi.org/10.57780/esa-9879355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "British Geological Survey",
+      "@id": "https://ror.org/04a7gbp98"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2021",
+  "keywords": [
+    "Magnetic measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/VOB",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/VOB",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_OB",
+      "unitText": "nT",
+      "description": "Estimated observed GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sigma_OB",
+      "unitText": "nT",
+      "description": "Observed field estimated error"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_CF",
+      "unitText": "nT",
+      "description": "Estimated core GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sigma_CF",
+      "unitText": "nT",
+      "description": "Core field estimated error"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp_SV",
+      "description": "Time of Secular Variation (*_SV) data"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_SV",
+      "unitText": "nT/yr",
+      "description": "Estimated secular variation (SV) GVO magnetic field, spherical polar (r,theta,phi) vector components [i.e (-C,-N,E) components in NEC frame]"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sigma_SV",
+      "unitText": "nT/yr",
+      "description": "Secular variation field estimated error"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-6b69f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_NIX_TMS_2F",
+  "name": "SW_NIX_TMS_2F",
+  "alternateName": "NEGIX: electron density gradient ionosphere index",
+  "description": "NEGIX is the electron density (𝑁𝑒) gradient ionosphere index developed as part of the MIGRAS project to monitor mid-scale plasma density irregularities with horizontal spatial scales in the order of 100 km. This product benefits from the coordinated flight of Swarm satellites A and C that are orbiting the Earth from pole to pole, at a height of ca. 460 km. The distance between both satellites ranges from a few kilometres when they approach the poles and up to ca. 150 km at their equatorial pass. Therefore, plasma density measurements acquired with the Langmuir Probe instruments onboard of the Swarm satellites are ideal to monitor mid-scale density changes.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_NIX_TMS_2F",
+    "https://doi.org/10.57780/esa-6b69f15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)",
+      "@id": "https://ror.org/04bwf3e34"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2025",
+  "keywords": [
+    "Space Weather",
+    "Ionosphere/Magnetosphere",
+    "Plasma measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/NIX/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/NIX/TMS",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

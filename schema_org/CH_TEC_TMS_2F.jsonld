@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-f7497d1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/CH_TEC_TMS_2F",
+  "name": "CH_TEC_TMS_2F",
+  "alternateName": "Time series of the ionospheric Total Electron Content (TEC) derived for the CHAMP satellite",
+  "description": "Integrated electron density along the line of sight from CHAMP to GNSS satellites",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/CH_TEC_TMS_2F",
+    "https://doi.org/10.57780/esa-f7497d1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Space Weather",
+    "Ionosphere/Magnetosphere",
+    "CHAMP"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/CHAMP/TEC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/CHAMP/TEC",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

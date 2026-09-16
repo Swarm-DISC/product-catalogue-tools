@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-d469715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_CFW_SHA_2Y",
+  "titles": [
+    {
+      "title": "SW_CFW_SHA_2Y"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Institut de physique du globe de Paris",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/004gzqz66",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2022,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Toroidal and poloidal core flow coefficients co-estimated with the magnetic field model MCO_SHA_2Y",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Series of core surface flow models coestimated with the core magnetic field and provided in terms of Toroidal & Poloidal spherical harmonic coefficients + covariance matrices + standard deviations of Gauss coefficients Related to SW_MCO_SHA_2Y",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Core field"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

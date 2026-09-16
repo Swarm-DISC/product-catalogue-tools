@@ -1,0 +1,185 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-b579355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_TECxTMS_2F",
+  "name": "SW_TECxTMS_2F",
+  "alternateName": "Ionospheric total electron content",
+  "description": "Integrated electron density along the line of sight from Swarm to GNSS satellites",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_TECxTMS_2F",
+    "https://doi.org/10.57780/esa-b579355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2014",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/TEC/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/TEC/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_TECATMS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time stamp in UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degree",
+      "description": "Geographic latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degree",
+      "description": "Geographic longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "km",
+      "description": "Geographic radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "GPS_Position",
+      "unitText": "km",
+      "description": "X-,Y-,Z-coordinates (WGS84) of the GPS satellite"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "LEO_Position",
+      "unitText": "m",
+      "description": "X-,Y-,Z-coordinates (WGS84) of the LEO satellite"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PRN",
+      "description": "GPS satellite PRN"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L1",
+      "unitText": "m",
+      "description": "GPS L1 carrier phase observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L2",
+      "unitText": "m",
+      "description": "GPS L2 carrier phase observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "P1",
+      "unitText": "m",
+      "description": "GPS P1 code phase observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "P2",
+      "unitText": "m",
+      "description": "GPS P2 code phase observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "S1",
+      "description": "GPS signal-to-noise ratio or raw signal strength on L1"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "S2",
+      "description": "GPS signal-to-noise ratio or raw signal strength on L2"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Absolute_STEC",
+      "unitText": "TECU",
+      "description": "Absolute slant TEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Absolute_VTEC",
+      "unitText": "TECU",
+      "description": "Absolute vertical TEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Elevation_Angle",
+      "unitText": "degree",
+      "description": "Elevation Angle"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Relative_STEC",
+      "unitText": "TECU",
+      "description": "Relative slant TEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Relative_STEC_RMS",
+      "unitText": "TECU",
+      "description": "Root mean square error of relative slant TEC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DCB",
+      "unitText": "TECU",
+      "description": "GPS receiver differential code bias"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DCB_Error",
+      "unitText": "TECU",
+      "description": "Error of the GPS receiver differential code bias"
+    }
+  ]
+}

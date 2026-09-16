@@ -1,0 +1,60 @@
+{
+  "doi": "10.57780/esa-1e13ecd",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_GPSx_RO_1B",
+  "titles": [
+    {
+      "title": "SW_GPSx_RO_1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2013,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "GPS RINEX Observation data",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The GPSx_RO_1B Products contain the GPS Observation files generated from GPSR data. The product stores the GPS Observation data file in the RINEX 3.00 format generally used for LEO satellites. The description of the format can be found in rinex300.pdf , Section 2 and Appendix A.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "GNSS measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

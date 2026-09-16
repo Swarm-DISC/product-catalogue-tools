@@ -1,0 +1,63 @@
+{
+  "doi": "10.57780/esa-41bc4c2",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxLPI_1B",
+  "titles": [
+    {
+      "title": "SW_EFIxLPI_1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2013,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Electric field instrument (EFI) Langmuir probe (LP) measurements at 1Hz",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The EFIXLPI_1B Product contains the EFIX_LP_1B plasma data, which are data from the Langimur Probe (LP) of the Electrical Field Instrument (EFI), interpolated at full UTC seconds, the same as the low resolution magnetic data MAG_LR.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Plasma measurements"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

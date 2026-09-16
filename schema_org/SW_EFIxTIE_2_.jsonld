@@ -1,0 +1,144 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-9a59fd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxTIE_2_",
+  "name": "SW_EFIxTIE_2_",
+  "alternateName": "Estimated ion temperatures along the Swarm satellite orbits",
+  "description": "This product contains estimated ion temperatures along the Swarm satellite orbits",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxTIE_2_",
+    "https://doi.org/10.57780/esa-9a59fd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Calgary",
+      "@id": "https://ror.org/03yjb2x39"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2021",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/EFI/TIE",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/EFI/TIE",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_EFIATIE_2_",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Milliseconds since Jan 1, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degrees",
+      "description": "Geodetic latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degrees",
+      "description": "Geodetic longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Geocentric radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Height",
+      "unitText": "m",
+      "description": "Height above WGS84 reference ellipsoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "QDLatitude",
+      "unitText": "degrees",
+      "description": "Quasi-dipole magnetic latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic local time"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ti_meas_drift",
+      "unitText": "K",
+      "description": "Ion temperature estimated using Swarm TII drift at high latitudes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Ti_model_drift",
+      "unitText": "K",
+      "description": "Ion temperature estimated using Weimer 2005 model drifts at high latitudes"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Te_adj_LP",
+      "unitText": "K",
+      "description": "Corrected Swarm LP electron temperature"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Tn_msis",
+      "unitText": "K",
+      "description": "Neutral temperature from NRLMSISE-00 model"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flag_ti_meas",
+      "description": "Bitwise flag for ‘Ti_meas_drift’ identifying included inputs and processes, see section 3.5 in Swarm SITE product description document"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flag_ti_model",
+      "description": "Bitwise flag for ‘Ti_model_drift’ identifying included inputs and processes, see section 3.5 in Swarm SITE product description document"
+    }
+  ]
+}

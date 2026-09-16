@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-a369f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxIDM_2_",
+  "name": "SW_EFIxIDM_2_",
+  "alternateName": "Swarm Electric Field Instrument (EFI) Langumir Probe (LP) Ion Drift and Effective Mass",
+  "description": "Estimated ion drift velocity, effective ion mass, and electron density along the Swarm satellite orbits, derived using measurements taken from the Swarm electric field instrument (EFI) Langmuir Probes (LP) and faceplate (FP), within the framework of modified orbital motion limited (OML) theory. The dataset is produced within the Swarm LP Ion Drift and Effective Mass (SLIDEM) project.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxIDM_2_",
+    "https://doi.org/10.57780/esa-a369f15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Calgary",
+      "@id": "https://ror.org/03yjb2x39"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Plasma measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/Plasma_Data/2_Hz_Ion_Drift_Density_and_Effective_Mass_dataset",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/#swarm/Advanced/Plasma_Data/2_Hz_Ion_Drift_Density_and_Effective_Mass_dataset",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_PREL_EFIAIDM_2_",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degrees",
+      "description": "Geodetic latitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degrees",
+      "description": "Geodetic longitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Geocentric radius."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Height",
+      "unitText": "m",
+      "description": "Height above WGS84 reference ellipsoid."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "QDLatitude",
+      "unitText": "degrees",
+      "description": "Quasi-dipole magnetic latitude."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "hour",
+      "description": "Magnetic local time."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_sat_nec",
+      "unitText": "m/s",
+      "description": "Satellite velocity in north, east, centre (NEC) reference frame."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "M_i_eff",
+      "unitText": "a.m.u.",
+      "description": "Ion effective mass."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "M_i_eff_err",
+      "unitText": "a.m.u.",
+      "description": "Ion effective mass uncertainty."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "M_i_eff_Flags",
+      "description": "Ion effective mass validity flag."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "M_i_eff_tbt_model",
+      "unitText": "a.m.u.",
+      "description": "Ion effective mass from Truhlik et al. (2015) topside empirical model."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_i",
+      "unitText": "m/s",
+      "description": "Ion along-track drift."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_i_err",
+      "unitText": "m/s",
+      "description": "Ion along-track drift uncertainty."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_i_Flags",
+      "description": "Ion along-track drift validity flag."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "V_i_raw",
+      "unitText": "m/s",
+      "description": "Ion along-track drift without high-latitude detrending."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_i",
+      "unitText": "cm^-3",
+      "description": "Ion density."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_i_err",
+      "unitText": "cm^-3",
+      "description": "Ion density unertainty."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_i_Flags",
+      "description": "Ion density validity flag."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "A_fp",
+      "unitText": "m^2",
+      "description": "Modified-OML EFI faceplate area."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "R_p",
+      "unitText": "m",
+      "description": "Modified-OML Langmuir spherical probe radius."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_e",
+      "unitText": "K",
+      "description": "Electron temperature."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Phi_sc",
+      "unitText": "V",
+      "description": "Spacecraft floating potential with respect to plasma potential far from satellite."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-4d59bd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MITx_LP_2F",
+  "titles": [
+    {
+      "title": "SW_MITx_LP_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2021,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Midlatitude Ionospheric Trough Boundaries and Minima derived from LP (Langmuir Probe)",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Midlatitude Ionospheric Trough Boundaries and Minima derived from LP (Langmuir Probe)",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

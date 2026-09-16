@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOI checklist — SW_IPDxIRR_2F</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 72em; margin: 1em auto; padding: 0 1em; line-height: 1.4; color: #1a1a1a; }
+table { border-collapse: collapse; width: 100%; margin: 0.5em 0 1em; }
+th, td { border: 1px solid #ccc; padding: 0.3em 0.5em; vertical-align: top; text-align: left; }
+th { background: #f0f0f0; }
+.value { white-space: pre-wrap; font-family: ui-monospace, monospace; }
+.blank { color: #666; font-style: italic; }
+.note { color: #555; font-size: 0.9em; margin-top: 0.3em; }
+.callout { border-left: 4px solid; padding: 0.4em 0.8em; margin: 0.6em 0; }
+.callout.issue { border-color: #c0392b; background: #fdf0ee; }
+.callout.warning { border-color: #d68910; background: #fef5e7; }
+.callout.info { border-color: #2e86c1; background: #eef6fc; }
+.callout ul { margin: 0.2em 0; padding-left: 1.2em; }
+.flag { display: inline-block; font-size: 0.8em; padding: 0 0.4em; margin: 0 0.2em 0.2em 0; border-radius: 3px; background: #fef5e7; border: 1px solid #d68910; }
+.flag.issue { background: #fdf0ee; border-color: #c0392b; }
+tr.readonly td { color: #555; }
+tr.done td { background: #eafaf1; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; }
+button { cursor: pointer; }
+footer { margin-top: 2em; color: #666; font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 0.5em; }
+</style>
+<script>
+const PREFIX = "doi-checklist:";
+function store(key, on) {
+  try { on ? localStorage.setItem(PREFIX + key, "1") : localStorage.removeItem(PREFIX + key); } catch (e) {}
+}
+function stored(key) {
+  try { return localStorage.getItem(PREFIX + key) === "1"; } catch (e) { return false; }
+}
+function countStored(prefix) {
+  let n = 0;
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k.startsWith(PREFIX + prefix) && !k.endsWith(":done") && localStorage.getItem(k) === "1") n++;
+    }
+  } catch (e) {}
+  return n;
+}
+function refresh() {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    const row = cb.closest("tr");
+    if (row) row.classList.toggle("done", cb.checked);
+  });
+  const progress = document.getElementById("progress");
+  if (progress) {
+    const boxes = document.querySelectorAll("input[data-key]");
+    const done = [...boxes].filter(cb => cb.checked).length;
+    progress.textContent = done + " of " + boxes.length + " done";
+  }
+  document.querySelectorAll("[data-fields-prefix]").forEach(el => {
+    const n = countStored(el.dataset.fieldsPrefix);
+    el.textContent = n ? n + "/" + el.dataset.fieldsTotal + " fields ticked" : "";
+  });
+}
+function selectContents(el) {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+function copyValue(btn) {
+  const el = document.getElementById(btn.dataset.target);
+  const text = el.textContent;
+  const label = btn.textContent;
+  const flash = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+  const fallback = () => {
+    // navigator.clipboard is unavailable on plain http other than localhost,
+    // e.g. `make serve` shared over a LAN address.
+    selectContents(el);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    flash(ok ? "Copied" : "Selected — press Ctrl+C");
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => flash("Copied"), fallback);
+  } else {
+    fallback();
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    cb.checked = stored(cb.dataset.key);
+    cb.addEventListener("change", () => { store(cb.dataset.key, cb.checked); refresh(); });
+  });
+  document.querySelectorAll("button[data-target]").forEach(btn => {
+    btn.addEventListener("click", () => copyValue(btn));
+  });
+  refresh();
+});
+</script>
+</head>
+<body>
+
+<p><a href="index.html">&larr; all records</a> · <a href="../index.html">product catalogue</a></p>
+<h1>SW_IPDxIRR_2F</h1>
+<p>DOI: <a href='https://doi.org/10.57780/esa-7269b15'>10.57780/esa-7269b15</a><br><a href='https://swarmhandbook.earth.esa.int/catalogue/SW_IPDxIRR_2F'>handbook landing page</a> · <a href='../SW_IPDxIRR_2F.html'>catalogue preview</a> · <a href='../schema_org/SW_IPDxIRR_2F.jsonld'>JSON-LD</a> · <a href='../datacite/SW_IPDxIRR_2F.json'>DataCite JSON</a></p>
+<div class='callout issue'><strong>Batch-wide issues (all registered records)</strong><ul><li>§1 Every non-ESA creator is registered with nameType=&quot;Personal&quot;; it should be &quot;Organizational&quot;.</li><li>§2 No creator carries its ROR nameIdentifier (only the publisher has ESA&#x27;s ROR).</li><li>The form has no nameType or ROR input, so issues §1 and §2 cannot be fixed through this form — and per schema_org_handoff.md §6, landing-page harvesting cannot carry creator ROR either. The routes that work are the &quot;Creator ROR&quot; spreadsheet column proposed in datacite_metadata_issues.md §2, or a DataCite API push of the DataCite JSON below.</li></ul></div>
+<h2>Form fields <small id="progress"></small></h2>
+<table>
+<tr><th></th><th>#</th><th>Form field</th><th>Value</th><th></th></tr>
+<tr class=readonly><td></td><td>1</td><td>Product types <em>(read-only)</em></td><td><span class=value id='v-product-types'>SW_OPER_IPDAIRR_2F, SW_OPER_IPDBIRR_2F, SW_OPER_IPDCIRR_2F</span></td><td></td></tr><tr class=readonly><td></td><td>2</td><td>EO Dataset / Collection Name <em>(read-only)</em></td><td><span class=value id='v-eo-dataset-collection-name'>SW_IPDxIRR_2F</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:collection-description' aria-label='done'></td><td>5</td><td>Collection Description</td><td><span class=value id='v-collection-description'>Ionospheric Plasma IRregularities characterised by the Swarm satellites (Swarm IPIR).</span><div class=note>The catalogue definition; registered as descriptions[SeriesInformation].</div></td><td><button data-target='v-collection-description'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:landing-page-url' aria-label='done'></td><td>6</td><td>Landing Page URL</td><td><span class=value id='v-landing-page-url'>https://swarmhandbook.earth.esa.int/catalogue/SW_IPDxIRR_2F</span></td><td><button data-target='v-landing-page-url'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:collection-file-format' aria-label='done'></td><td>7</td><td>Collection File Format</td><td><span class=value id='v-collection-file-format'>CDF</span><div class=note>From the “Data format” row of the product details.</div></td><td><button data-target='v-collection-file-format'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:collection-creation-year' aria-label='done'></td><td>8</td><td>Collection Creation Year</td><td><span class=value id='v-collection-creation-year'>2019</span></td><td><button data-target='v-collection-creation-year'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:collection-publication-year' aria-label='done'></td><td>9</td><td>Collection Publication Year</td><td><span class=value id='v-collection-publication-year'>2019</span><div class=note>Same as the creation year, by convention.</div></td><td><button data-target='v-collection-publication-year'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:sizes' aria-label='done'></td><td>10</td><td>Sizes</td><td><span class=blank>leave blank</span><div class=note>The form means the size of the whole collection, which the catalogue does not hold.</div><div class=note>Context only — per-file volume from the product details, not a collection size: <code>ca.10 MB per day, per satellite</code></div></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:subjects' aria-label='done'></td><td>13</td><td>Subjects</td><td><span class=value id='v-subjects'>Ionosphere/Magnetosphere, Space Weather</span><div class=note>The catalogue thematic areas.</div></td><td><button data-target='v-subjects'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:authors' aria-label='done'></td><td>14</td><td>Authors</td><td><span class=value id='v-authors'>University of Oslo</span><div class=note>Non-ESA authors (ESA is excluded by name and by ROR). The form has no ROR input; RORs shown for reference.</div><table><tr><th>Author</th><th>ROR</th></tr><tr><td>University of Oslo</td><td>https://ror.org/01xtthb56</td></tr></table></td><td><button data-target='v-authors'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:projects' aria-label='done'></td><td>15</td><td>Projects</td><td><span class=blank>leave as-is</span><div class=note>No DataCite or catalogue equivalent.</div></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:data-policy-url' aria-label='done'></td><td>16</td><td>Data Policy URL</td><td><span class=value id='v-data-policy-url'>https://earth.esa.int/eogateway/documents/20142/1564626/Terms-and-Conditions-for-the-use-of-ESA-Data.pdf</span></td><td><button data-target='v-data-policy-url'>Copy</button></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:geolocations' aria-label='done'></td><td>17</td><td>Geolocations</td><td><span class=blank>Leave empty — global/orbital coverage, no bounding box in the catalogue</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:temporal-coverage-attributes' aria-label='done'></td><td>18</td><td>Temporal Coverage Attributes</td><td><span class=blank>Leave empty — not held in the catalogue</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:event-attributes' aria-label='done'></td><td>19</td><td>Event Attributes</td><td><span class=blank>Leave empty — not applicable</span></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:parameters-attributes' aria-label='done'></td><td>20</td><td>Parameters Attributes</td><td><span class=blank>optional — see variables below</span><details><summary>29 variables (optional)</summary><table><tr><th>Variable</th><th>Units</th><th>Description</th><th>Dim</th><th>Type</th></tr><tr><td>Timestamp</td><td>-</td><td>CDF_EPOCH of the measurement.</td><td>1</td><td>CDF_EPOCH</td></tr><tr><td>Latitude</td><td>deg</td><td>Position in ITRF - Latitude.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Longitude</td><td>deg</td><td>Position in ITRF - Longitude.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Radius</td><td>m</td><td>Position in ITRF - Radius.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Ne</td><td>cm^-3</td><td>Plasma density, directly copied from the Langmuir probe files.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Background_Ne</td><td>cm^-3</td><td>Background density, as calculated from Ne using a percentile filter of 551 datapoints (2 Hz raw data) and 35 as the percentile.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Foreground_Ne</td><td>cm^-3</td><td>Foreground density, as calculated from ndens using a percentile filter of 7 datapoints (2 Hz raw data) and 50 as the percentile.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Te</td><td>K</td><td>Electron temperature, directly copied from the Langmuir probe files.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>PCP_flag</td><td>-</td><td>The polar cap patch flag:  0 if the plasma density measurement occurred OUTSIDE a polar cap patch. 1 if the plasma density measurement occurred at one of the edges of a polar cap patch (no plasma velocity measurements are available). 2 if the plasma density measurement occurred at the LEADING edge of a polar cap patch. 3 if the plasma density measurement occurred at the TRAILING edge of a polar cap patch. 4 if the plasma density measurement occurred INSIDE a polar cap patch proper. When no ion drift data is available, the leading and trailing edges cannot be distinguished. In this case the polar cap patch flag is set to 4 throughout the patch proper and to 1 throughout both edges.</td><td>1</td><td>CDF_INT4</td></tr><tr><td>Grad_Ne_at_100km</td><td>cm^-3/m</td><td>The electron density gradient in a running window calculated via linear regression over 27 data points for the 2 Hz electron density data.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Grad_Ne_at_50km</td><td>cm^-3/m</td><td>The electron density gradient in a running window calculated via linear regression over 13 data points for the 2 Hz electron density data.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Grad_Ne_at_20km</td><td>cm^-3/m</td><td>The electron density gradient in a running window calculated via linear regression over 5 data points for the 2 Hz electron density data.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Grad_Ne_at_PCP_edge</td><td>cm^-3/m</td><td>The linear electron density gradient calculated over the edges of a patch. This variable is non-zero only at the edges of polar cap patches.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>ROD</td><td>cm^-3/s</td><td>Rate Of change of Density</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>RODI10s</td><td>cm^-3/s</td><td>Rate Of change of Density Index (RODI) is the standard deviation of ROD over 10 seconds.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>RODI20s</td><td>cm^-3/s</td><td>Rate Of change of Density Index (RODI) is the standard deviation of ROD over 20 seconds.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>delta_Ne10s</td><td>cm^-3</td><td>Derived by subtracting Ne by its median filtered value in 10 seconds. As a result, delta_Ne10s indicates the electron density fluctuations smaller than 75 km.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>delta_Ne20s</td><td>cm^-3</td><td>Derived by subtracting Ne by its median filtered value in 20 seconds. As a result, delta_Ne20s indicates the electron density fluctuations smaller than 150 km.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>delta_Ne40s</td><td>cm^-3</td><td>Derived by subtracting Ne by its median filtered value in 40 seconds. As a result, delta_Ne40s indicates the electron density fluctuations smaller than 300 km.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>Num_GPS_satellites</td><td>-</td><td>Total number of tracked GPS satellites above 20 degrees.</td><td>1</td><td>CDF_INT4</td></tr><tr><td>mVTEC</td><td>TECU</td><td>Median of VTEC from all available GPS satellites above 30 degrees.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>mROT</td><td>TECU/s</td><td>Median of Rate Of change of TEC (ROT) from all available GPS satellites above 30 degrees.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>mROTI10s</td><td>TECU/s</td><td>Median of Rate Of change of TEC Index (ROTI) from all available GPS satellites above 30 degrees. The ROTI of each satellite is the standard deviation of ROT over 10 seconds.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>mROTI20s</td><td>TECU/s</td><td>Median of Rate Of change of TEC Index (ROTI) from all available GPS satellites above 30 degrees. The ROTI of each satellite is the standard deviation of ROT over 20 seconds.</td><td>1</td><td>CDF_DOUBLE</td></tr><tr><td>IBI_flag</td><td>-</td><td>Plasma Bubble Index, copied from the level-2 Ionospheric Bubble Index product, IBIxTMS_2F. </td><td>1</td><td>CDF_INT4</td></tr><tr><td>Ionosphere_region_flag</td><td>-</td><td>0: equator, 1: mid-latitudes; 2: auroral oval; 3: polar cap.</td><td>1</td><td>CDF_INT4</td></tr><tr><td>IPIR_index</td><td>-</td><td>The numeric index for plasma fluctuations and irregularities: 0-3 low, 4-5 medium, and &gt; 6 high level of ionosphericplasma irregularities.</td><td>1</td><td>CDF_INT4</td></tr><tr><td>Ne_quality_flag</td><td>-</td><td>Quality flag for the Ne data and the derived data from Ne, e.g., background density, foreground density etc.</td><td>1</td><td>CDF_INT4</td></tr><tr><td>TEC_STD</td><td>TECU</td><td>STD of VTEC from all GPS satellites.</td><td>1</td><td>CDF_DOUBLE</td></tr></table></details></td><td></td></tr><tr><td><input type=checkbox data-key='SW_IPDxIRR_2F:related-identifiers' aria-label='done'></td><td>21</td><td>Related Identifiers</td><td><span class=blank>leave blank</span><div class=note>Identifiers with role “external” or “related”. None exist in the catalogue today. Role-less URL identifiers are excluded because they are the handbook landing page, already entered as Landing Page URL.</div></td><td></td></tr>
+</table>
+<details><summary>Constant fields (same on every record)</summary>
+<table><tr><th>#</th><th>Form field</th><th>Value</th></tr><tr><td>3</td><td>Version / Baseline</td><td><span class=value id=''>0</span><div class=note>Matches the registered DataCite version.</div></td></tr><tr><td>4</td><td>Contributors</td><td><span class=value id=''>D/EOP</span><div class=note>Registered as a DataCite contributor with contributorType=Other.</div></td></tr><tr><td>11</td><td>Creators</td><td><span class=value id=''>European Space Agency</span></td></tr><tr><td>12</td><td>Publisher</td><td><span class=value id=''>European Space Agency</span></td></tr></table>
+</details>
+<h2>DataCite JSON</h2><p>The <code>attributes</code> of a DataCite REST update for this DOI, generated from the catalogue with the fixes above applied. Not sent anywhere.</p><details><summary>Show DataCite JSON</summary><p><button data-target='datacite-json'>Copy JSON</button></p><pre id='datacite-json'>{
+  &quot;doi&quot;: &quot;10.57780/esa-7269b15&quot;,
+  &quot;url&quot;: &quot;https://swarmhandbook.earth.esa.int/catalogue/SW_IPDxIRR_2F&quot;,
+  &quot;titles&quot;: [
+    {
+      &quot;title&quot;: &quot;SW_IPDxIRR_2F&quot;
+    }
+  ],
+  &quot;creators&quot;: [
+    {
+      &quot;name&quot;: &quot;European Space Agency&quot;,
+      &quot;nameType&quot;: &quot;Organizational&quot;,
+      &quot;nameIdentifiers&quot;: [
+        {
+          &quot;nameIdentifier&quot;: &quot;https://ror.org/03wd9za21&quot;,
+          &quot;nameIdentifierScheme&quot;: &quot;ROR&quot;,
+          &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;University of Oslo&quot;,
+      &quot;nameType&quot;: &quot;Organizational&quot;,
+      &quot;nameIdentifiers&quot;: [
+        {
+          &quot;nameIdentifier&quot;: &quot;https://ror.org/01xtthb56&quot;,
+          &quot;nameIdentifierScheme&quot;: &quot;ROR&quot;,
+          &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+        }
+      ]
+    }
+  ],
+  &quot;publisher&quot;: {
+    &quot;name&quot;: &quot;European Space Agency&quot;,
+    &quot;publisherIdentifier&quot;: &quot;https://ror.org/03wd9za21&quot;,
+    &quot;publisherIdentifierScheme&quot;: &quot;ROR&quot;,
+    &quot;schemeUri&quot;: &quot;https://ror.org/&quot;
+  },
+  &quot;publicationYear&quot;: 2019,
+  &quot;types&quot;: {
+    &quot;resourceTypeGeneral&quot;: &quot;Dataset&quot;
+  },
+  &quot;contributors&quot;: [
+    {
+      &quot;name&quot;: &quot;D/EOP&quot;,
+      &quot;contributorType&quot;: &quot;Other&quot;
+    }
+  ],
+  &quot;language&quot;: &quot;en&quot;,
+  &quot;version&quot;: &quot;0&quot;,
+  &quot;descriptions&quot;: [
+    {
+      &quot;description&quot;: &quot;Ionospheric Plasma IRregularities characterised by the Swarm satellites (Swarm IPIR).&quot;,
+      &quot;descriptionType&quot;: &quot;SeriesInformation&quot;
+    },
+    {
+      &quot;description&quot;: &quot;Time series of characteristics of the plasma density and plasma irregularities along the orbit from single satellite measurements. Time series of local plasma conditions, including background density and total electron content. Data related to geomagnetic regions in the ionosphere. Indication of severity of plasma irregularities for ground-based users provided. Contains ionospheric plasma characteristics from multiple instruments derived at 1Hz, updated daily with 24-hour timespan.&quot;,
+      &quot;descriptionType&quot;: &quot;Abstract&quot;
+    }
+  ],
+  &quot;subjects&quot;: [
+    {
+      &quot;subject&quot;: &quot;Ionosphere/Magnetosphere&quot;
+    },
+    {
+      &quot;subject&quot;: &quot;Space Weather&quot;
+    }
+  ],
+  &quot;schemaVersion&quot;: &quot;http://datacite.org/schema/kernel-4&quot;
+}</pre></details>
+
+<footer>Built 2026-09-16 17:09 UTC from product-catalogue 23039a2. Tick-boxes are a personal scratchpad: they are stored in this browser only (localStorage) and do not travel with the shared URL.</footer>
+</body>
+</html>

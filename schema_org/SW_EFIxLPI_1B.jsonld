@@ -1,0 +1,204 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-41bc4c2",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxLPI_1B",
+  "name": "SW_EFIxLPI_1B",
+  "alternateName": "Electric field instrument (EFI) Langmuir probe (LP) measurements at 1Hz",
+  "description": "The EFIXLPI_1B Product contains the EFIX_LP_1B plasma data, which are data from the Langimur Probe (LP) of the Electrical Field Instrument (EFI), interpolated at full UTC seconds, the same as the low resolution magnetic data MAG_LR.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxLPI_1B",
+    "https://doi.org/10.57780/esa-41bc4c2"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "Plasma measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/EFIxLPI",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/EFIxLPI",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Timestamp of the LP measurement"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Time synchronization status (of LP), source and quality, see Appendix D"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF -- Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF -- Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF -- Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "U_orbit",
+      "unitText": "m/s",
+      "description": "Magnitude of spacecraft velocity in the ITRF"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_ion",
+      "unitText": "cm-3",
+      "description": "Ion density"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dN_ion",
+      "unitText": "cm-3",
+      "description": "Calibration parameter for ion density w.r.t. ISRs"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_ion_error",
+      "unitText": "cm-3",
+      "description": "Random error of the ion density estimate (empty)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_elec",
+      "unitText": "cm-3",
+      "description": "Electron density"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "N_elec_error",
+      "unitText": "cm-3",
+      "description": "Random error of the electron density estimate (empty)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_elec",
+      "unitText": "K",
+      "description": "Electron temperature"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_elec_error",
+      "unitText": "K",
+      "description": "Random error of the electron temperature estimate (empty)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dT_elec",
+      "unitText": "K",
+      "description": "Calibration parameter for electron temperature w.r.t. ISRs"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vs",
+      "unitText": "V",
+      "description": "Spacecraft potential"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Vs_error",
+      "unitText": "V",
+      "description": "Error of the spacecraft potential estimate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_LP",
+      "description": "Flags indicating the source of measurements, see Table 6-4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_N_ion",
+      "description": "Flags characterizing the ion density measurement, see Table 6-4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_N_elec",
+      "description": "Flags characterizing the electron density measurement, see Table 6-4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_T_elec",
+      "description": "Flags characterizing the electron temperature measurement, see Table 6-4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_Vs",
+      "description": "Flags characterizing the spacecraft potential measurement, see Table 6-4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Gamma1",
+      "unitText": "deg",
+      "description": "Inclination angle between Sun illumination incidence and right-side solar panel normal"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Gamma2",
+      "unitText": "deg",
+      "description": "Inclination angle between Sun illumination incidence and left-side solar panel normal"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flagbits1",
+      "description": "Flag table for first subset of detailed information about LP instrument configuration and error conditions, see Table 6-5."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flagbits2",
+      "description": "Flag table for second subset of detailed information about LP gain configuration and detected error conditions in data, see Table 6-6"
+    }
+  ]
+}

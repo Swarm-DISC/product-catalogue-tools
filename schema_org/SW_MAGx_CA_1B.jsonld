@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-12b46c9",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_CA_1B",
+  "name": "SW_MAGx_CA_1B",
+  "alternateName": "Magnetic vector and scalar data for monitoring and calibration purposes",
+  "description": "The MAGx_CA_1B Product contains magnetic calibration data for monitoring, verification, and re-estimation of calibration parameters. It contains raw as well as processed VFM vector measurements, VFM temperatures, and fully converted and corrected ASM measurements at 1 Hz rate. This is essentially the data used for the Temporal Calibration File (TCF.VFM) estimation but including also the raw VFM data.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_CA_1B",
+    "https://doi.org/10.57780/esa-12b46c9"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "Magnetic measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/MAGx_CA",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/MAGx_CA",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Synchronization status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF - Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F",
+      "unitText": "nT",
+      "description": "Magnetic field intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_Sun",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction of Sun induced perturbation at ASM sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_AOCS",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction intensity of AOCS magneto-torquer coils"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_other",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction intensity of all other sources"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F_error",
+      "unitText": "nT",
+      "description": "Error estimate on magnetic field intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F_VFM",
+      "unitText": "nT",
+      "description": "Magnetic field intensity from the VFM instrument,converted and corrected"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B",
+      "unitText": "nT",
+      "description": "Magnetic field vector, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Sun",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of Sun induced perturbation, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_AOCS",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of AOCS magneto-torquer coils, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_other",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of all other sources, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_pre",
+      "unitText": "nT",
+      "description": "Pre-calibrated VFM magnetic field vector, VFM frame, time Time+dt"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "EU_VFM",
+      "unitText": "eu",
+      "description": "Raw VFM measuremet, time Time+dt_VFM"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_CDC",
+      "unitText": "C",
+      "description": "Temperature of VFM CDC, time Time+dt_VFM"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_CSC",
+      "unitText": "C",
+      "description": "Temperature of VFM CSC, time Time+dt_VFM"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "T_EU",
+      "unitText": "C",
+      "description": "Temperature of VFM EU, time Time+dt_VFM"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dt_VFM",
+      "unitText": "s",
+      "description": "Time offset of VFM measurement"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "alpha",
+      "unitText": "deg",
+      "description": "Solar inclination angle, rotation about y axis, S/C frame, time Time+dt"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "beta",
+      "unitText": "deg",
+      "description": "Solar inclination angle, angle to y axis, S/C frame, time Time+dt"
+    }
+  ]
+}

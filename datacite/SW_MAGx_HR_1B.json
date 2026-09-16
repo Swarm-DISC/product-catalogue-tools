@@ -1,0 +1,63 @@
+{
+  "doi": "10.57780/esa-c101a8d",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_HR_1B",
+  "titles": [
+    {
+      "title": "SW_MAGx_HR_1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2013,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Magnetic field (50Hz) from VFM",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The MAGx_HR_1B Product contains magnetic vector data at 50 Hz rate. The time instants of the data are determined by the VFM instrument samplings. No interpolation of the magnetic data is performed, neither to shift the measurements in time nor to fill any gaps in the VFM source data.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Magnetic measurements"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

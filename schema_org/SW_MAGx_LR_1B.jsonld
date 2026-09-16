@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-091794d",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_LR_1B",
+  "name": "SW_MAGx_LR_1B",
+  "alternateName": "Magnetic field (1Hz) from VFM and ASM",
+  "description": "The MAGx_LR_1B Product contains magnetic vector and scalar data at 1 Hz rate. The spacecraft data are processed to provide MAGx_LR_1B data at exact UTC seconds, i.e. both VFM vector and ASM scalar data are interpolated to yield these data. Hence, small gaps in the VFM or ASM data need not cause gaps in the product as the gaps may be filled by this interpolation. Any gaps, however, will have an impact on the error estimate of the associated product element.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_LR_1B",
+    "https://doi.org/10.57780/esa-091794d"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "Magnetic measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/MAGx_LR",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/MAGx_LR",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_MAGA_LR_1B",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "UTC",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Synchronization status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position in ITRF - Longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF - Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F",
+      "unitText": "nT",
+      "description": "Magnetic field intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_Sun",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction of Sun induced perturbation at ASM sensor"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_AOCS",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction intensity of AOCS magneto-torquer coils"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dF_other",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction intensity of all other sources"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "F_error",
+      "unitText": "nT",
+      "description": "Error estimate on magnetic field intensity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_VFM",
+      "unitText": "nT",
+      "description": "Magnetic field vector, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_NEC",
+      "unitText": "nT",
+      "description": "Magnetic field vector, NEC frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_Sun",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of Sun induced perturbation, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_AOCS",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of AOCS magneto-torquer coils, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dB_other",
+      "unitText": "nT",
+      "description": "Magnetic stray field correction vector of all other sources, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "B_error",
+      "unitText": "nT",
+      "description": "Error estimates on magnetic field, VFM frame"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q_NEC_CRF",
+      "description": "Quaternion, transformation: NEC - CRF"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Att_error",
+      "unitText": "mdeg",
+      "description": "Error estimates on attitude information"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_F",
+      "description": "Flags characterizing the magnetic field intensity measurement (F)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_B",
+      "description": "Flags characterizing the magnetic field measurement"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_q",
+      "description": "Flags characterizing the attitude information"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_Platform",
+      "description": "Flags characterizing the S/C platform information"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ASM_Freq_Dev",
+      "description": "ASM frequency calibration data deviation"
+    }
+  ]
+}

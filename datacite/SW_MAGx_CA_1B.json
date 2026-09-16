@@ -1,0 +1,60 @@
+{
+  "doi": "10.57780/esa-12b46c9",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MAGx_CA_1B",
+  "titles": [
+    {
+      "title": "SW_MAGx_CA_1B"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Swarm PDGS",
+      "nameType": "Organizational"
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2013,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Magnetic vector and scalar data for monitoring and calibration purposes",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "The MAGx_CA_1B Product contains magnetic calibration data for monitoring, verification, and re-estimation of calibration parameters. It contains raw as well as processed VFM vector measurements, VFM temperatures, and fully converted and corrected ASM measurements at 1 Hz rate. This is essentially the data used for the Temporal Calibration File (TCF.VFM) estimation but including also the raw VFM data.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Magnetic measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

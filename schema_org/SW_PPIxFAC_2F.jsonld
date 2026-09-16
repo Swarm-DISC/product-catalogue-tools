@@ -1,0 +1,204 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-ad69715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_PPIxFAC_2F",
+  "name": "SW_PPIxFAC_2F",
+  "alternateName": "Equatorward boundary of SSFACs and the associated midnight PP index",
+  "description": "Equatorward boundary of SSFACs and the associated midnight PP index",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_PPIxFAC_2F",
+    "https://doi.org/10.57780/esa-ad69715"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2021",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/PPI/FAC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/PPI/FAC",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_PPIAFAC_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time of observation, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Counter",
+      "description": "Swarm orbit counter and quarter orbit (four per Swarm orbit) counter that are based on magnetic coordinates as defined in <a href=\"https://earth.esa.int/eogateway/documents/20142/37627/Swarm-PRISM-Description-of-the-algorithm.pdf\">Swarm PRISM processing algorithm description</a> (Sect. 4.1.2.2)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "deg",
+      "description": "Position of the SSFAC boundary in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "deg",
+      "description": "Position of the SSFAC boundary in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position of the SSFAC boundary in ITRF - Geocentric radius (from the Earth center)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD",
+      "unitText": "deg",
+      "description": "QD latitude of the SSFAC boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD",
+      "unitText": "deg",
+      "description": "QD longitude of the SSFAC boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT",
+      "unitText": "h",
+      "description": "Magnetic Local Time of SSFAC boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L_value",
+      "unitText": "R_E",
+      "description": "L-value of the SSFAC boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SZA",
+      "unitText": "deg",
+      "description": "Solar zenith angle of the SSFAC boundary"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dL",
+      "description": "Boundary width in Earth radii"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Sigma",
+      "description": "Standard deviation of the linear fit of S at the boundary (Heilig, B. and Lühr, H., doi: 10.5194/angeo-31-529-2013)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPI",
+      "unitText": "R_E",
+      "description": "Midnight Plasmapause index"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quality",
+      "description": "Quality indicators of SSFAC boundary detection"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp_ID",
+      "description": "Time vector of observations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_ID",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_ID",
+      "unitText": "deg",
+      "description": "Position in ITRF - Geocentric longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius_ID",
+      "unitText": "m",
+      "description": "Position in ITRF - Geocentric radius (from the Earth centre)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude_QD_ID",
+      "unitText": "deg",
+      "description": "QD latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude_QD_ID",
+      "unitText": "deg",
+      "description": "QD longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MLT_ID",
+      "unitText": "h",
+      "description": "Magnetic Local Time"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "L_value_ID",
+      "description": "L-value in Earth radii"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SZA_ID",
+      "unitText": "deg",
+      "description": "L-value in Earth radii"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Position_Quality_ID",
+      "description": "Vector of quality indicators characterising the detection quality of each single positions"
+    }
+  ]
+}

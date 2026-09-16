@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>datacite_metadata_issues.md</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 72em; margin: 1em auto; padding: 0 1em; line-height: 1.4; color: #1a1a1a; }
+table { border-collapse: collapse; width: 100%; margin: 0.5em 0 1em; }
+th, td { border: 1px solid #ccc; padding: 0.3em 0.5em; vertical-align: top; text-align: left; }
+th { background: #f0f0f0; }
+.value { white-space: pre-wrap; font-family: ui-monospace, monospace; }
+.blank { color: #666; font-style: italic; }
+.note { color: #555; font-size: 0.9em; margin-top: 0.3em; }
+.callout { border-left: 4px solid; padding: 0.4em 0.8em; margin: 0.6em 0; }
+.callout.issue { border-color: #c0392b; background: #fdf0ee; }
+.callout.warning { border-color: #d68910; background: #fef5e7; }
+.callout.info { border-color: #2e86c1; background: #eef6fc; }
+.callout ul { margin: 0.2em 0; padding-left: 1.2em; }
+.flag { display: inline-block; font-size: 0.8em; padding: 0 0.4em; margin: 0 0.2em 0.2em 0; border-radius: 3px; background: #fef5e7; border: 1px solid #d68910; }
+.flag.issue { background: #fdf0ee; border-color: #c0392b; }
+tr.readonly td { color: #555; }
+tr.done td { background: #eafaf1; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; }
+button { cursor: pointer; }
+footer { margin-top: 2em; color: #666; font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 0.5em; }
+</style>
+<script>
+const PREFIX = "doi-checklist:";
+function store(key, on) {
+  try { on ? localStorage.setItem(PREFIX + key, "1") : localStorage.removeItem(PREFIX + key); } catch (e) {}
+}
+function stored(key) {
+  try { return localStorage.getItem(PREFIX + key) === "1"; } catch (e) { return false; }
+}
+function countStored(prefix) {
+  let n = 0;
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k.startsWith(PREFIX + prefix) && !k.endsWith(":done") && localStorage.getItem(k) === "1") n++;
+    }
+  } catch (e) {}
+  return n;
+}
+function refresh() {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    const row = cb.closest("tr");
+    if (row) row.classList.toggle("done", cb.checked);
+  });
+  const progress = document.getElementById("progress");
+  if (progress) {
+    const boxes = document.querySelectorAll("input[data-key]");
+    const done = [...boxes].filter(cb => cb.checked).length;
+    progress.textContent = done + " of " + boxes.length + " done";
+  }
+  document.querySelectorAll("[data-fields-prefix]").forEach(el => {
+    const n = countStored(el.dataset.fieldsPrefix);
+    el.textContent = n ? n + "/" + el.dataset.fieldsTotal + " fields ticked" : "";
+  });
+}
+function selectContents(el) {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+function copyValue(btn) {
+  const el = document.getElementById(btn.dataset.target);
+  const text = el.textContent;
+  const label = btn.textContent;
+  const flash = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+  const fallback = () => {
+    // navigator.clipboard is unavailable on plain http other than localhost,
+    // e.g. `make serve` shared over a LAN address.
+    selectContents(el);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    flash(ok ? "Copied" : "Selected — press Ctrl+C");
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => flash("Copied"), fallback);
+  } else {
+    fallback();
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-key]").forEach(cb => {
+    cb.checked = stored(cb.dataset.key);
+    cb.addEventListener("change", () => { store(cb.dataset.key, cb.checked); refresh(); });
+  });
+  document.querySelectorAll("button[data-target]").forEach(btn => {
+    btn.addEventListener("click", () => copyValue(btn));
+  });
+  refresh();
+});
+</script>
+</head>
+<body>
+<p><a href='../index.html'>&larr; checklist</a></p><h1>DataCite metadata issues — Swarm L2 DOI batch (74 DOIs, registered 2026-09-15)</h1>
+<p>Prefix <code>10.57780</code>, all records <code>findable</code>. DOIs resolve to the correct Swarm Handbook
+pages and titles, publishers, and publication years all match our catalogue. Four
+metadata issues remain, in rough order of impact.</p>
+<h2>1. Organisations are registered as people (74/74 records)</h2>
+<p>Every non-ESA creator — 75 entries across the batch — carries
+<code>nameType="Personal"</code>. ESA itself is correctly <code>Organizational</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registered</td>
+<td><code>&lt;creatorName nameType="Personal"&gt;GFZ Helmholtz Centre for Geosciences&lt;/creatorName&gt;</code></td>
+</tr>
+<tr>
+<td>Should be</td>
+<td><code>&lt;creatorName nameType="Organizational"&gt;GFZ Helmholtz Centre for Geosciences&lt;/creatorName&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Affects 19 institutions (GFZ ×19, TU Delft ×13, DTU ×8, U Calgary ×7, IPGP ×6, …).
+Consumers that parse <code>nameType</code> will try to split these into given/family names, so
+institutional authorship is misrepresented in every downstream citation.</p>
+<h2>2. No ROR identifiers on any creator (74/74 records)</h2>
+<p>No creator in the batch has a <code>nameIdentifier</code>, although ESA's ROR <em>is</em> correctly set
+on the <code>publisher</code> element (<code>https://ror.org/03wd9za21</code>) on all 74 records. We hold a
+ROR for every authoring institution in our catalogue and can supply them — our
+handover spreadsheet currently has an <code>Authors</code> column with names only. <strong>Suggested
+fix on our side: add a <code>Creator ROR</code> column to the spreadsheet</strong> so the identifiers
+travel with the names.</p>
+<p>Target form:</p>
+<pre><code class="language-xml">&lt;creator&gt;
+  &lt;creatorName nameType=&quot;Organizational&quot;&gt;GFZ Helmholtz Centre for Geosciences&lt;/creatorName&gt;
+  &lt;nameIdentifier nameIdentifierScheme=&quot;ROR&quot; schemeURI=&quot;https://ror.org/&quot;&gt;https://ror.org/04z8jg394&lt;/nameIdentifier&gt;
+&lt;/creator&gt;
+</code></pre>
+<h2>3. Descriptions altered during transcription (9 records)</h2>
+<p>Eight are dropped commas, which change the technical reading. One is truncated:</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>DOI</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SW_MLI_SHA_2E</code></td>
+<td><code>10.57780/esa-5e497d1</code></td>
+<td><strong>Truncated</strong>: ends <code>"…Dedicated Lithospheric Inversion express"</code>; should end <code>"…Inversion, expressed in terms of high degree Spherical Harmonics"</code></td>
+</tr>
+<tr>
+<td><code>SW_FAC_LLS_2F</code></td>
+<td><code>10.57780/esa-2879355</code></td>
+<td><code>"dual-satellite A-C local least-squares"</code> → should be <code>"A-C, local least-squares"</code></td>
+</tr>
+<tr>
+<td><code>SW_MCO_SHA_2F</code></td>
+<td><code>10.57780/esa-2a69b15</code></td>
+<td>comma dropped before <code>"from the fast-track inversion"</code></td>
+</tr>
+<tr>
+<td><code>SW_MCO_SHA_2Y</code></td>
+<td><code>10.57780/esa-10597d1</code></td>
+<td>comma dropped before <code>"related to SW_CFW_SHA_2Y"</code></td>
+</tr>
+<tr>
+<td><code>SW_MIO_SHA_2C</code></td>
+<td><code>10.57780/esa-c4597d1</code></td>
+<td>comma dropped before <code>"derived in comprehensive chain (CI)"</code></td>
+</tr>
+<tr>
+<td><code>SW_MIO_SHA_2D</code></td>
+<td><code>10.57780/esa-6079355</code></td>
+<td>comma dropped before <code>"derived from dedicated chain (DIFI)"</code></td>
+</tr>
+<tr>
+<td><code>SW_VOBS_1M_2_</code></td>
+<td><code>10.57780/esa-33497d1</code></td>
+<td>comma dropped before <code>"on a uniform grid"</code></td>
+</tr>
+<tr>
+<td><code>SW_VOBS_4M_2_</code></td>
+<td><code>10.57780/esa-9879355</code></td>
+<td>comma dropped before <code>"on a uniform grid"</code></td>
+</tr>
+<tr>
+<td><code>SW_EFIx_TCT02</code></td>
+<td><code>10.57780/esa-4079355</code></td>
+<td>DataCite is correct here; <em>our</em> definition has a stray leading space — to fix on our side</td>
+</tr>
+</tbody>
+</table>
+<p>The same text appears in both <code>descriptions[SeriesInformation]</code> and <code>container.title</code>,
+so both need correcting.</p>
+<h2>4. Stray whitespace in a creator name (1 record)</h2>
+<p><code>SW_EEFxTMS_2F</code> (<code>10.57780/esa-7d59fd1</code>) has <code>" Technical University of Denmark"</code> with a
+leading space. It shows up in DataCite's rendered BibTeX as
+<code>{ Technical University of Denmark}</code>.</p>
+<hr />
+<p><strong>Process note.</strong> Issues 1 and 2 are systematic — they apply to every record in the
+batch, so they are almost certainly a default in the registration step rather than
+per-record slips. Issue 3 is transcription drift from copy-and-paste. Both classes
+would be avoided if the handover carried <code>nameType</code> and ROR columns explicitly and the
+description text were ingested from the spreadsheet rather than retyped.</p>
+<footer>Built 2026-09-16 17:09 UTC from product-catalogue 23039a2. Tick-boxes are a personal scratchpad: they are stored in this browser only (localStorage) and do not travel with the shared URL.</footer>
+</body>
+</html>

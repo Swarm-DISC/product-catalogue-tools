@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-8b59315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/CH_WND_ACC_2_",
+  "name": "CH_WND_ACC_2_",
+  "alternateName": "Thermosphere crosswind at the CHAMP satellite location",
+  "description": "This product contains thermosphere crosswind at the CHAMP satellite location",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/CH_WND_ACC_2_",
+    "https://doi.org/10.57780/esa-8b59315"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Delft University of Technology",
+      "@id": "https://ror.org/02e2c7k09"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2023",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Thermosphere",
+    "Space Weather",
+    "CHAMP"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/CHAMP/WND",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/CHAMP/WND",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=CH_OPER_WND_ACC_2_",
+      "encodingFormat": "application/json"
+    }
+  ]
+}

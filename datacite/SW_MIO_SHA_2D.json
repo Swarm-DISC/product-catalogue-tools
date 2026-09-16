@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-6079355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2D",
+  "titles": [
+    {
+      "title": "SW_MIO_SHA_2D"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Institut de physique du globe de Paris",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/004gzqz66",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2015,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Model of non-polar daily geomagnetic variation caused by ionospheric currents, derived from dedicated chain (DIFI)",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Model of non-polar daily geomagnetic variation caused by ionospheric currents, including their variability with season and solar flux, derived in Dedicated Ionospheric Field Inversion chain",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

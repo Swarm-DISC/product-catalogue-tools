@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-f069715",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MTI_SHA_2C",
+  "name": "SW_MTI_SHA_2C",
+  "alternateName": "Spherical harmonic model of the magnetic signature of oceanic M2 tide",
+  "description": "This product contains the representation of a model of the magnetic field of the Lunar M 2 ocean tides using spherical harmonic coefficients. The model is estimated from Swarm and ground observatory data using the Comprehensive Inversion scheme within the Swarm Level 2 Processing system.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MTI_SHA_2C",
+    "https://doi.org/10.57780/esa-f069715"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Technical University of Denmark",
+      "@id": "https://ror.org/04qtj9h94"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2018",
+  "keywords": [
+    "Ocean Tides",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MTI",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/MTI",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

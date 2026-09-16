@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-6d79355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ACCx_AE_2_",
+  "name": "SW_ACCx_AE_2_",
+  "alternateName": "Time series of calibrated and pre-processed accelerometer observations and of aerodynamic accelerations",
+  "description": "Time series of calibrated accelerometer data, pre-processed to represent external non-gravitational forces and aerodynamic accelerations",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_ACCx_AE_2_",
+    "https://doi.org/10.57780/esa-6d79355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2016",
+  "keywords": [
+    "Acceleration measurements",
+    "Thermosphere",
+    "Swarm",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/ACC/AE/",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/ACC/AE/",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "time",
+      "description": "Time of observation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "acc_aero_obs",
+      "unitText": "m/s/s",
+      "description": "Measured Aerodynamic linear acceleration in S/C X-direction"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "acc_total_obs",
+      "unitText": "m/s/s",
+      "description": "Calibrated measured linear acceleration in S/C X-direction, with outliers removed"
+    }
+  ]
+}

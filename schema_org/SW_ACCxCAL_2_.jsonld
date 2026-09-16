@@ -1,0 +1,149 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-b559fd1",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_ACCxCAL_2_",
+  "name": "SW_ACCxCAL_2_",
+  "alternateName": "Corrected and calibrated accelerometer observations",
+  "description": "Time series of corrected and calibrated acceleration, including all corrections and calibration parameters",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_ACCxCAL_2_",
+    "https://doi.org/10.57780/esa-b559fd1"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Leibniz University Hannover",
+      "@id": "https://ror.org/0304hq317"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2021",
+  "keywords": [
+    "Thermosphere",
+    "Acceleration measurements",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/ACC/CAL",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/ACC/CAL",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "time",
+      "unitText": "CDF Epoch (UTC time)",
+      "description": "Epoch of observation (UTC)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_cal",
+      "unitText": "m/s^2",
+      "description": "Calibrated linear acceleration (X, Y, Z)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_stp",
+      "unitText": "m/s^2",
+      "description": "Step correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_tmp",
+      "unitText": "m/s^2",
+      "description": "Temperature correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_gg",
+      "unitText": "m/s^2",
+      "description": "Gravity gradient correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_ca",
+      "unitText": "m/s^2",
+      "description": "Centrifugal acceleration correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_aa",
+      "unitText": "m/s^2",
+      "description": "Angular acceleration correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "s",
+      "unitText": "(m/s^2)/(m/s^2)",
+      "description": "Scale factor (time series) for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "b",
+      "unitText": "m/s^2",
+      "description": "Bias for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_spk",
+      "unitText": "m/s^2",
+      "description": "Spike correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_jit",
+      "unitText": "m/s^2",
+      "description": "Voltage jitter correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "a_rh",
+      "unitText": "m/s^2",
+      "description": "Resonant harmonics correction for linear accelerations"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "flag_cor",
+      "description": "Flag indicating which corrections are applied (combination of corrections is coded in the binary system)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "flag_val",
+      "description": "Validity flag: 0 = nominal data; 1 = anomalous data"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "flag_thr",
+      "description": "Flag indicating on thrusters’ activity: 0 = inactivated; 1 = activated"
+    }
+  ]
+}

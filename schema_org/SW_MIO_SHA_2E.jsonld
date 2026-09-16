@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-b969b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2E",
+  "name": "SW_MIO_SHA_2E",
+  "alternateName": "Model of polar daily geomagnetic variation caused by ionospheric currents (AMPS model)",
+  "description": "Model of polar daily geomagnetic variation caused by ionospheric currents (AMPS model)",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_MIO_SHA_2E",
+    "https://doi.org/10.57780/esa-b969b15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Bergen",
+      "@id": "https://ror.org/03zga2b32"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2018",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2longterm/MIO",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2longterm/MIO",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

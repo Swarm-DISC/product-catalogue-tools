@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-1369f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_IBIxTMS_2F",
+  "name": "SW_IBIxTMS_2F",
+  "alternateName": "Ionospheric bubble index",
+  "description": "By combining electron density and magnetic field observations the IBI product gives information on bubble climatology and on disturbance level of magnetic field data.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_IBIxTMS_2F",
+    "https://doi.org/10.57780/esa-1369f15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2015",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/IBI/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/IBI/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_IBIATMS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time stamp in UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degree",
+      "description": "Geographic latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degree",
+      "description": "Geographic longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Geographic radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Bubble_Index",
+      "description": "Plasma Bubble Index (0 - quiet, 1 - bubble, -1 - not analyzed)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Bubble_Probability",
+      "description": "Detection probability of the plasma bubble (in steps of 0.2; 0 - not probable, 1 - very probable)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_Bubble",
+      "description": "Flags related to the plasma bubble index"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_F",
+      "description": "Flags_F passed through from MAGx_L1_B"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_B",
+      "description": "Flags_B passed through from MAGx_L1_B"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_q",
+      "description": "Flags_q passed through from MAGx_L1_B"
+    }
+  ]
+}

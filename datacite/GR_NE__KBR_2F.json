@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-1b59315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/GR_NE__KBR_2F",
+  "titles": [
+    {
+      "title": "GR_NE__KBR_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04z8jg394",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2022,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Time series of the averaged electron density (Ne) between GRACE 1 and 2 satellites",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "This product contains the time series of the averaged electron density (Ne) between GRACE 1 and 2 satellites",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Space Weather"
+    },
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

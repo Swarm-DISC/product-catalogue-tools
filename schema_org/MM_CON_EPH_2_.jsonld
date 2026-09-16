@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-9579355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/MM_CON_EPH_2_",
+  "name": "MM_CON_EPH_2_",
+  "alternateName": "Conjunction information",
+  "description": "This product contains conjunction information for pairs of satellites derived from their respective ephemeris data. Conjunctions between Swarm (A, B, C), CHAMP, GOCE, GRACE (1, 2), and GRACE-FO (1, 2) are included.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/MM_CON_EPH_2_",
+    "https://doi.org/10.57780/esa-9579355"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Delft University of Technology",
+      "@id": "https://ror.org/02e2c7k09"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2022",
+  "keywords": [
+    "Ephemeris",
+    "Combined_Mission_Data"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Multimission/Combined_Mission_Data/Conjunction",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Multimission/Combined_Mission_Data/Conjunction",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=MM_OPER_CON_EPH_2_:crossover",
+      "encodingFormat": "application/json"
+    }
+  ]
+}

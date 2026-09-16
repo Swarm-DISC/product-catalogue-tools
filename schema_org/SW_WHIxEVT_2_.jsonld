@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-4359315",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_WHIxEVT_2_",
+  "name": "SW_WHIxEVT_2_",
+  "alternateName": "Whistler Events from ASM BM 250Hz data",
+  "description": "The WHIxEVT_2_ Product contains information about the Extremely Low Frequency (ELF) portion of whistlers detected during ASM Burst Mode sessions.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_WHIxEVT_2_",
+    "https://doi.org/10.57780/esa-4359315"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Institut de physique du globe de Paris",
+      "@id": "https://ror.org/004gzqz66"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2023",
+  "keywords": [
+    "Magnetic measurements",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/WHI/EVT",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/WHI/EVT",
+      "encodingFormat": "application/x-cdf"
+    }
+  ]
+}

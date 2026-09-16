@@ -1,0 +1,67 @@
+{
+  "doi": "10.57780/esa-a369f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIxIDM_2_",
+  "titles": [
+    {
+      "title": "SW_EFIxIDM_2_"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "University of Calgary",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03yjb2x39",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2022,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Swarm Electric Field Instrument (EFI) Langumir Probe (LP) Ion Drift and Effective Mass",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Estimated ion drift velocity, effective ion mass, and electron density along the Swarm satellite orbits, derived using measurements taken from the Swarm electric field instrument (EFI) Langmuir Probes (LP) and faceplate (FP), within the framework of modified orbital motion limited (OML) theory. The dataset is produced within the Swarm LP Ion Drift and Effective Mass (SLIDEM) project.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Plasma measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

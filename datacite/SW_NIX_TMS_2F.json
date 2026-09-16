@@ -1,0 +1,73 @@
+{
+  "doi": "10.57780/esa-6b69f15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_NIX_TMS_2F",
+  "titles": [
+    {
+      "title": "SW_NIX_TMS_2F"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "Deutsches Zentrum für Luft- und Raumfahrt e. V. (DLR)",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/04bwf3e34",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2025,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "NEGIX: electron density gradient ionosphere index",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "NEGIX is the electron density (𝑁𝑒) gradient ionosphere index developed as part of the MIGRAS project to monitor mid-scale plasma density irregularities with horizontal spatial scales in the order of 100 km. This product benefits from the coordinated flight of Swarm satellites A and C that are orbiting the Earth from pole to pole, at a height of ca. 460 km. The distance between both satellites ranges from a few kilometres when they approach the poles and up to ca. 150 km at their equatorial pass. Therefore, plasma density measurements acquired with the Langmuir Probe instruments onboard of the Swarm satellites are ideal to monitor mid-scale density changes.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Space Weather"
+    },
+    {
+      "subject": "Ionosphere/Magnetosphere"
+    },
+    {
+      "subject": "Plasma measurements"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

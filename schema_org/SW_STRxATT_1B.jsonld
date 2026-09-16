@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-cc563ac",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_STRxATT_1B",
+  "name": "SW_STRxATT_1B",
+  "alternateName": "Attitude of spacecraft",
+  "description": "The STRxATT_1B Product contains attitude information at S/C level based on STR data.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_STRxATT_1B",
+    "https://doi.org/10.57780/esa-cc563ac"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "Swarm PDGS"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2013",
+  "keywords": [
+    "Attitude information",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level1b/Latest_baselines/STRxATT",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level1b/Latest_baselines/STRxATT",
+      "encodingFormat": "application/x-cdf"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "description": "Time stamp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SyncStatus",
+      "description": "Synchronization status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q",
+      "description": "Quaternion, transformation: ITRF <- S/C"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_q",
+      "description": "Flags characterizing the attitude information,"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Maneuver_Id",
+      "description": "Current maneuver identification code"
+    }
+  ]
+}

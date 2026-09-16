@@ -1,0 +1,136 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.57780/esa-c269b15",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_FACxTMS_2F",
+  "name": "SW_FACxTMS_2F",
+  "alternateName": "Field-aligned currents (single satellite)",
+  "description": "Time series of field-aligned and radial current densities along the orbit from single satellite measurements. Field-aligned current (FAC) density is derived by the multiplication of the radial current (IRC) density with the inclination angle of the geomagnetic field. The field-aligned current density can only be calculated at latitudes, where the magnetic field is well inclined, i.e. |I| > 30°. Near the magnetic equator for magnetic inclination angles |I| 7.5 km.",
+  "identifier": [
+    "https://swarmhandbook.earth.esa.int/catalogue/SW_FACxTMS_2F",
+    "https://doi.org/10.57780/esa-c269b15"
+  ],
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "European Space Agency",
+      "@id": "https://ror.org/03wd9za21"
+    },
+    {
+      "@type": "Organization",
+      "name": "GFZ Helmholtz Centre for Geosciences",
+      "@id": "https://ror.org/04z8jg394"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://ror.org/03wd9za21",
+    "name": "European Space Agency"
+  },
+  "datePublished": "2014",
+  "keywords": [
+    "Ionosphere/Magnetosphere",
+    "Space Weather",
+    "Swarm",
+    "Swarm-A",
+    "Swarm-B",
+    "Swarm-C"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Swarm Product Data Handbook",
+    "url": "https://swarmhandbook.earth.esa.int/catalogue"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/FAC/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/FAC/TMS",
+      "encodingFormat": "application/x-cdf"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "http://hapi-server.org/servers/#server=VirES-for-Swarm&dataset=SW_OPER_FACATMS_2F",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Timestamp",
+      "unitText": "ms",
+      "description": "Time, UTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Latitude",
+      "unitText": "degrees",
+      "description": "Position in ITRF, Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Longitude",
+      "unitText": "degrees",
+      "description": "Position in ITRF, Longitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Radius",
+      "unitText": "m",
+      "description": "Position in ITRF, Radius"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IRC",
+      "unitText": "uA/m2",
+      "description": "Ionospheric radial current (IRC)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IRC_Error",
+      "unitText": "uA/m2",
+      "description": "uncertainty of IRC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "FAC",
+      "unitText": "uA/m2",
+      "description": "Field-aligned current (FAC)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "FAC_Error",
+      "unitText": "uA/m2",
+      "description": "uncertainty of FAC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags",
+      "description": "Flags characterizing the product quality (processing flags)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_F",
+      "description": "Flags_F passed through from L1b and accumulated for quad points"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_B",
+      "description": "Flags_B passed through from L1b and accumulated for quad points"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Flags_q",
+      "description": "Flags_q passed through from L1b and accumulated for quad points"
+    }
+  ]
+}

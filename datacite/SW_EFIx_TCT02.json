@@ -1,0 +1,70 @@
+{
+  "doi": "10.57780/esa-4079355",
+  "url": "https://swarmhandbook.earth.esa.int/catalogue/SW_EFIx_TCT02",
+  "titles": [
+    {
+      "title": "SW_EFIx_TCT02"
+    }
+  ],
+  "creators": [
+    {
+      "name": "European Space Agency",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03wd9za21",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    },
+    {
+      "name": "University of Calgary",
+      "nameType": "Organizational",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://ror.org/03yjb2x39",
+          "nameIdentifierScheme": "ROR",
+          "schemeUri": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "publisher": {
+    "name": "European Space Agency",
+    "publisherIdentifier": "https://ror.org/03wd9za21",
+    "publisherIdentifierScheme": "ROR",
+    "schemeUri": "https://ror.org/"
+  },
+  "publicationYear": 2017,
+  "types": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "contributors": [
+    {
+      "name": "D/EOP",
+      "contributorType": "Other"
+    }
+  ],
+  "language": "en",
+  "version": "0",
+  "descriptions": [
+    {
+      "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) 2 Hz Cross-Track ion flow velocity dataset",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "description": "Swarm Electric Field Instrument (EFI) Thermal Ion Imager (TII) dataset at 2 Hz cadence containing cross-track ion measurements: the TII L1B data processing is simplified by deriving ion flow velocity components perpendicular to the satellite velocity vector. The data also include the electric field, magnetic field in the same coordinate frame.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Plasma measurements"
+    },
+    {
+      "subject": "Space Weather"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}
