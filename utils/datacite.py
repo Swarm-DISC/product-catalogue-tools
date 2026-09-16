@@ -43,9 +43,9 @@ LANGUAGE = "en"
 def doi_identifier(product):
     """Return the identifier dict holding the product's DOI, or None.
 
-    "Has a DOI" means some identifier has ``identifierType == "DOI"``; whether
-    anything is marked ``primary`` is irrelevant (SW_EFIx_LP_1B and
-    SW_FAC_SVD_2F differ on that but neither has a DOI).
+    "Has a DOI" means some identifier has ``identifierType == "DOI"``, not
+    that something is marked ``primary``: a record without a DOI still has its
+    handbook URL as primary (e.g. SW_FAC_SVD_2F).
     """
     dois = [
         i for i in product.identifiers or []
