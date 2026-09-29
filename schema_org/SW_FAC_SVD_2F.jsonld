@@ -47,12 +47,12 @@
   "distribution": [
     {
       "@type": "DataDownload",
-      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Level2daily/Latest_baselines/FAC/SVD",
+      "contentUrl": "https://swarm-diss.eo.esa.int/#swarm/Advanced/FAC_SVD",
       "encodingFormat": "application/x-cdf"
     },
     {
       "@type": "DataDownload",
-      "contentUrl": "ftp://swarm-diss.eo.esa.int/Level2daily/Latest_baselines/FAC/SVD",
+      "contentUrl": "ftp://swarm-diss.eo.esa.int/Advanced/FAC_SVD",
       "encodingFormat": "application/x-cdf"
     }
   ]
